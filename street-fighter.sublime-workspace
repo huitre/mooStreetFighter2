@@ -1,0 +1,1492 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"get",
+				"getElements"
+			],
+			[
+				"show",
+				"showMenu"
+			],
+			[
+				"player",
+				"playerFactory"
+			],
+			[
+				"p",
+				"popup"
+			],
+			[
+				"mar",
+				"marginLeft"
+			],
+			[
+				"var_",
+				"var_export"
+			],
+			[
+				"po",
+				"position"
+			],
+			[
+				"hi",
+				"height"
+			],
+			[
+				"b",
+				"bateau"
+			],
+			[
+				"guide",
+				"guideline"
+			],
+			[
+				"outer",
+				"outerHeight"
+			],
+			[
+				"ou",
+				"outerWidth"
+			],
+			[
+				"poup",
+				"popup"
+			],
+			[
+				"gui",
+				"guidelineIdFilteredList"
+			],
+			[
+				"fi",
+				"first-child"
+			],
+			[
+				"var",
+				"var_dump"
+			],
+			[
+				"_get",
+				"_getOldGuidelineForPOSId"
+			],
+			[
+				"li",
+				"link-guideline"
+			],
+			[
+				"setupD",
+				"setupDeleteGuidelineButton"
+			],
+			[
+				"camp",
+				"campaignId"
+			],
+			[
+				"ca",
+				"campaign"
+			],
+			[
+				"poV",
+				"pointOfSaleVO"
+			],
+			[
+				"pointO",
+				"pointOfSaleBO"
+			],
+			[
+				"pos",
+				"posGuidelineIdList"
+			],
+			[
+				"cam",
+				"campaignId"
+			],
+			[
+				"campai",
+				"campaignBO"
+			],
+			[
+				"pointo",
+				"pointofsale"
+			],
+			[
+				"campa",
+				"campaignId"
+			],
+			[
+				"setP",
+				"setPointOfSaleId"
+			],
+			[
+				"reflo",
+				"_reflowLayout"
+			],
+			[
+				"c",
+				"cbox"
+			],
+			[
+				"selec",
+				"selectlistcheckbox"
+			],
+			[
+				"check",
+				"checkbox"
+			],
+			[
+				"iwd",
+				"IWDJAX"
+			],
+			[
+				"chec",
+				"checked"
+			],
+			[
+				"border-",
+				"border-bottom"
+			],
+			[
+				"vhd",
+				"vhd_path"
+			],
+			[
+				"up",
+				"updateSelectionText"
+			],
+			[
+				"_",
+				"_totalText"
+			],
+			[
+				"_to",
+				"_totalText"
+			],
+			[
+				"sleep",
+				"sleepTextBar"
+			],
+			[
+				"update",
+				"updateTotalText"
+			],
+			[
+				"type",
+				"typeList"
+			],
+			[
+				"pare",
+				"parameters"
+			],
+			[
+				"para",
+				"parameters"
+			],
+			[
+				"base",
+				"basePath"
+			],
+			[
+				"con",
+				"controller"
+			],
+			[
+				"for",
+				"formParameters"
+			],
+			[
+				"has",
+				"hasReflow"
+			],
+			[
+				"camn",
+				"campaignsParameters"
+			],
+			[
+				"res",
+				"resizeAllImages"
+			],
+			[
+				"resi",
+				"resizeAllImages"
+			],
+			[
+				"on",
+				"onUploadComplete"
+			],
+			[
+				"ac",
+				"actionbarHeight"
+			],
+			[
+				"nav",
+				"navHeight"
+			],
+			[
+				"re",
+				"result-bar"
+			],
+			[
+				"out",
+				"outerHTML"
+			],
+			[
+				"stop",
+				"stopPropagation"
+			],
+			[
+				"sto",
+				"stopPropagation"
+			],
+			[
+				"event",
+				"eventType"
+			],
+			[
+				"eve",
+				"eventType"
+			],
+			[
+				"ex",
+				"exportexcelstock"
+			],
+			[
+				"gldp",
+				"gldp-main-android"
+			],
+			[
+				"marg",
+				"marginTop"
+			],
+			[
+				"g",
+				"gldp"
+			],
+			[
+				"paddin",
+				"padding"
+			],
+			[
+				"pop",
+				"popup"
+			],
+			[
+				"_sel",
+				"_selectedContent"
+			],
+			[
+				"repla",
+				"replaceWith"
+			],
+			[
+				"form",
+				"formPath"
+			],
+			[
+				"guideline",
+				"guideline3d"
+			],
+			[
+				"_s",
+				"_selectionText"
+			],
+			[
+				"th",
+				"that"
+			],
+			[
+				"_se",
+				"_selectedContent"
+			],
+			[
+				"_selec",
+				"_selectionText"
+			],
+			[
+				"Too",
+				"ToolBar"
+			],
+			[
+				"sl",
+				"sleepToolBar"
+			],
+			[
+				"point",
+				"pointOfSale"
+			],
+			[
+				"image",
+				"imagePath"
+			],
+			[
+				"submi",
+				"submitHandler"
+			],
+			[
+				"su",
+				"submitHandler"
+			],
+			[
+				"wake",
+				"wakeUpUpload"
+			],
+			[
+				"tr",
+				"trClass"
+			],
+			[
+				"sur",
+				"surveyName"
+			],
+			[
+				"survey",
+				"surveyName"
+			],
+			[
+				"val",
+				"valid"
+			],
+			[
+				"obj",
+				"objNumber"
+			],
+			[
+				"op",
+				"opacity"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"ic",
+				"iconList"
+			],
+			[
+				"sele",
+				"selectors"
+			],
+			[
+				"tool",
+				"toolbar"
+			],
+			[
+				"setup",
+				"setupToolBar"
+			],
+			[
+				"i",
+				"important"
+			],
+			[
+				"el",
+				"element"
+			],
+			[
+				"ma",
+				"margin-left"
+			],
+			[
+				"bor",
+				"border-bottom"
+			],
+			[
+				"navg",
+				"navigationParameters"
+			],
+			[
+				"set",
+				"setupSeeMoreButton"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"poin",
+				"pointOfSaleId"
+			],
+			[
+				"navi",
+				"navigationParameters"
+			],
+			[
+				"na",
+				"navigationParameters"
+			],
+			[
+				"padding",
+				"padding-right"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"min",
+				"min-width"
+			],
+			[
+				"padd",
+				"padding-left"
+			],
+			[
+				"se",
+				"setupCampaignPopupButton"
+			],
+			[
+				"margin-",
+				"margin-left"
+			],
+			[
+				"but",
+				"button-icon-bottom"
+			],
+			[
+				"content",
+				"content-box"
+			],
+			[
+				"inli",
+				"inline-block"
+			],
+			[
+				"text-",
+				"text-align"
+			],
+			[
+				"d",
+				"darken-grey"
+			],
+			[
+				"pointofsale",
+				"pointofsaletmp"
+			],
+			[
+				"link",
+				"linkedContentData"
+			],
+			[
+				"font-",
+				"font-style"
+			],
+			[
+				"tran",
+				"translate"
+			],
+			[
+				"C",
+				"CLI_Exception"
+			],
+			[
+				"Th",
+				"throw"
+			],
+			[
+				"preg",
+				"preg_match"
+			],
+			[
+				"pc",
+				"pclose"
+			],
+			[
+				"is",
+				"isGzip"
+			],
+			[
+				"Excep",
+				"Exception_User_Exists"
+			],
+			[
+				"h",
+				"http_path"
+			],
+			[
+				"f",
+				"formParams"
+			],
+			[
+				"fo",
+				"formPath"
+			],
+			[
+				"cli",
+				"clientName"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 3445,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/menu.js",
+			"settings":
+			{
+				"buffer_size": 3591,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/player/manager.js",
+			"settings":
+			{
+				"buffer_size": 1202,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/player/characters.js",
+			"settings":
+			{
+				"buffer_size": 61,
+				"line_ending": "Unix",
+				"name": "var Ken = new Class({"
+			}
+		},
+		{
+			"file": "js/player/sprite.js",
+			"settings":
+			{
+				"buffer_size": 395,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/style.css",
+			"settings":
+			{
+				"buffer_size": 3640,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/player/animation.js",
+			"settings":
+			{
+				"buffer_size": 1274,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 392.0,
+		"selected_items":
+		[
+			[
+				"setS",
+				"Set Syntax: SCSS"
+			],
+			[
+				"set ",
+				"Set Syntax: HTML"
+			],
+			[
+				"set s",
+				"Set Syntax: Java"
+			],
+			[
+				"set",
+				"Set Syntax: Java"
+			],
+			[
+				"Set",
+				"Set Syntax: Java"
+			],
+			[
+				"Set syntax",
+				"Set Syntax: Java"
+			],
+			[
+				"pac",
+				"Package Control: Enable Package"
+			],
+			[
+				"pack",
+				"Package Control: Disable Package"
+			],
+			[
+				"pa",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: ",
+				"Package Control: Disable Package"
+			],
+			[
+				"",
+				"Package Control: Disable Package"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"install ",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/module/Popup.js.rej",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/svn-commit.tmp~",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/svn-commit.tmp~",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/linked-content.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/link-popup.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/View/scripts/pointofsale/info/linked-content.phtml.rej",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/View/scripts/pointofsale/info/parts/link-popup.phtml.rej",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/utils/Device.js",
+		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern/2013-01-30/2013-01-30-dloccitanern.log",
+		"/mnt/server-dev/home/joffrey/workspace/developer/joffrey/benchmark/deserializer/index.html",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/lib/src/js/jquery-validate.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/lib/src/js/fr/iwd/jquery-iwdjax.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/php/fr/iwd/controller/Pointofsale/InfoController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/controller/Pointofsale/InfoController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/controller/Pointofsale/AbstractController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/tag-popup.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/skeleton/content/survey/_content.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/network/Ajax.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/php/fr/iwd/controller/Pointofsale/InfoController.php.rej",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/controller/Pointofsale/IndexController.php",
+		"/home/joffrey/workspace/developer/joffrey/benchmark/deserializer/index.html",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/lib/src/js/fr/iwd/jquery.client.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/_sprite.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/php/fr/iwd/View/Pointofsale/Info.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/Pointofsale/Info.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/php/fr/iwd/View/scss/sass/skeleton/content/pointofsale/info/_popup.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/skeleton/content/pointofsale/info/_popup.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/skeleton/content/pointofsale/info/_content.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/component/_popup.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/module/pointofsale/Store.js",
+		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern/2013-01-29/2013-01-29-dloccitanern.log",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/edit/head.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/edit/content.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/directory/side-bar.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/dashboard/content.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/module/Popup.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/error/404.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/error/403.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/lib/src/js/chosen/chosen.css",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/component/_multiselect.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/HTML/View/Helper/Html.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/locale/fr_FR.csv",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/www/locale/fr_FR.csv",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/locale/en_US.csv",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/www/locale/en_US.csv",
+		"/home/joffrey/Downloads/wordpress/wp-config-sample.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/locale/svn-commit.tmp~",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/www/locale/fr_FR.csv.rej",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/www/locale/svn-commit.tmp~",
+		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern/2013-01-28/2013-01-28-dloccitanern.log",
+		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern/2013-01-25/2013-01-25-dloccitanern.log",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/php/fr/iwd/View/scss/sass/component/_popup.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/php/fr/iwd/View/scripts/pointofsale/info/parts/link-popup.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/PointOfSale/Relation/Guideline/DAO.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/DAO/Guideline.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/PointOfSale/BO.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/VO/Guideline.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/php/fr/iwd/View/scripts/pointofsale/info/linked-content.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/types/photos.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/applayer.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/types/guideline3d.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/types/guideline2d.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/App.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/php/fr/iwd/controller/Pointofsale/AbstractController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module/Popup.js",
+		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern/2013-01-24/2013-01-24-dloccitanern.log",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/BO/Guideline.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/component/multiselect.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/pointofsale/campaign/content.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/skeleton/_content.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/BO/Content.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/document.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/DAO/Content.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/BO/Element.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/component/multiselect.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/campaign/side-bar.phtml.rej",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/campaign/svn-commit.tmp~",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/content.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/VO/Guideline/Filter.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/BO/Document.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/VO/Element.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/displayer/VO/Element/Filter.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/controller/Data/GuidelineController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/module/Layout.js",
+		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern/2013-01-23/2013-01-23-dloccitanern.log",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/ie8.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/resources/guideline.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/skeleton/content/pointofsale/_content.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/js/fr/iwd/module/Layout.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/resources/pointOfSalePhoto.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/list/action-bar.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.6/src/js/fr/iwd/module/List.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/module/pointofsale/Survey.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/utils/History.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/App.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass/component/_checkbox.scss",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/module/List.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/module/utils/MultiSelect.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/patch_r4103.diff",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/patch.ie9checkbox",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/patch.12933",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/patch.12917",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/patch.12890",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/patch.12880",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/css/ie8-prod.css",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/css/app-prod.css",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/css/login-prod.css",
+		"/home/joffrey/ievms.sh",
+		"/home/joffrey/localworkspace/ie8vm.sh",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/log/logger.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/types/attachment.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern2/2013-01-17/2013-01-17-dloccitanern2.log",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/action-bar.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/side-bar.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/content.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Pointofsale/AbstractController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Campaign/EditController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/pointofsale/campaign/side-bar.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Pointofsale/EditController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/pointofsale/info/content.phtml",
+		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern2/2013-01-16/2013-01-16-dloccitanern2.log",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module/pointofsale/Store.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module/utils/ToolBar.js",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/controller/Campaign/EditController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/controller/RetailNetworkController.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/HTML/ViewConverter/Factory.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/PointOfSale/Filter/ViewConverter.php",
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Pointofsale/InfoController.php"
+	],
+	"find":
+	{
+		"height": 59.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scss",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scss/sass",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/pointofsaletmp",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/displayer",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/as/fr/iwd/displayer",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/View/scripts",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.2",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.2/src/js",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.2/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.0/src/php/fr/iwd/view/scss",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/js",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/js/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/controller",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View/scripts",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/controller",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View/scripts",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View/scss",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/js",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/displayer/BO",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/View/scss",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/View",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/CLI",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/displayer",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View/scripts",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php/fr/iwd/View/scripts",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.1/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/view/rn/pointofsale",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/view",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/as",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/python/fr/iwd/lib",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/bin",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/python/fr/iwd/lib",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/python/fr/iwd/lib/mirror/module",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/python/fr/iwd/lib/backup",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/python/fr/iwd/lib",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/bin/backup",
+			"/mnt/server-dev/home/joffrey/workspace/admin/app",
+			"/mnt/server-dev/home/joffrey/workspace/admin/app/script/lib/mirror",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/bin/backup",
+			"/mnt/server-dev/home/joffrey/workspace/admin",
+			"/mnt/server-dev/home/joffrey/workspace/client",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/Aggregator",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/Aggregator",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/backend/BO/User/Export/Excel/Column",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/backend/BO",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/Aggregator",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd",
+			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/Aggregator",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/backend",
+			"/mnt/server-dev/home/joffrey/workspace/displayer",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/frontend/flash/src",
+			"/mnt/server-dev/home/joffrey/workspace",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/backend",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/frontend",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/backend",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/frontend",
+			"/mnt/server-dev/home/joffrey/workspace/displayer/trunk/frontend/flash/src/displayer",
+			"/mnt/server-dev/home/joffrey/workspace"
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			"()",
+			"drag and",
+			"is(.*): function \\(\\) \\{",
+			"is.*: function \\(\\) \\{",
+			"navigator\\.userAgent\\.match\\(/(.*)/i\\)",
+			"navigator.userAgent.match(/Android/i)",
+			"navigator\\.userAgent\\.match\\(/(.*/i)\\)",
+			"surveyquestionoptionqcm\n",
+			"surveyquestionoptionacm\n",
+			"surveyquestionoptiondelete\n",
+			"surveyquestiontype",
+			"surveyquestionname",
+			"errorplacement",
+			"formErrorPlacement",
+			"parseAn",
+			"cliquez ici pour ajouter une recomman",
+			"link.",
+			"link",
+			"put your unique phrase here",
+			"$this->html()",
+			"error.404",
+			"bottom",
+			".button-photo-delete",
+			"link",
+			"campaign",
+			"saveGuidelineIdList",
+			"link-camp",
+			"setupContentBo",
+			"fdnd-c",
+			"checkbox",
+			"chec",
+			"checkbox",
+			"checkbo",
+			"opacity",
+			"check",
+			"syncUrl",
+			"input[type=checkbox",
+			"label",
+			"selectlistcheckbox",
+			".basic",
+			"+ label",
+			"label",
+			"checkbox",
+			"input[type = check",
+			"input[type=check",
+			".arrow",
+			"console.log",
+			"curl_opts",
+			"$id",
+			"setControllerName",
+			"getControllerKey",
+			"get",
+			"isDispatched",
+			"href=\"",
+			"href=\"<?",
+			"_loadQuestionQCM",
+			"error",
+			"required",
+			"console.log",
+			"debugger",
+			"wakeupco",
+			"that.wakeUpUpload(",
+			"progress",
+			"tags",
+			"replace",
+			"pointofsale.guideline.empty",
+			"popup-choose-campaign-select",
+			"export",
+			"pointofsale.campaign.seeall",
+			"onCom",
+			"-over",
+			"button-menu-campaign",
+			"outer",
+			"wakeup",
+			"setupselec",
+			"pointofsale.",
+			"debugger",
+			"#popup-layer",
+			"popup",
+			"_getCampaignIdList",
+			"campaign-see",
+			"console.log",
+			"updateSelectionText",
+			".content-box",
+			"update",
+			"constructor",
+			"setupcampai",
+			"setupSelect",
+			"updateSelectionText",
+			"_selectionText",
+			"console.",
+			".content-box",
+			"pointofsale.sidebar.photos",
+			"retour",
+			"createResourceDir",
+			"this.wakeUpUpload();",
+			"debugger",
+			"accept",
+			"debugger",
+			"truncate",
+			"pointOfSaleSurveyVO",
+			"for",
+			".action input[type=checkbox]",
+			".campaign.store-detail .head > a",
+			"reportProgress",
+			"UploadDnd",
+			"input[type=checkbox]",
+			");\n",
+			"addSavedNotification",
+			"setPointOfSaleId",
+			"campaignId",
+			"successhistory",
+			"succeshistory",
+			"debugger;",
+			"debugger",
+			"successHistory",
+			"fr.iwd.network.Ajax:history",
+			"fr.iwd.network.Ajax:history:beforeSend",
+			"beforesendHistory",
+			"successhisto",
+			"successhisty",
+			"see",
+			"seeall",
+			"a:hover",
+			"campain",
+			"pointof",
+			"$this->pointOfSale->id",
+			"$this->pos"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": true,
+		"replace_history":
+		[
+			"static function is$1 () {",
+			"preg_match(\"/$1/\", $_SERVER['HTTP_USER_AGENT'])",
+			"preg_match(\"/$1/\", $_SERVER['HTTP_USER_AGENT']);",
+			"je suis un gentil poulet",
+			"guideline",
+			"that.wakeUpContent(",
+			"that.wakeUpUpload();",
+			"this->pointOfSaleSurveyVO",
+			"campaignIds",
+			"",
+			"campaign",
+			"$this->pointOfSaleId",
+			"$this->pointOfSale",
+			"$content",
+			"pointOfSale->",
+			"$pointOfSale->",
+			"$campaign->",
+			"$campaign",
+			"",
+			"#eee",
+			"#B2B2B2",
+			"$survey",
+			"@$this->pos",
+			"_export",
+			"'$1';",
+			"$dateFormat",
+			"Queueable",
+			"rgb(255,66,66)",
+			"$logger->info",
+			"$notification->",
+			"console.log( e );console.log( xhr );console.log( err );",
+			"console",
+			"",
+			"icon-",
+			"icons-sprite",
+			".ie8 input",
+			"",
+			"buttons-",
+			"+ label",
+			".ie8 input",
+			"",
+			"button-",
+			"buttons-",
+			"button-sprite",
+			"//console.log",
+			"menu-sprite",
+			"misc-sprite",
+			"menu-sprite(menu",
+			"icons-sprite(icon",
+			"menu-sprite",
+			"icons-sprite",
+			"fade-button-menu",
+			"menu",
+			"#popup-library-tags",
+			"",
+			"HTML_Template",
+			"$key",
+			"$this->_profilContext",
+			"miscXmlFilePath",
+			"CLI",
+			"Cli_Exception",
+			"{$aspDbName}",
+			"$client->getResourcePath()",
+			"Displayer::getClientInstance();",
+			"$this->_db, $q",
+			"$this->_adapterExec( $this->_db",
+			"$this->_logger->info( $1 );",
+			"$this->_logger->info($1);",
+			"$this->_logger->info('$1');",
+			"joffrey.gohin@iwd.fr",
+			"",
+			"client : VO_Client_Instance",
+			"client.codeVersion",
+			"",
+			"#r",
+			"'#",
+			"getScript",
+			"campaign",
+			"#content",
+			"directory",
+			"dashboard",
+			"map",
+			"photo",
+			"info",
+			"filter",
+			"public",
+			"return $this->_filterScript('$1');",
+			"return $this->_filterScript($1);",
+			"public function ",
+			");",
+			"return $this->_filterScript(",
+			"protected",
+			"private",
+			"pointofsale",
+			"_subPartName",
+			"$view",
+			"_rootViewScriptName",
+			"#main",
+			"info",
+			"#main",
+			"$('.content')",
+			"$(document).",
+			"$(document)",
+			"",
+			"$this->escape",
+			"$imageVO",
+			"imageVO",
+			"contentBO",
+			"<div><?php echo $this->pos$1 ?></div>",
+			"<div><?php $1 ?></div>",
+			"?>",
+			"",
+			"side-bar",
+			"-hover",
+			"active",
+			"click",
+			"$campain",
+			"$actionbar",
+			"v_",
+			"?></span>",
+			"</span>",
+			"<span>",
+			"info",
+			"Browser",
+			"div",
+			"button-icon-arrow-right",
+			"",
+			"icon-arrow-filter2"
+		],
+		"reverse": false,
+		"show_context": false,
+		"use_buffer2": false,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 6,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 3445,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1411,
+								1411
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 476.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/menu.js",
+					"settings":
+					{
+						"buffer_size": 3591,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3591,
+								3591
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2366.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/player/manager.js",
+					"settings":
+					{
+						"buffer_size": 1202,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								752,
+								752
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/player/characters.js",
+					"settings":
+					{
+						"buffer_size": 61,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								61,
+								61
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var Ken = new Class({",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/player/sprite.js",
+					"settings":
+					{
+						"buffer_size": 395,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								395,
+								395
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "css/style.css",
+					"settings":
+					{
+						"buffer_size": 3640,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								691,
+								691
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 867.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "js/player/animation.js",
+					"settings":
+					{
+						"buffer_size": 1274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								725,
+								725
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 34.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.find_results":
+	{
+		"height": 187.0
+	},
+	"replace":
+	{
+		"height": 64.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+			[
+				"jsmodlepopup.js",
+				"4.3.5/src/js/fr/iwd/module/Popup.js"
+			],
+			[
+				"dashboard/content.",
+				"4.3.5/src/php/fr/iwd/View/scripts/dashboard/content.phtml"
+			],
+			[
+				"store.js",
+				"4.3.5/src/js/fr/iwd/module/pointofsale/Store.js"
+			],
+			[
+				"link-pop",
+				"4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/link-popup.phtml"
+			],
+			[
+				"_popup.scss",
+				"fr.iwd/4.3.6/src/php/fr/iwd/View/scss/sass/skeleton/content/pointofsale/info/_popup.scss"
+			],
+			[
+				"link-",
+				"fr.iwd/4.3.6/src/php/fr/iwd/View/scripts/pointofsale/info/parts/link-popup.phtml"
+			],
+			[
+				"link-po",
+				"4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/link-popup.phtml"
+			],
+			[
+				"infoco",
+				"fr.iwd/4.3.6/src/php/fr/iwd/controller/Pointofsale/InfoController.php"
+			],
+			[
+				"groups/",
+				"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/php/fr/iwd/View/scripts/survey/groups/edit/action-bar.phtml"
+			],
+			[
+				"forms/q",
+				"fr.iwd/trunk/src/php/fr/iwd/View/scripts/survey/forms/qcm.phtml"
+			],
+			[
+				"bo/t",
+				"fr.iwd/4.3.0/src/php/fr/iwd/displayer/BO/Texture.php"
+			],
+			[
+				"libra",
+				"fr.iwd/temp/fr/iwd/controller/LibraryController.php"
+			],
+			[
+				"upload",
+				"fr.iwd/trunk/src/js/fr/iwd/utils/Upload.js"
+			],
+			[
+				"displayerex",
+				"displayer/trunk/backend/Util/DisplayerException.php"
+			],
+			[
+				"dateutil",
+				"phoenix/trunk/Util/DateUtils.php"
+			],
+			[
+				"tran",
+				"phoenix/trunk/lib/Zend/Translate.php"
+			],
+			[
+				"t",
+				"phoenix/trunk/Translator.php"
+			]
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 500.0,
+		"selected_items":
+		[
+		],
+		"width": 380.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 310.0,
+	"status_bar_visible": true
+}
