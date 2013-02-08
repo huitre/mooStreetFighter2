@@ -42,8 +42,10 @@ var PlayerManager = new Class({
 
         // set defaults to Ken for the moment
         options.animation = Animation.ken;
-        options.image = characterUrl + characterName + '.gif';  player = new Ken(options);
-         
+        options.image = characterUrl + characterName + '.gif';  
+        options.currentAnimation = 'idle';
+        player = new Ken(options);
+
         switch (characterName) {  
             case 'ken':
             case 'ryu':
@@ -62,6 +64,11 @@ var PlayerManager = new Class({
     prepare: function () {
         this.player1.show();
         this.player2.show();
+    },
+
+    render : function () {
+        this.player1.render();
+        this.player2.render();
     }
 })
 
@@ -72,6 +79,7 @@ var StageManager = new Class({
     frontground: null,
     foreground: null,
     stageName: null,
+    stageType : 'versus', // versus, car, barrel...
 
     setStage: function (stage) {
         this.stageName = stage;
@@ -91,6 +99,24 @@ var StageManager = new Class({
         this.foreground.setStyle(
             'background-image', "url('" + foregroundUrl + this.getStage() + ".gif')"  );
         */
+        if (this.stageType == 'versus') {
+            this.prepareVersusStage();
+        }
+    },
+
+    prepareVersusStage: function () {
+        var pm = this.game.getPlayerManager(),
+            p1 = pm.getPlayer1(),
+            p2 = pm.getPlayer2(),
+            stagePos = this.stage.getCoordinates(),
+            floor = 13;
+
+        // centrage du background
+        this.background.setStyle('background-position', '-140px 0px');
+
+        // positionnement des joueurs
+        p1.setPosition(stagePos.width/2  - 100, stagePos.height - floor - p1.getCurrentPlayedContext().h);
+        p2.setPosition(stagePos.width/2 + 100, stagePos.height - floor - p2.getCurrentPlayedContext().h);
     },
 
     render: function () {

@@ -16,6 +16,7 @@ body {
     overflow: hidden;
     height: 224px;
     display: none;
+    position: relative;
 }
 
 #game {
@@ -160,3 +161,5 @@ body {
 .s:hover.mexico { background-position : -483px -486px !important;}
 .s:hover.spain { background-position : -457px -486px !important;}
 .s:hover.urss { background-position : -373px -486px !important;}
+
+#player1, #player2 { position: absolute; padding: 0; margin: 0; }

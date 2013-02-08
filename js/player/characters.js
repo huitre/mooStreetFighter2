@@ -21,7 +21,6 @@ var Ken = new Class({
     Extends : Character,
 
     initialize : function ( options ) {
-        console.log( options );
         this.parent(options);
     }
 });
