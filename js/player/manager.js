@@ -116,3 +116,4 @@ var InputManager = new Class({
 var PhysicManager = new Class({
     Implements: Manager
 });
+
