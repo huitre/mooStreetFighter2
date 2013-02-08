@@ -1,76 +1,78 @@
 var Manager = new Class({
-   initialize : function ( game ) {
-       this.game = game;
-   },
-   update : function () {},
-   render : function () {},
-   start : function () {},
-   stop : function () {},
-   prepare : function () {},
-   init : function ( options ) {}
+    initialize: function (game) {
+        this.game = game;
+    },
+    update: function () {},
+    render: function () {},
+    start: function () {},
+    stop: function () {},
+    prepare: function () {},
+    init: function (options) {}
 })
 
 var PlayerManager = new Class({
-   Implements : Manager,
-   player1 : null,
-   player2 : null,
+    Implements: Manager,
+    player1: null,
+    player2: null,
 
-   setPlayer1 : function ( player ) {
-       this.player1 = this.playerFactory( player );
-   },
+    setPlayer1: function (player) {
+        this.player1 = this.playerFactory(player);
+    },
 
-   setPlayer2 : function ( player ) {
-       this.player2 = this.playerFactory( player );
-   },
+    setPlayer2: function (player) {
+        this.player2 = this.playerFactory(player);
+    },
 
-   getPlayer1 : function () {
-       return this.player1;
-   },
+    getPlayer1: function () {
+        return this.player1;
+    },
 
-   getPlayer2 : function () {
-       return this.player2;
-   },
+    getPlayer2: function () {
+        return this.player2;
+    },
 
-   playerFactory : function ( characterName, playerElement ) {
-       var options = { el : playerElement }, player;
+    playerFactory: function (characterName, playerElement) {
+        var options = {
+            el: playerElement
+        }, player;
 
-       characterName = characterName.toLowerCase();
+        characterName = characterName.toLowerCase();
 
-       // set defaults to Ken for the moment
-       options.animation = Animation.ken;
-       options.image = charactersUrl + characterName + '.gif';
-       player = new Ken( options );
+        // set defaults to Ken for the moment
+        options.animation = Animation.ken;
+        options.image = charactersUrl + characterName + '.gif';
+        player = new Ken(options);
 
-       switch (characterName) {
-           case 'ken':
-           break;
+        switch (characterName) {
+            case 'ken':
+                break;
 
-           case 'ryu':
-           break;
+            case 'ryu':
+                break;
 
-           case 'thawk':
-           break;
+            case 'thawk':
+                break;
 
-           case 'dalhsim':
-           break;
+            case 'dalhsim':
+                break;
 
-           case 'balrog':
-           break;
+            case 'balrog':
+                break;
 
-           case 'cammy':
-           break;
+            case 'cammy':
+                break;
 
-           case 'bison':
-           break;
+            case 'bison':
+                break;
 
-           case 'vega':
-           break;
+            case 'vega':
+                break;
 
-           case 'feilong':
-           break;
-       }
-       return player;
-   },
+            case 'feilong':
+                break;
+        }
+        return player;
+    },
 
     prepare: function () {
         this.player1.show();
@@ -79,40 +81,38 @@ var PlayerManager = new Class({
 })
 
 var StageManager = new Class({
-    Implements : Manager,
+    Implements: Manager,
 
-    background : null,
-    frontground : null,
-    foreground : null,
-    stageName : null,
+    background: null,
+    frontground: null,
+    foreground: null,
+    stageName: null,
 
-    setStage : function ( stage ) {
+    setStage: function (stage) {
         this.stageName = stage;
     },
 
-    getStage : function () {
+    getStage: function () {
         return this.stageName.trim();
     },
 
-    prepare : function () {
+    prepare: function () {
         this.stage.setStyle('display', 'block');
         this.background.setStyle(
-               'background-image', "url('" backgroundUrl + this.getStage() + ".gif')"
-        );
+            'background-image', "url('"
+        backgroundUrl + this.getStage() + ".gif')");
 
         this.frontground.setStyle(
-            'background-image', "url('sprites/frontground/" + this.getStage() + ".gif')"
-       );
-       this.foreground.setStyle(
-            'background-image', "url('sprites/foreground/" + this.getStage() + ".gif')"
-       );
+            'background-image', "url('sprites/frontground/" + this.getStage() + ".gif')");
+        this.foreground.setStyle(
+            'background-image', "url('sprites/foreground/" + this.getStage() + ".gif')");
     },
 
-    render : function () {
+    render: function () {
 
     },
 
-    init : function ( options ) {
+    init: function (options) {
         this.stage = $(options.main);
         this.background = $(options.background);
         this.frontground = $(options.frontground);
@@ -121,13 +121,13 @@ var StageManager = new Class({
 });
 
 var CollisionManager = new Class({
-   Implements : Manager
+    Implements: Manager
 });
 
 var InputManager = new Class({
-   Implements : Manager
+    Implements: Manager
 });
 
 var PhysicManager = new Class({
-   Implements : Manager
+    Implements: Manager
 });
