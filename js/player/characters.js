@@ -1,8 +1,29 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
+
+/**
+ * Interface pour tous les objets qui sont suceptibles
+ * de declencher une action quand ils sont en contacts
+ * d'autres objets de type ICollider
+ */
 var ICollider = new Class({
     initialize: function (options) {},
     collideWith: function (objectCollider) {},
-    isColliding: function () {},
-    getCollidingPoint: function () {}
+
+    /**
+     * Methode de detection des collisions entre l'objet 
+     * et la liste des objets ICollider present sur la scene
+     */
+    isColliding: function (colliderList) {},
+
+    getCollidingPoint: function () {},
+    
+    /**
+     * Retourne les dimensions de l'objet ICollider.
+     * @return object
+     */
+    getBounds: function () {}
 });
 
 var Character = new Class({
@@ -12,8 +33,15 @@ var Character = new Class({
     initialize : function ( options ) {
         this.parent(options);
     },
+    
     collideWith: function (objectCollider) {},
-    isColliding: function () {},
+
+    isColliding: function (colliderList) {
+        colliderList.each(function(collider) {
+            collider.getBounds();
+        });
+    },
+
     getCollingPoint: function () {}
 })
 

@@ -1,3 +1,7 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
+ 
 var mooStreetFighter = new Class({
     framerate: 1000 / 60,
     optios: null,

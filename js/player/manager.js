@@ -1,3 +1,7 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
+
 var Manager = new Class({
     Implements : Options,
     initialize: function (game) {
@@ -146,7 +150,7 @@ var CollisionManager = new Class({
 
     update: function () {
         this.colliderList.each(function (collider, index) {
-
+            collider.isColliding(this.colliderList);
         });
     }
 });
