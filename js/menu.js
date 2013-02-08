@@ -66,7 +66,7 @@ var mooMenu = new Class({
     show: function () {
         this.options.element.setStyle('display', 'block');
         this.options.element.fade('in');
-    },
+    }
 });
 
 
@@ -179,3 +179,4 @@ var menuStageSelection = new Class({
         return el.get('class').replace('s', '');
     },
 });
+
