@@ -2,97 +2,99 @@ var mooSprite = new Class({
     Implements: [Options, Events, Chain],
 
     // contenu
-    el : null,
-      animation : null,
+    el: null,
+      animation: null,
 
     // variable de contexte
-    currentAnimation : null,
-    currentFrame : null,
-    currentRate : 1000/60,
-    isVisible : true,
-    isPaused : false,
+    currentAnimation: null,
+    currentFrame: null,
+    currentRate: 1000 / 60,
+    isVisible: true,
+    isPaused: false,
 
-      initialize : function ( options ) {
-      if ( options ) {
-            this.setOptions( options );
-        this.el.setStyle( 'background-image', 'url("' + options.image + '")' );
-        this.el = $(options.el);
-        this.animation = this.options.animation;
-      }
-      this.play();
-      },
-
-    show : function () {
-      this.el.show();
+      initialize: function (options) {
+        if (options) {    this.setOptions(options);
+            this.el.setStyle('background-image', 'url("' + options.image + '")');
+            this.el = $(options.el);
+            this.animation = this.options.animation;
+        }
+        this.play();  
     },
 
-    hide : function () {
-      this.el.hide();
+    show: function () {
+        this.el.show();
     },
 
-      play : function () {
-      this.isPaused = false;
-      },
-
-      pause : function () {
-      this.paused = true;
-      },
-
-    render : function () {
-      if ( this.isVisible && !this.isPaused ) {
-        var context = this.getCurrentPlayedContext();
-        this.el.setStyle( 'background-position', context.x, context.y );
-      }
+    hide: function () {
+        this.el.hide();
     },
 
-    getCurrentBounds : function () {
-      var currentContext = this.animation[ this.getCurrentAnimation() ][ this.getCurrentFrame() ];
-      var bounds = {
-            w : currentContext.w,
-            h : currentContext.h
-          }
-      return bounds;
+      play: function () {
+        this.isPaused = false;  
     },
 
-    setCurrentBounds : function ( w, h ) {
-      var currentContext = this.getCurrentPlayedContext();
-      currentContext.w = w;
-      currentContext.h = h;
+      pause: function () {
+        this.paused = true;  
     },
 
-    setCurrentAnimation : function ( animation ) {
-      this.currentAnimation = animation;
+    render: function () {
+        if (this.isVisible && !this.isPaused) {
+            var context = this.getCurrentPlayedContext();
+            this.el.setStyle('background-position', context.x, context.y);
+        }
     },
 
-    getCurrentAnimation : function () {
-      return this.currentAnimation;
+    getCurrentBounds: function () {
+        var currentContext = this.animation[this.getCurrentAnimation()][this.getCurrentFrame()];
+        var bounds = {
+            w: currentContext.w,
+            h: currentContext.h
+        }
+        return bounds;
     },
 
-    getCurrentFrame : function () {
-      return this.currentFrame;
+    setCurrentBounds: function (w, h) {
+        var currentContext = this.getCurrentPlayedContext();
+        currentContext.w = w;
+        currentContext.h = h;
     },
 
-    getCurrentPlayedContext : function () {
-      return this.animation[ this.getCurrentAnimation() ][ this.getCurrentFrame() ];
+    setCurrentAnimation: function (animation) {
+        this.currentAnimation = animation;
     },
 
-    setRate : function ( ms ) {
-      this.currentRate = ms;
+    getCurrentAnimation: function () {
+        return this.currentAnimation;
     },
 
-    getRate : function () {
-      return this.currentRate;
+    getCurrentFrame: function () {
+        return this.currentFrame;
     },
 
-    setPosition : function ( x, y ) {
-      this.el.setPosition( { x: x, y : y } );
+    getCurrentPlayedContext: function () {
+        return this.animation[this.getCurrentAnimation()][this.getCurrentFrame()];
     },
 
-    getPosition : function () {
-      return this.el.getPosition();
+    setRate: function (ms) {
+        this.currentRate = ms;
     },
 
-    moveTo : function ( x, y, speed ) {
+    getRate: function () {
+        return this.currentRate;
+    },
+
+    setPosition: function (x, y) {
+        this.el.setPosition({
+            x: x,
+            y: y
+        });
+    },
+
+    getPosition: function () {
+        return this.el.getPosition();
+    },
+
+    moveTo: function (x, y, speed) {
 
     }
 });
