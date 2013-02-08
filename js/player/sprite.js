@@ -1,11 +1,4 @@
-var Collider = new Class({
-    collideWith: function (objectCollider) {},
-    isColliding: function () {},
-    getCollingPoint: function () {}
-})
-
 var Sprite = new Class({
-    Extends: [Collider],
     Implements: [Options],
 
     el: null,
@@ -14,8 +7,8 @@ var Sprite = new Class({
     initialize: function (options) {
         if (options) {
             this.setOptions(options);
-            this.el.setStyle('background-image', 'url("' + options.image + '")');
             this.el = $(options.el);
+            this.el.setStyle('background-image', 'url("' + options.image + '")');
         }
     },
     show: function () {
@@ -26,11 +19,11 @@ var Sprite = new Class({
         this.el.hide();
     },
 
-      play: function () {
+    play: function () {
         this.isPaused = false;  
     },
 
-      pause: function () {
+    pause: function () {
         this.paused = true;  
     },
 
@@ -85,7 +78,8 @@ var Sprite = new Class({
 })
 
 var AnimatedSprite = new Class({
-    Implements: [Events, Sprite],
+    Extends : Sprite,
+    Implements: [Events],
 
     // contenu
      animation: null,
@@ -98,7 +92,7 @@ var AnimatedSprite = new Class({
     lastTicks: 0,
 
     initialize: function (options) {
-        parent.initialize(options);
+        this.parent(options);
         this.animation = this.options.animation; 
     },
 

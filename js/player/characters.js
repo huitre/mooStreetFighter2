@@ -1,9 +1,27 @@
+var ICollider = new Class({
+    initialize: function (options) {},
+    collideWith: function (objectCollider) {},
+    isColliding: function () {},
+    getCollingPoint: function () {}
+});
 
 var Character = new Class({
-    Extends : [Collider],
-    Implements : [Events, AnimatedSprite]
+    Extends : AnimatedSprite,
+    Implements : [Events, ICollider],
+
+    initialize : function ( options ) {
+        this.parent(options);
+    },
+    collideWith: function (objectCollider) {},
+    isColliding: function () {},
+    getCollingPoint: function () {}
 })
 
 var Ken = new Class({
-    Implements : [Character]
+    Extends : Character,
+
+    initialize : function ( options ) {
+        console.log( options );
+        this.parent(options);
+    }
 });

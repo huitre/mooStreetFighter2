@@ -137,7 +137,6 @@ var menuPlayerSelection = new Class({
             this.mainMenu.currentLink.hide();
         }
         catch (e) {
-            console.log(e);
         }
     },
 
