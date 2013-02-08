@@ -1,71 +1,71 @@
 body {
-    background: #000;
+    background: #000;
 }
 
 #background {
-    background : url('../sprites/background/level1.gif');
-    width : 768px;
-    height: 224px;
-    margin: auto;
+    background : url('../sprites/background/level1.gif');
+    width : 768px;
+    height: 224px;
+    margin: auto;
 }
 
 #stage {
-    margin: auto;
-    width: 500px;
-    text-align: center;
-    overflow: hidden;
-    height: 224px;
-    display: none;
+    margin: auto;
+    width: 500px;
+    text-align: center;
+    overflow: hidden;
+    height: 224px;
+    display: none;
 }
 
 #game {
-    margin : auto;
-    width: 800px;
-    text-align: center;
-    background: #000;
-    padding: 50px;
+    margin : auto;
+    width: 800px;
+    text-align: center;
+    background: #000;
+    padding: 50px;
 }
 
 /**
  * Declaration des styles des menus
  */
 #menu {
-    height: 300px;
-    position : relative;
+    height: 300px;
+    position : relative;
 }
 
 .menu {
-    margin: auto;
-    width: 256px;
-    height: 193px;
-    position : relative;
+    margin: auto;
+    width: 256px;
+    height: 193px;
+    position : relative;
 }
 
 #start-page {
-    text-align: center;
+    text-align: center;
 }
 
 #start-page a {
-    text-decoration: none;
-    color : orange;
-    font-size : 16px;
-    font-weight: bold;
-    text-transform : uppercase;
-    text-align: left;
-    margin: auto;
-    display: block;
+    text-decoration: none;
+    color : orange;
+    font-size : 16px;
+    font-weight: bold;
+    text-transform : uppercase;
+    text-align: left;
+    margin: auto;
+    display: block;
 }
 
 #start-page > div {
-    margin: auto;
-    width: 150px;
-    padding-top: 50px;
+    margin: auto;
+    width: 150px;
+    padding-top: 50px;
 }
 
 #start-game {
-    display: none;
-    background: url('../sprites/menu/characterselect.png');
-    background-position: -8px -8px;
+    display: none;
+    background: url('../sprites/menu/characterselect.png');
+    background-position: -8px -8px;
 }
 
 .pselected.ryu { background-position: -9px -229px }
@@ -86,68 +86,68 @@ body {
 .pselected.bison { background-position: -199px -432px }
 
 #blank-flash {
-    height: 100%;
-    width: 100%;
-    background-color : #fff;
-    z-index: 99;
+    height: 100%;
+    width: 100%;
+    background-color : #fff;
+    z-index: 99;
 }
 
 #player1-selection, #player2-selection {
-    height: 95px;
-    width: 58px;
-    position: absolute;
-    background-image: url('../sprites/characterselect.png');
-    top: 60px;
+    height: 95px;
+    width: 58px;
+    position: absolute;
+    background-image: url('../sprites/menu/characterselect.png');
+    top: 60px;
 }
 #player1-selection {left: 4px;}
 #player2-selection {right: 4px;}
 
 #player-selection {
-    width: 126px;
-    height: 96px;
-    position: absolute;
-    background: url('../sprites/characterselect.png');
-    background-position: -280px -8px;
-    top: 50px;
-    left: 65px;
+    width: 126px;
+    height: 96px;
+    position: absolute;
+    background: url('../sprites/menu/characterselect.png');
+    background-position: -280px -8px;
+    top: 50px;
+    left: 65px;
 }
 
 #player-selection .player {
-    width : 19px;
-    height: 30px;
-    border: 1px solid transparent;
-    float: left;
+    width : 19px;
+    height: 30px;
+    border: 1px solid transparent;
+    float: left;
 }
 
 #player-selection .player:hover {
-    border: 1px solid blue;
+    border: 1px solid blue;
 }
 
 #player-selection .player.selected {
-    border: 1px solid red;
+    border: 1px solid red;
 }
 
 #stage-selection {
-    display: none;
-    background-image: url('../sprites/characterselect.png');
-    background-position: -8px -549px;
+    display: none;
+    background-image: url('../sprites/menu/characterselect.png');
+    background-position: -8px -549px;
 }
 
 #stage-map {
-    position: absolute;
-    top: 98px;
-    width: 251px;
-    height: 88px;
-    left: 5px;
+    position: absolute;
+    top: 98px;
+    width: 251px;
+    height: 88px;
+    left: 5px;
 }
 
 #stage-map .s {
-    width: 30px;
-    height: 22px;
-    background-image: url('../sprites/characterselect.png');
-    background-position : -999px -999px;
-    margin: 3px 5px 5px 5px;
-    float: left;
+    width: 30px;
+    height: 22px;
+    background-image: url('../sprites/menu/characterselect.png');
+    background-position : -999px -999px;
+    margin: 3px 5px 5px 5px;
+    float: left;
 }
 
 .s:hover.japan { background-position : -274px -486px !important; }
