@@ -3,7 +3,7 @@ var mooSprite = new Class({
 
     // contenu
     el : null,
-  	animation : null,
+      animation : null,
 
     // variable de contexte
     currentAnimation : null,
@@ -12,15 +12,15 @@ var mooSprite = new Class({
     isVisible : true,
     isPaused : false,
 
-  	initialize : function ( options ) {
+      initialize : function ( options ) {
       if ( options ) {
-  		  this.setOptions( options );
+            this.setOptions( options );
         this.el.setStyle( 'background-image', 'url("' + options.image + '")' );
         this.el = $(options.el);
         this.animation = this.options.animation;
       }
       this.play();
-  	},
+      },
 
     show : function () {
       this.el.show();
@@ -30,13 +30,13 @@ var mooSprite = new Class({
       this.el.hide();
     },
 
-  	play : function () {
+      play : function () {
       this.isPaused = false;
-  	},
+      },
 
-  	pause : function () {
+      pause : function () {
       this.paused = true;
-  	},
+      },
 
     render : function () {
       if ( this.isVisible && !this.isPaused ) {

@@ -1,4 +1,4 @@
 
 var Ken = new Class({
-	Implements : [Options, mooSprite]
+    Implements : [Options, mooSprite]
 });
