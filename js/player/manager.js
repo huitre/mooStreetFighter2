@@ -145,12 +145,13 @@ var CollisionManager = new Class({
     colliderList : [],
 
     addCollider: function ( colliderArray ) {
-        this.colliderList.push(colliderArray);
+        this.colliderList.combine(colliderArray);
     },
 
     update: function () {
+        var that = this;
         this.colliderList.each(function (collider, index) {
-            collider.isColliding(this.colliderList);
+            collider.isColliding(that.colliderList);
         });
     }
 });

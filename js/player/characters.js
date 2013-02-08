@@ -8,15 +8,28 @@
  * d'autres objets de type ICollider
  */
 var ICollider = new Class({
+
     initialize: function (options) {},
+
+    /**
+     * 
+     */
     collideWith: function (objectCollider) {},
 
     /**
      * Methode de detection des collisions entre l'objet 
      * et la liste des objets ICollider present sur la scene
+     * @return ICollider 
      */
-    isColliding: function (colliderList) {},
+    isColliding: function (colliderList) {
+        console.log('tamere');
+    },
 
+    /**
+     * Methode de detection des collisions entre l'objet 
+     * et la liste des objets ICollider present sur la scene.
+     * TODO : detection par shape ou par pixels.
+     */
     getCollidingPoint: function () {},
     
     /**
@@ -34,15 +47,32 @@ var Character = new Class({
         this.parent(options);
     },
     
-    collideWith: function (objectCollider) {},
-
-    isColliding: function (colliderList) {
-        colliderList.each(function(collider) {
-            collider.getBounds();
-        });
+    collideWith: function (objectCollider) {
+        console.log('Collision detecte !', objectCollider);
     },
 
-    getCollingPoint: function () {}
+    isColliding: function (colliderList) {
+        var that = this;
+        colliderList.each(function(collider) {
+            var cBounds = collider.getBounds(),
+                oBounds = that.getBounds();
+            /*
+            if (oBounds.x <= cBounds.x + (oBounds.w + cBounds.w) / 2 
+                && oBounds.x >= cBounds.x – (oBounds.w + cBounds.w) / 2
+                && oBounds.y >= cBounds.y – (oBounds.h + cBounds.h) / 2
+                && oBounds.y >= cBounds.y – (oBounds.h + cBounds.h) / 2
+                ) {
+                    collider.collideWith(this);
+                    this.collideWith(collider);
+                }
+                */
+        });
+    },
+    getCollidingPoint: function () {},
+
+    getBounds: function () {
+        return this.getCurrentBounds();
+    }
 })
 
 var Ken = new Class({
