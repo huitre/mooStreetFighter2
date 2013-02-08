@@ -1,7 +1,7 @@
 var Manager = new Class({
     Implements : Options,
     initialize: function (game) {
-        this.game = game;  
+        this.game = game;
     },
     update: function () {},
     render: function () {},
@@ -19,23 +19,23 @@ var PlayerManager = new Class({
     player2: null,
 
     setPlayer1: function (player) {
-        this.player1 = this.playerFactory(player, this.options.p1);  
+        this.player1 = this.playerFactory(player, this.options.p1);
     },
 
     setPlayer2: function (player) {
-        this.player2 = this.playerFactory(player, this.options.p2);  
+        this.player2 = this.playerFactory(player, this.options.p2);
     },
 
     getPlayers: function () {
         return [this.player1, this.player2];
     },
 
-    getPlayer1: function () {  
-        return this.player1;  
+    getPlayer1: function () {
+        return this.player1;
     },
 
-    getPlayer2: function () {  
-        return this.player2;  
+    getPlayer2: function () {
+        return this.player2;
     },
 
     playerFactory: function (characterName, playerElement) {
@@ -46,11 +46,11 @@ var PlayerManager = new Class({
 
         // set defaults to Ken for the moment
         options.animation = Animation.ken;
-        options.image = characterUrl + characterName + '.gif';  
+        options.image = characterUrl + characterName + '.gif';
         options.currentAnimation = 'idle';
         player = new Ken(options);
 
-        switch (characterName) {  
+        switch (characterName) {
             case 'ken':
             case 'ryu':
             case 'thawk':
@@ -61,8 +61,8 @@ var PlayerManager = new Class({
             case 'vega':
             case 'feilong':
             break;
-        }  
-        return player;  
+        }
+        return player;
     },
 
     prepare: function () {
@@ -101,7 +101,7 @@ var StageManager = new Class({
         this.frontground.setStyle(
             'background-image', "url('" + frontgroundUrl + this.getStage() + ".gif')");
         this.foreground.setStyle(
-            'background-image', "url('" + foregroundUrl + this.getStage() + ".gif')"  );
+            'background-image', "url('" + foregroundUrl + this.getStage() + ".gif')");
         */
         if (this.stageType == 'versus') {
             this.prepareVersusStage();
