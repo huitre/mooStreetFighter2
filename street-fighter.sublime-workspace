@@ -523,7 +523,7 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 3319,
+				"buffer_size": 4539,
 				"line_ending": "Unix"
 			}
 		},
@@ -531,7 +531,7 @@
 			"file": "/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 374,
+				"buffer_size": 0,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,7 +539,7 @@
 			"file": "js/mooStreetFighter.js",
 			"settings":
 			{
-				"buffer_size": 2806,
+				"buffer_size": 2388,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +547,7 @@
 			"file": "css/style.css",
 			"settings":
 			{
-				"buffer_size": 3648,
+				"buffer_size": 3978,
 				"line_ending": "Unix"
 			}
 		},
@@ -555,7 +555,7 @@
 			"file": "js/player/manager.js",
 			"settings":
 			{
-				"buffer_size": 2854,
+				"buffer_size": 3706,
 				"line_ending": "Unix"
 			}
 		},
@@ -563,7 +563,7 @@
 			"file": "js/player/characters.js",
 			"settings":
 			{
-				"buffer_size": 64,
+				"buffer_size": 610,
 				"line_ending": "Unix",
 				"name": "var Ken = new Class({"
 			}
@@ -572,7 +572,7 @@
 			"file": "js/player/sprite.js",
 			"settings":
 			{
-				"buffer_size": 2224,
+				"buffer_size": 3709,
 				"line_ending": "Unix"
 			}
 		},
@@ -580,7 +580,23 @@
 			"file": "js/player/animation.js",
 			"settings":
 			{
-				"buffer_size": 1274,
+				"buffer_size": 1275,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/huitre/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 13149,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/huitre/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+			"settings":
+			{
+				"buffer_size": 57,
 				"line_ending": "Unix"
 			}
 		},
@@ -588,7 +604,7 @@
 			"file": "js/menu.js",
 			"settings":
 			{
-				"buffer_size": 3995,
+				"buffer_size": 4744,
 				"line_ending": "Unix"
 			}
 		},
@@ -677,6 +693,8 @@
 	},
 	"file_history":
 	[
+		"/home/huitre/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/huitre/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
 		"/home/joffrey/localworkspace/street-fighter/street-fighter.sublime-project",
 		"/home/joffrey/localworkspace/street-fighter/js/menu.js",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/module/Popup.js.rej",
@@ -802,9 +820,7 @@
 		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern2/2013-01-16/2013-01-16-dloccitanern2.log",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module/pointofsale/Store.js",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module/utils/ToolBar.js",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/controller/Campaign/EditController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/controller/RetailNetworkController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/HTML/ViewConverter/Factory.php"
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/controller/Campaign/EditController.php"
 	],
 	"find":
 	{
@@ -1186,7 +1202,7 @@
 	"groups":
 	[
 		{
-			"selected": 7,
+			"selected": 9,
 			"sheets":
 			[
 				{
@@ -1194,21 +1210,22 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 3319,
+						"buffer_size": 4539,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								615,
-								615
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1221,15 +1238,15 @@
 					"file": "/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 374,
+						"buffer_size": 0,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								371,
-								371
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1248,21 +1265,22 @@
 					"file": "js/mooStreetFighter.js",
 					"settings":
 					{
-						"buffer_size": 2806,
+						"buffer_size": 2388,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								341,
-								341
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1275,21 +1293,22 @@
 					"file": "css/style.css",
 					"settings":
 					{
-						"buffer_size": 3648,
+						"buffer_size": 3978,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2340,
-								2340
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 1754.0,
@@ -1302,21 +1321,22 @@
 					"file": "js/player/manager.js",
 					"settings":
 					{
-						"buffer_size": 2854,
+						"buffer_size": 3706,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2433,
-								2433
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 1683.0,
@@ -1329,21 +1349,23 @@
 					"file": "js/player/characters.js",
 					"settings":
 					{
-						"buffer_size": 64,
+						"buffer_size": 610,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								64,
-								64
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"auto_name": "var Ken = new Class({",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -1356,21 +1378,21 @@
 					"file": "js/player/sprite.js",
 					"settings":
 					{
-						"buffer_size": 2224,
+						"buffer_size": 3709,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								2194,
-								2194
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
+							"tab_size": 4,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -1384,15 +1406,15 @@
 					"file": "js/player/animation.js",
 					"settings":
 					{
-						"buffer_size": 1274,
+						"buffer_size": 1275,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								274,
-								274
+								0,
+								0
 							]
 						],
 						"settings":
@@ -1409,24 +1431,79 @@
 				},
 				{
 					"buffer": 8,
-					"file": "js/menu.js",
+					"file": "/home/huitre/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 3995,
+						"buffer_size": 13149,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3995,
-								3995
+								1778,
+								1778
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 225.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "/home/huitre/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+					"settings":
+					{
+						"buffer_size": 57,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								54,
+								54
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JSON.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 10,
+					"file": "js/menu.js",
+					"settings":
+					{
+						"buffer_size": 4744,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"translate_tabs_to_spaces": false
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 2077.0,
@@ -1435,7 +1512,7 @@
 					"type": "text"
 				},
 				{
-					"buffer": 9,
+					"buffer": 11,
 					"file": "README",
 					"settings":
 					{

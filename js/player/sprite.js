@@ -75,7 +75,7 @@ var Sprite = new Class({
     moveTo: function (x, y, speed) {
 
     }
-})
+});
 
 var AnimatedSprite = new Class({
     Extends : Sprite,
@@ -84,46 +84,51 @@ var AnimatedSprite = new Class({
     // contenu
      animation: null,
 
-    // variable de contexte
+    // variable de contexte courant
     currentAnimation: 'idle',
     currentFrame: 0,
     currentRate: 1000 / 60,
+    currentContext: null,
+
+    // controle
     isPaused: false,
-    lastTicks: 0,
     nextTicks: 0,
 
     initialize: function (options) {
         this.parent(options);
         this.animation = this.options.animation;
         this.currentAnimation = this.options.currentAnimation;
-        this.lastTicks = new Date();
+    },
+
+    getTicks: function () {
+        return new Date().getTime();
     },
 
     render: function () {
+        this.currentContext = this.getCurrentPlayedContext();
         if (this.isVisible && !this.isPaused) {
-            var context = this.getCurrentPlayedContext(),
-                pos = this.getPosition();
+            var pos = this.getPosition();
             this.el.setStyles({
-                'background-position': context.x + 'px ' + context.y + 'px',
+                'background-position': this.currentContext.x + 'px ' + this.currentContext.y + 'px',
                 /*'top': pos.y,
                 'left': pos.x,*/
-                'width': context.w,
-                'height': context.h
+                'width': this.currentContext.w,
+                'height': this.currentContext.h
             });
-            this.updateContext();
         }
+        this.updateAnimation();
     },
 
-    updateContext: function () {
-        if ( this.lastTicks.getTime() > this.nextTicks ) {
+    updateAnimation: function () {
+        if ( this.getTicks() > this.nextTicks ) {
             this.playNextFrame();
-            this.nextTicks = this.lastTicks.getTime() + 1000;
+            this.nextTicks = this.getTicks() + this.getCurrentFrameTimer();
         }
     },
 
     playNextFrame: function () {
         this.currentFrame = this.currentFrame + 1;
-        if ( this.currentFrame > this.getCurrentAnimation().length  - 1)
+        if (this.currentFrame > this.getCurrentAnimation().length - 1)
             this.currentFrame = 0;
     },
 
@@ -145,6 +150,10 @@ var AnimatedSprite = new Class({
 
     getCurrentPlayedContext: function () {
         return this.animation[this.getCurrentAnimationName()][this.getCurrentFrame()];
+    },
+
+    getCurrentFrameTimer: function () {
+        return this.currentContext.rate | 200;
     },
 
     setRate: function (ms) {

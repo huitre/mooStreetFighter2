@@ -86,11 +86,13 @@ var mooStreetFighter = new Class({
      * avant le debut du combat ( positionnement, affichage, affichage de l'ui ...)
      */
     launch: function () {
-        var that = this;
+        var that = this,
+            players = this.playerManager.getPlayers();
         this.menuManager.hide();
         this.stageManager.prepare();
         this.playerManager.prepare();
-        this.inputManager.prepare();
+        this.inputManager.prepare(players);
+        this.collisionManager.addCollider(players);
         this.gameLoop = function () {
             that.render();
         }

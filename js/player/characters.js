@@ -2,7 +2,7 @@ var ICollider = new Class({
     initialize: function (options) {},
     collideWith: function (objectCollider) {},
     isColliding: function () {},
-    getCollingPoint: function () {}
+    getCollidingPoint: function () {}
 });
 
 var Character = new Class({

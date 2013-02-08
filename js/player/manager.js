@@ -26,6 +26,10 @@ var PlayerManager = new Class({
         this.player2 = this.playerFactory(player, this.options.p2);  
     },
 
+    getPlayers: function () {
+        return [this.player1, this.player2];
+    },
+
     getPlayer1: function () {  
         return this.player1;  
     },
@@ -132,7 +136,19 @@ var StageManager = new Class({
 });
 
 var CollisionManager = new Class({
-    Implements: Manager
+    Implements: Manager,
+
+    colliderList : [],
+
+    addCollider: function ( colliderArray ) {
+        this.colliderList.push(colliderArray);
+    },
+
+    update: function () {
+        this.colliderList.each(function (collider, index) {
+
+        });
+    }
 });
 
 var InputManager = new Class({
