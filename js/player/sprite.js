@@ -1,26 +1,16 @@
-var mooSprite = new Class({
-    Implements: [Options, Events, Chain],
+var Sprite = new Class({
+    Implements: [Options],
 
-    // contenu
     el: null,
-      animation: null,
-
-    // variable de contexte
-    currentAnimation: null,
-    currentFrame: null,
-    currentRate: 1000 / 60,
     isVisible: true,
-    isPaused: false,
 
-      initialize: function (options) {
-        if (options) {    this.setOptions(options);
-            this.el.setStyle('background-image', 'url("' + options.image + '")');
+    initialize: function (options) {
+        if (options) {
+            this.setOptions(options);
             this.el = $(options.el);
-            this.animation = this.options.animation;
+            this.el.setStyle('background-image', 'url("' + options.image + '")');
         }
-        this.play();  
     },
-
     show: function () {
         this.el.show();
     },
@@ -29,58 +19,46 @@ var mooSprite = new Class({
         this.el.hide();
     },
 
-      play: function () {
+    play: function () {
         this.isPaused = false;  
     },
 
-      pause: function () {
+    pause: function () {
         this.paused = true;  
     },
 
-    render: function () {
-        if (this.isVisible && !this.isPaused) {
-            var context = this.getCurrentPlayedContext();
-            this.el.setStyle('background-position', context.x, context.y);
-        }
-    },
-
     getCurrentBounds: function () {
-        var currentContext = this.animation[this.getCurrentAnimation()][this.getCurrentFrame()];
+        var currentContext = this.getCurrentPlayedContext();
         var bounds = {
-            w: currentContext.w,
-            h: currentContext.h
+            w: currentContext.x,
+            h: currentContext.y
         }
         return bounds;
     },
 
     setCurrentBounds: function (w, h) {
-        var currentContext = this.getCurrentPlayedContext();
-        currentContext.w = w;
-        currentContext.h = h;
-    },
-
-    setCurrentAnimation: function (animation) {
-        this.currentAnimation = animation;
-    },
-
-    getCurrentAnimation: function () {
-        return this.currentAnimation;
-    },
-
-    getCurrentFrame: function () {
-        return this.currentFrame;
+        this.el.setStyles({
+            'width': w,
+            'height': h
+        });
     },
 
     getCurrentPlayedContext: function () {
-        return this.animation[this.getCurrentAnimation()][this.getCurrentFrame()];
+        return this.el.getSize();
     },
 
-    setRate: function (ms) {
-        this.currentRate = ms;
-    },
-
-    getRate: function () {
-        return this.currentRate;
+    render: function () {
+        if (this.isVisible) {
+            var context = this.getCurrentPlayedContext(),
+                pos = this.getPosition();
+            this.el.setStyles({
+                'background-position': '0 0',
+                'top': pos.y,
+                'left': pos.x,
+                'width': context.w,
+                'height': context.h
+            });
+        }
     },
 
     setPosition: function (x, y) {
@@ -96,5 +74,93 @@ var mooSprite = new Class({
 
     moveTo: function (x, y, speed) {
 
+    }
+});
+
+var AnimatedSprite = new Class({
+    Extends : Sprite,
+    Implements: [Events],
+
+    // contenu
+     animation: null,
+
+    // variable de contexte courant
+    currentAnimation: 'idle',
+    currentFrame: 0,
+    currentRate: 1000 / 60,
+    currentContext: null,
+
+    // controle
+    isPaused: false,
+    nextTicks: 0,
+
+    initialize: function (options) {
+        this.parent(options);
+        this.animation = this.options.animation;
+        this.currentAnimation = this.options.currentAnimation;
+    },
+
+    getTicks: function () {
+        return new Date().getTime();
+    },
+
+    render: function () {
+        this.currentContext = this.getCurrentPlayedContext();
+        if (this.isVisible && !this.isPaused) {
+            var pos = this.getPosition();
+            this.el.setStyles({
+                'background-position': this.currentContext.x + 'px ' + this.currentContext.y + 'px',
+                /*'top': pos.y,
+                'left': pos.x,*/
+                'width': this.currentContext.w,
+                'height': this.currentContext.h
+            });
+        }
+        this.updateAnimation();
+    },
+
+    updateAnimation: function () {
+        if ( this.getTicks() > this.nextTicks ) {
+            this.playNextFrame();
+            this.nextTicks = this.getTicks() + this.getCurrentFrameTimer();
+        }
+    },
+
+    playNextFrame: function () {
+        this.currentFrame = this.currentFrame + 1;
+        if (this.currentFrame > this.getCurrentAnimation().length - 1)
+            this.currentFrame = 0;
+    },
+
+    setCurrentAnimation: function (animation) {
+        this.currentAnimation = animation;
+    },
+
+    getCurrentAnimationName: function () {
+        return this.currentAnimation;
+    },
+
+    getCurrentFrame: function () {
+        return this.currentFrame;
+    },
+
+    getCurrentAnimation: function () {
+        return this.animation[this.getCurrentAnimationName()];
+    },
+
+    getCurrentPlayedContext: function () {
+        return this.animation[this.getCurrentAnimationName()][this.getCurrentFrame()];
+    },
+
+    getCurrentFrameTimer: function () {
+        return this.currentContext.rate | 200;
+    },
+
+    setRate: function (ms) {
+        this.currentRate = ms;
+    },
+
+    getRate: function () {
+        return this.currentRate;
     }
 });
