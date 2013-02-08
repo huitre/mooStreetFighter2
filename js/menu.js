@@ -66,7 +66,7 @@ var mooMenu = new Class({
     show: function () {
         this.options.element.setStyle('display', 'block');
         this.options.element.fade('in');
-    },
+    }
 });
 
 
@@ -137,7 +137,6 @@ var menuPlayerSelection = new Class({
             this.mainMenu.currentLink.hide();
         }
         catch (e) {
-            console.log(e);
         }
     },
 
@@ -179,3 +178,4 @@ var menuStageSelection = new Class({
         return el.get('class').replace('s', '');
     },
 });
+

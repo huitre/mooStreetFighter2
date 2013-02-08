@@ -1,130 +1,161 @@
 var Manager = new Class({
-    initialize : function ( game ) {
-        this.game = game;
-    },
-    update : function () {},
-    render : function () {},
-    start : function () {},
-    stop : function () {},
-    prepare : function () {},
-    init : function ( options ) {}
+    Implements : Options,
+    initialize: function (game) {
+        this.game = game;  
+    },
+    update: function () {},
+    render: function () {},
+    start: function () {},
+    stop: function () {},
+    prepare: function () {},
+    init: function (options) {
+        this.setOptions(options);
+    }
 })
 
 var PlayerManager = new Class({
-    Implements : Manager,
-    player1 : null,
-    player2 : null,
+    Implements: Manager,
+    player1: null,
+    player2: null,
 
-    setPlayer1 : function ( player ) {
-        this.player1 = this.playerFactory( player );
-    },
+    setPlayer1: function (player) {
+        this.player1 = this.playerFactory(player, this.options.p1);  
+    },
 
-    setPlayer2 : function ( player ) {
-        this.player2 = this.playerFactory( player );
-    },
+    setPlayer2: function (player) {
+        this.player2 = this.playerFactory(player, this.options.p2);  
+    },
 
-    getPlayer1 : function () {
-        return this.player1;
-    },
+    getPlayers: function () {
+        return [this.player1, this.player2];
+    },
 
-    getPlayer2 : function () {
-        return this.player2;
-    },
+    getPlayer1: function () {  
+        return this.player1;  
+    },
 
-    playerFactory : function ( characterName, playerElement ) {
-        var options = { el : playerElement }, player;
+    getPlayer2: function () {  
+        return this.player2;  
+    },
 
-        characterName = characterName.toLowerCase();
+    playerFactory: function (characterName, playerElement) {
+        var options = {
+            el: playerElement
+        }, player;
+        characterName = characterName.trim().toLowerCase();
 
-        // set defaults to Ken for the moment
-        options.animation = Animation.ken;
-        options.image = charactersUrl + characterName + '.gif';
-        player = new Ken( options );
+        // set defaults to Ken for the moment
+        options.animation = Animation.ken;
+        options.image = characterUrl + characterName + '.gif';  
+        options.currentAnimation = 'idle';
+        player = new Ken(options);
 
-        switch (characterName) {
-            case 'ken':
-            break;
+        switch (characterName) {  
+            case 'ken':
+            case 'ryu':
+            case 'thawk':
+            case 'dalhsim':
+            case 'balrog':
+            case 'cammy':
+            case 'bison':
+            case 'vega':
+            case 'feilong':
+            break;
+        }  
+        return player;  
+    },
 
-            case 'ryu':
-            break;
+    prepare: function () {
+        this.player1.show();
+        this.player2.show();
+    },
 
-            case 'thawk':
-            break;
-
-            case 'dalhsim':
-            break;
-
-            case 'balrog':
-            break;
-
-            case 'cammy':
-            break;
-
-            case 'bison':
-            break;
-
-            case 'vega':
-            break;
-
-            case 'feilong':
-            break;
-        }
-        return player;
-    },
-
-    prepare: function () {
-        this.player1.show();
-        this.player2.show();
-    }
+    render : function () {
+        this.player1.render();
+        this.player2.render();
+    }
 })
 
 var StageManager = new Class({
-    Implements : Manager,
+    Implements: Manager,
 
-    background : null,
-    frontground : null,
-    foreground : null,
-    stageName : null,
+    background: null,
+    frontground: null,
+    foreground: null,
+    stageName: null,
+    stageType : 'versus', // versus, car, barrel...
 
-    setStage : function ( stage ) {
-        this.stageName = stage;
-    },
+    setStage: function (stage) {
+        this.stageName = stage;
+    },
 
-    getStage : function () {
-        return this.stageName.trim();
-    },
+    getStage: function () {
+        return this.stageName.trim();
+    },
 
-    prepare : function () {
-        this.stage.setStyle('display', 'block');
-        this.background.setStyle(
-            'background-image', "url('" backgroundUrl + this.getStage() + ".gif')"
-        );
-        /*
-        this.frontground.setStyle(
-            'background-image', "url('sprites/frontground/" + this.getStage() + ".gif')"
-        );
-        this.foreground.setStyle(
-            'background-image', "url('sprites/foreground/" + this.getStage() + ".gif')"
-        );
-        */
-    },
+    prepare: function () {
+        this.stage.setStyle('display', 'block');
+        this.background.setStyle(
+            'background-image', "url('" + backgroundUrl + this.getStage() + ".gif')");
+        /*
+        this.frontground.setStyle(
+            'background-image', "url('" + frontgroundUrl + this.getStage() + ".gif')");
+        this.foreground.setStyle(
+            'background-image', "url('" + foregroundUrl + this.getStage() + ".gif')"  );
+        */
+        if (this.stageType == 'versus') {
+            this.prepareVersusStage();
+        }
+    },
 
-    render : function () {
+    prepareVersusStage: function () {
+        var pm = this.game.getPlayerManager(),
+            p1 = pm.getPlayer1(),
+            p2 = pm.getPlayer2(),
+            stagePos = this.stage.getCoordinates(),
+            floor = 13;
 
-    },
+        // centrage du background
+        this.background.setStyle('background-position', '-140px 0px');
 
-    init : function ( options ) {
-        this.stage = $(options.main);
-        this.background = $(options.background);
-        this.frontground = $(options.frontground);
-        this.foreground = $(options.foreground);
-    }
+        // positionnement des joueurs
+        p1.setPosition(stagePos.width/2  - 100, stagePos.height - floor - p1.getCurrentPlayedContext().h);
+        p2.setPosition(stagePos.width/2 + 100, stagePos.height - floor - p2.getCurrentPlayedContext().h);
+    },
+
+    render: function () {
+
+    },
+
+    init: function (options) {
+        this.stage = $(options.main);
+        this.background = $(options.background);
+        this.frontground = $(options.frontground);
+        this.foreground = $(options.foreground);
+    }
 });
 
 var CollisionManager = new Class({
-    Implements : Manager
-})
+    Implements: Manager,
+
+    colliderList : [],
+
+    addCollider: function ( colliderArray ) {
+        this.colliderList.push(colliderArray);
+    },
+
+    update: function () {
+        this.colliderList.each(function (collider, index) {
+
+        });
+    }
+});
 
 var InputManager = new Class({
-    Implements : Manager
-})
+    Implements: Manager
+});
+
+var PhysicManager = new Class({
+    Implements: Manager
+});
+
