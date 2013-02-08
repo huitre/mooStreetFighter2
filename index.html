@@ -1,118 +1,118 @@
 <html>
-	<head>
-		<script src="js/mootools-core-1.4.5-yc.js"></script>
-		<script src="js/mootools-more-1.4.0.1.js"></script>
-		<script src="js/player/animation.js"></script>
-		<script src="js/player/sprite.js"></script>
-		<script src="js/player/manager.js"></script>
-		<script src="js/player/characters.js"></script>
-		<script src="js/mooStreetFighter.js"></script>
-		<script src="js/menu.js"></script>
-		<style type="text/css">
-			@import "css/style.css";
-		</style>
-	</head>
-	<div id="game">
-		<div id="logo">
-			<img src="sprites/logo/images.jpg"/>
-		</div>
-		<div id="menu">
-			<div id="start-page" class="menu">
-				<div>
-					<a href="start-game">game start</a>
-					<a href="vs-battle">v.s. battle</a>
-					<a href="option">option mode</a>
-					<a href="credits">credits</a>
-				</div>
-			</div>
-			<div id="start-game" class="menu">
-				<div id="player1-selection" class="pselected"></div>
-				<div id="player-selection">
-					<div class="player none"></div>
-					<div class="player ryu"></div>
-					<div class="player honda"></div>
-					<div class="player blanka"></div>
-					<div class="player guile"></div>
-					<div class="player none"></div>
-					<div class="player balrog"></div>
-					<div class="player ken"></div>
-					<div class="player chunli"></div>
-					<div class="player zangief"></div>
-					<div class="player dalhsim"></div>
-					<div class="player sagat"></div>
-					<div class="player vega"></div>
-					<div class="player thawk"></div>
-					<div class="player feilong"></div>
-					<div class="player deejay"></div>
-					<div class="player cammy"></div>
-					<div class="player bison"></div>
-				</div>
-				<div id="player2-selection" class="pselected"></div>
-				<div id="blank-flash"></div>
-			</div>
-			<div id="stage-selection" class="menu">
-				<div id="stage-map">
-					<div class="s "></div>
-					<div class="s japan"></div>
-					<div class="s japan"></div>
-					<div class="s brazil"></div>
-					<div class="s usa"></div>
-					<div class="s "></div>
-					<div class="s usa"></div>
-					<div class="s usa"></div>
-					<div class="s china"></div>
-					<div class="s urss"></div>
-					<div class="s india"></div>
-					<div class="s thailand"></div>
-					<div class="s spain"></div>
-					<div class="s mexico"></div>
-					<div class="s hongkong"></div>
-					<div class="s jamaica"></div>
-					<div class="s england"></div>
-					<div class="s thailand"></div>
-				</div>
-			</div>
-		</div>
-		<div id="running">
-			<div id="status">
-				<div id="player1-health"></div>
-				<div id="time-left"></div>
-				<div id="player2-health"></div>
-			</div>
-			<div id="stage">
-				<div id="background"></div>
-				<div id="player1"></div>
-				<div id="player2"></div>
-			</div>
-		</div>
-	</div>
-	<script type="text/javascript">
-	var characterUrl = 'sprites/characters/';
-	var backgroundUrl = 'sprites/background/';
-	var foregroundUrl = 'sprites/foreground/';
-	var frontgroundUrl = 'sprites/frontground/';
-	var myMooStreetFighter = new mooStreetFighter ({
-		menu : {
-			element : 'menu'
-		},
-		ui : {
-			time : 'time-left',
-			p1h : 'player1-health',
-			p2h : 'player2-health'
-		},
-		stage : {
-			main : 'stage',
-			background : 'background',
-			player : {
-				p1 : 'player1',
-				p2 : 'player2'
-			}
-		}
-	});
-	try {
-		myMooStreetFighter.startGame();
-	} catch (e) {
-		console.log(e);
-	}
-	</script>
+    <head>
+        <script src="js/mootools-core-1.4.5-yc.js"></script>
+        <script src="js/mootools-more-1.4.0.1.js"></script>
+        <script src="js/player/animation.js"></script>
+        <script src="js/player/sprite.js"></script>
+        <script src="js/player/manager.js"></script>
+        <script src="js/player/characters.js"></script>
+        <script src="js/mooStreetFighter.js"></script>
+        <script src="js/menu.js"></script>
+        <style type="text/css">
+            @import "css/style.css";
+        </style>
+    </head>
+    <div id="game">
+        <div id="logo">
+            <img src="sprites/logo/images.jpg"/>
+        </div>
+        <div id="menu">
+            <div id="start-page" class="menu">
+                <div>
+                    <a href="start-game">game start</a>
+                    <a href="vs-battle">v.s. battle</a>
+                    <a href="option">option mode</a>
+                    <a href="credits">credits</a>
+                </div>
+            </div>
+            <div id="start-game" class="menu">
+                <div id="player1-selection" class="pselected"></div>
+                <div id="player-selection">
+                    <div class="player none"></div>
+                    <div class="player ryu"></div>
+                    <div class="player honda"></div>
+                    <div class="player blanka"></div>
+                    <div class="player guile"></div>
+                    <div class="player none"></div>
+                    <div class="player balrog"></div>
+                    <div class="player ken"></div>
+                    <div class="player chunli"></div>
+                    <div class="player zangief"></div>
+                    <div class="player dalhsim"></div>
+                    <div class="player sagat"></div>
+                    <div class="player vega"></div>
+                    <div class="player thawk"></div>
+                    <div class="player feilong"></div>
+                    <div class="player deejay"></div>
+                    <div class="player cammy"></div>
+                    <div class="player bison"></div>
+                </div>
+                <div id="player2-selection" class="pselected"></div>
+                <div id="blank-flash"></div>
+            </div>
+            <div id="stage-selection" class="menu">
+                <div id="stage-map">
+                    <div class="s "></div>
+                    <div class="s japan"></div>
+                    <div class="s japan"></div>
+                    <div class="s brazil"></div>
+                    <div class="s usa"></div>
+                    <div class="s "></div>
+                    <div class="s usa"></div>
+                    <div class="s usa"></div>
+                    <div class="s china"></div>
+                    <div class="s urss"></div>
+                    <div class="s india"></div>
+                    <div class="s thailand"></div>
+                    <div class="s spain"></div>
+                    <div class="s mexico"></div>
+                    <div class="s hongkong"></div>
+                    <div class="s jamaica"></div>
+                    <div class="s england"></div>
+                    <div class="s thailand"></div>
+                </div>
+            </div>
+        </div>
+        <div id="running">
+            <div id="status">
+                <div id="player1-health"></div>
+                <div id="time-left"></div>
+                <div id="player2-health"></div>
+            </div>
+            <div id="stage">
+                <div id="background"></div>
+                <div id="player1"></div>
+                <div id="player2"></div>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript">
+    var characterUrl = 'sprites/characters/';
+    var backgroundUrl = 'sprites/background/';
+    var foregroundUrl = 'sprites/foreground/';
+    var frontgroundUrl = 'sprites/frontground/';
+    var myMooStreetFighter = new mooStreetFighter ({
+        menu : {
+            element : 'menu'
+        },
+        ui : {
+            time : 'time-left',
+            p1h : 'player1-health',
+            p2h : 'player2-health'
+        },
+        stage : {
+            main : 'stage',
+            background : 'background',
+            player : {
+                p1 : 'player1',
+                p2 : 'player2'
+            }
+        }
+    });
+    try {
+        myMooStreetFighter.startGame();
+    } catch (e) {
+        console.log(e);
+    }
+    </script>
 </html>

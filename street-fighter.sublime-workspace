@@ -4,16 +4,84 @@
 		"selected_items":
 		[
 			[
+				"co",
+				"collisionManager"
+			],
+			[
 				"get",
-				"getElements"
+				"getCurrentPlayedContext"
+			],
+			[
+				"ch",
+				"characterName"
+			],
+			[
+				"ga",
+				"gameLoop"
+			],
+			[
+				"bac",
+				"background"
+			],
+			[
+				"pl",
+				"player2-health"
+			],
+			[
+				"time",
+				"time-left"
+			],
+			[
+				"player",
+				"player2"
+			],
+			[
+				"stage",
+				"stageManager"
+			],
+			[
+				"in",
+				"inputManager"
+			],
+			[
+				"start",
+				"startGame"
+			],
+			[
+				"play",
+				"playerManager"
+			],
+			[
+				"is",
+				"isVisible"
+			],
+			[
+				"curr",
+				"currentRate"
+			],
+			[
+				"current",
+				"currentAnimation"
+			],
+			[
+				"getCurre",
+				"getCurrentPlayedContext"
+			],
+			[
+				"cu",
+				"getCurrentFrame"
+			],
+			[
+				"curre",
+				"currentContext"
+			],
+			[
+				"getCu",
+				"getCurrentFrame"
 			],
 			[
 				"show",
 				"showMenu"
-			],
-			[
-				"player",
-				"playerFactory"
 			],
 			[
 				"p",
@@ -446,74 +514,6 @@
 			[
 				"content",
 				"content-box"
-			],
-			[
-				"inli",
-				"inline-block"
-			],
-			[
-				"text-",
-				"text-align"
-			],
-			[
-				"d",
-				"darken-grey"
-			],
-			[
-				"pointofsale",
-				"pointofsaletmp"
-			],
-			[
-				"link",
-				"linkedContentData"
-			],
-			[
-				"font-",
-				"font-style"
-			],
-			[
-				"tran",
-				"translate"
-			],
-			[
-				"C",
-				"CLI_Exception"
-			],
-			[
-				"Th",
-				"throw"
-			],
-			[
-				"preg",
-				"preg_match"
-			],
-			[
-				"pc",
-				"pclose"
-			],
-			[
-				"is",
-				"isGzip"
-			],
-			[
-				"Excep",
-				"Exception_User_Exists"
-			],
-			[
-				"h",
-				"http_path"
-			],
-			[
-				"f",
-				"formParams"
-			],
-			[
-				"fo",
-				"formPath"
-			],
-			[
-				"cli",
-				"clientName"
 			]
 		]
 	},
@@ -523,15 +523,31 @@
 			"file": "index.html",
 			"settings":
 			{
-				"buffer_size": 3445,
+				"buffer_size": 3319,
 				"line_ending": "Unix"
 			}
 		},
 		{
-			"file": "js/menu.js",
+			"file": "/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 			"settings":
 			{
-				"buffer_size": 3591,
+				"buffer_size": 374,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/mooStreetFighter.js",
+			"settings":
+			{
+				"buffer_size": 2806,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "css/style.css",
+			"settings":
+			{
+				"buffer_size": 3648,
 				"line_ending": "Unix"
 			}
 		},
@@ -539,7 +555,7 @@
 			"file": "js/player/manager.js",
 			"settings":
 			{
-				"buffer_size": 1202,
+				"buffer_size": 2854,
 				"line_ending": "Unix"
 			}
 		},
@@ -547,7 +563,7 @@
 			"file": "js/player/characters.js",
 			"settings":
 			{
-				"buffer_size": 61,
+				"buffer_size": 64,
 				"line_ending": "Unix",
 				"name": "var Ken = new Class({"
 			}
@@ -556,15 +572,7 @@
 			"file": "js/player/sprite.js",
 			"settings":
 			{
-				"buffer_size": 395,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/style.css",
-			"settings":
-			{
-				"buffer_size": 3640,
+				"buffer_size": 2224,
 				"line_ending": "Unix"
 			}
 		},
@@ -573,6 +581,22 @@
 			"settings":
 			{
 				"buffer_size": 1274,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/menu.js",
+			"settings":
+			{
+				"buffer_size": 3995,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "README",
+			"settings":
+			{
+				"buffer_size": 115,
 				"line_ending": "Unix"
 			}
 		}
@@ -653,6 +677,8 @@
 	},
 	"file_history":
 	[
+		"/home/joffrey/localworkspace/street-fighter/street-fighter.sublime-project",
+		"/home/joffrey/localworkspace/street-fighter/js/menu.js",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/module/Popup.js.rej",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/svn-commit.tmp~",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/svn-commit.tmp~",
@@ -778,9 +804,7 @@
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module/utils/ToolBar.js",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/controller/Campaign/EditController.php",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/controller/RetailNetworkController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/HTML/ViewConverter/Factory.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/PointOfSale/Filter/ViewConverter.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Pointofsale/InfoController.php"
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/HTML/ViewConverter/Factory.php"
 	],
 	"find":
 	{
@@ -889,6 +913,7 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"bg",
 			"()",
 			"drag and",
 			"is(.*): function \\(\\) \\{",
@@ -1015,15 +1040,15 @@
 			"a:hover",
 			"campain",
 			"pointof",
-			"$this->pointOfSale->id",
-			"$this->pos"
+			"$this->pointOfSale->id"
 		],
 		"highlight": true,
-		"in_selection": false,
+		"in_selection": true,
 		"preserve_case": false,
-		"regex": true,
+		"regex": false,
 		"replace_history":
 		[
+			"background",
 			"static function is$1 () {",
 			"preg_match(\"/$1/\", $_SERVER['HTTP_USER_AGENT'])",
 			"preg_match(\"/$1/\", $_SERVER['HTTP_USER_AGENT']);",
@@ -1150,8 +1175,7 @@
 			"Browser",
 			"div",
 			"button-icon-arrow-right",
-			"",
-			"icon-arrow-filter2"
+			""
 		],
 		"reverse": false,
 		"show_context": false,
@@ -1162,7 +1186,7 @@
 	"groups":
 	[
 		{
-			"selected": 6,
+			"selected": 7,
 			"sheets":
 			[
 				{
@@ -1170,15 +1194,15 @@
 					"file": "index.html",
 					"settings":
 					{
-						"buffer_size": 3445,
+						"buffer_size": 3319,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1411,
-								1411
+								615,
+								615
 							]
 						],
 						"settings":
@@ -1187,52 +1211,52 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 476.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "js/menu.js",
+					"file": "/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 					"settings":
 					{
-						"buffer_size": 3591,
+						"buffer_size": 374,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3591,
-								3591
+								371,
+								371
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/JavaScript/JSON.tmLanguage",
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 2366.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 2,
-					"file": "js/player/manager.js",
+					"file": "js/mooStreetFighter.js",
 					"settings":
 					{
-						"buffer_size": 1202,
+						"buffer_size": 2806,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								752,
-								752
+								341,
+								341
 							]
 						],
 						"settings":
@@ -1241,25 +1265,79 @@
 							"translate_tabs_to_spaces": false
 						},
 						"translation.x": 0.0,
-						"translation.y": 255.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "js/player/characters.js",
+					"file": "css/style.css",
 					"settings":
 					{
-						"buffer_size": 61,
+						"buffer_size": 3648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								61,
-								61
+								2340,
+								2340
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/SCSS/SCSS.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1754.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/player/manager.js",
+					"settings":
+					{
+						"buffer_size": 2854,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								2433,
+								2433
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 1683.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/player/characters.js",
+					"settings":
+					{
+						"buffer_size": 64,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								64,
+								64
 							]
 						],
 						"settings":
@@ -1274,19 +1352,47 @@
 					"type": "text"
 				},
 				{
-					"buffer": 4,
+					"buffer": 6,
 					"file": "js/player/sprite.js",
 					"settings":
 					{
-						"buffer_size": 395,
+						"buffer_size": 2224,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								395,
-								395
+								2194,
+								2194
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 918.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "js/player/animation.js",
+					"settings":
+					{
+						"buffer_size": 1274,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								274,
+								274
 							]
 						],
 						"settings":
@@ -1302,53 +1408,51 @@
 					"type": "text"
 				},
 				{
-					"buffer": 5,
-					"file": "css/style.css",
+					"buffer": 8,
+					"file": "js/menu.js",
 					"settings":
 					{
-						"buffer_size": 3640,
+						"buffer_size": 3995,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								691,
-								691
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 867.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "js/player/animation.js",
-					"settings":
-					{
-						"buffer_size": 1274,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								725,
-								725
+								3995,
+								3995
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"translate_tabs_to_spaces": false
+						},
+						"translation.x": 0.0,
+						"translation.y": 2077.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 9,
+					"file": "README",
+					"settings":
+					{
+						"buffer_size": 115,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								115,
+								115
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
