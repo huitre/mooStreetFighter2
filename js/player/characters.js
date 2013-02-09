@@ -19,11 +19,37 @@ var ICollider = new Class({
     /**
      * Methode de detection des collisions entre l'objet 
      * et la liste des objets ICollider present sur la scene
-     * @return ICollider 
      */
     isColliding: function (colliderList) {
-        console.log('tamere');
+        var that = this;
+        colliderList.each(function(collider) {
+            if (collider != that) {
+                var b1 = collider.getBounds(),
+                    b2 = that.getBounds();
+                if (that.intersects(b1.x, b1.y, b1.w, b1.h, b2.x, b2.y, b2.w, b2.h)) {
+                    that.collideWith(collider);
+                    collider.collideWith(that);
+                }
+            }
+        });
     },
+
+    /**
+     * Methode qui verifie si 2 rectangles se superposent en partie
+     * @return Boolean
+     */
+    intersects: function (x1, y1, w1, h1, x2, y2, w2, h2) {
+        w2 += x2;
+        w1 += x1;
+        if (x2 > w1 || x1 > w2)
+           return false;
+        h2 += y2;
+        h1 += y1;
+        if (y2 > h1 || y1 > h2)
+            return false;
+        return true;
+    },
+
 
     /**
      * Methode de detection des collisions entre l'objet 
@@ -48,30 +74,14 @@ var Character = new Class({
     },
     
     collideWith: function (objectCollider) {
-        console.log('Collision detecte !', objectCollider);
     },
 
-    isColliding: function (colliderList) {
-        var that = this;
-        colliderList.each(function(collider) {
-            var cBounds = collider.getBounds(),
-                oBounds = that.getBounds();
-            /*
-            if (oBounds.x <= cBounds.x + (oBounds.w + cBounds.w) / 2 
-                && oBounds.x >= cBounds.x – (oBounds.w + cBounds.w) / 2
-                && oBounds.y >= cBounds.y – (oBounds.h + cBounds.h) / 2
-                && oBounds.y >= cBounds.y – (oBounds.h + cBounds.h) / 2
-                ) {
-                    collider.collideWith(this);
-                    this.collideWith(collider);
-                }
-                */
-        });
-    },
     getCollidingPoint: function () {},
 
     getBounds: function () {
-        return this.getCurrentBounds();
+        var c = this.getCurrentPlayedContext(),
+            p = this.getPosition();
+        return {x: p.x, y: p.y, w: c.w, h: c.h}
     }
 })
 
