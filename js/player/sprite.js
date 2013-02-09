@@ -20,11 +20,11 @@ var Sprite = new Class({
     },
 
     play: function () {
-        this.isPaused = false;  
+        this.isPaused = false;
     },
 
     pause: function () {
-        this.paused = true;  
+        this.paused = true;
     },
 
     getCurrentBounds: function () {
@@ -82,7 +82,7 @@ var AnimatedSprite = new Class({
     Implements: [Events],
 
     // contenu
-     animation: null,
+    animation: null,
 
     // variable de contexte courant
     currentAnimation: 'idle',
