@@ -11,14 +11,12 @@ var ICollider = new Class({
 
     initialize: function (options) {},
 
-    /**
-     * 
-     */
     collideWith: function (objectCollider) {},
 
     /**
      * Methode de detection des collisions entre l'objet 
      * et la liste des objets ICollider present sur la scene
+     * @return bool
      */
     isColliding: function (colliderList) {
         var that = this;

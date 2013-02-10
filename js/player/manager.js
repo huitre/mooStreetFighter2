@@ -161,6 +161,13 @@ var InputManager = new Class({
 });
 
 var PhysicManager = new Class({
-    Implements: Manager
+    Extends : CollisionManager,
+    Implements: Manager,
+
+    floor: 30,
+
+    update: function () {
+
+    }
 });
 

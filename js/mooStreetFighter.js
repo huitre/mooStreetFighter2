@@ -40,6 +40,10 @@ var mooStreetFighter = new Class({
         return this.inputManager;
     },
 
+    getPhysicManager: function () {
+        return this.physicManager;
+    },
+
     /**
      * Gameloop principal de rendu
      */
@@ -83,6 +87,7 @@ var mooStreetFighter = new Class({
         });
         this.inputManager = new InputManager(this);
         this.collisionManager = new CollisionManager(this);
+        this.physicManager = new PhysicManager(this);
     },
 
     /**
@@ -97,6 +102,7 @@ var mooStreetFighter = new Class({
         this.playerManager.prepare();
         this.inputManager.prepare(players);
         this.collisionManager.addCollider(players);
+        this.physicManager.addCollider(players);
         this.gameLoop = function () {
             that.render();
         }
