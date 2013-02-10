@@ -1,9 +1,9 @@
 /**
  * @author Huitre<gohin.j@gmail.com>
  */
- 
+
 var mooStreetFighter = new Class({
-    framerate: 1000 / 60,
+    framerate: 10000 / 60,
     optios: null,
     playerManager: null,
     stageManager: null,
@@ -52,14 +52,19 @@ var mooStreetFighter = new Class({
         this.collisionManager.update();
         this.stageManager.render();
         this.playerManager.render();
+        this.physicManager.update();
     },
 
     play: function () {
-
+        var that = this;
+        this.gameLoop = function () {
+            that.render();
+        }
+        this.gameLoop.periodical(this.framerate);
     },
 
     pause: function () {
-
+        clearInterval(this.gameLoop);
     },
 
     quit: function () {
@@ -103,9 +108,6 @@ var mooStreetFighter = new Class({
         this.inputManager.prepare(players);
         this.collisionManager.addCollider(players);
         this.physicManager.addCollider(players);
-        this.gameLoop = function () {
-            that.render();
-        }
-        this.gameLoop.periodical(this.framerate);
+        this.play();
     }
 });
