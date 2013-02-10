@@ -1,3 +1,6 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
 var Sprite = new Class({
     Implements: [Options],
 

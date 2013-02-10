@@ -1,3 +1,7 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
+ 
 var mooStreetFighter = new Class({
     framerate: 1000 / 60,
     optios: null,
@@ -34,6 +38,10 @@ var mooStreetFighter = new Class({
 
     getInputManager: function () {
         return this.inputManager;
+    },
+
+    getPhysicManager: function () {
+        return this.physicManager;
     },
 
     /**
@@ -79,6 +87,7 @@ var mooStreetFighter = new Class({
         });
         this.inputManager = new InputManager(this);
         this.collisionManager = new CollisionManager(this);
+        this.physicManager = new PhysicManager(this);
     },
 
     /**
@@ -93,6 +102,7 @@ var mooStreetFighter = new Class({
         this.playerManager.prepare();
         this.inputManager.prepare(players);
         this.collisionManager.addCollider(players);
+        this.physicManager.addCollider(players);
         this.gameLoop = function () {
             that.render();
         }

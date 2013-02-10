@@ -1,3 +1,6 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
 var Animation = {
   ken : {
     idle : [

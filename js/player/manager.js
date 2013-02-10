@@ -1,3 +1,7 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
+
 var Manager = new Class({
     Implements : Options,
     initialize: function (game) {
@@ -141,12 +145,13 @@ var CollisionManager = new Class({
     colliderList : [],
 
     addCollider: function ( colliderArray ) {
-        this.colliderList.push(colliderArray);
+        this.colliderList.combine(colliderArray);
     },
 
     update: function () {
+        var that = this;
         this.colliderList.each(function (collider, index) {
-
+            collider.isColliding(that.colliderList);
         });
     }
 });
@@ -156,6 +161,13 @@ var InputManager = new Class({
 });
 
 var PhysicManager = new Class({
-    Implements: Manager
+    Extends : CollisionManager,
+    Implements: Manager,
+
+    floor: 30,
+
+    update: function () {
+
+    }
 });
 
