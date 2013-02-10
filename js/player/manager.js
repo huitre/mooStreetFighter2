@@ -156,6 +156,22 @@ var InputManager = new Class({
 });
 
 var PhysicManager = new Class({
-    Implements: Manager
+    Extends : CollisionManager,
+    Implements: Manager,
+
+    floor: 209,
+
+    update: function () {
+        var that = this;
+        this.colliderList.each(function (collider) {
+            var b = collider.getBounds();
+            
+            if (b.y + b.h > that.floor) {
+                b.y = b.y - ((b.y + b.h) - that.floor);
+            }
+
+            collider.setPosition(b.x, b.y);
+        });
+    }
 });
 

@@ -3,6 +3,8 @@ var Sprite = new Class({
 
     el: null,
     isVisible: true,
+    x : 0,
+    y : 0,
 
     initialize: function (options) {
         if (options) {
@@ -66,10 +68,13 @@ var Sprite = new Class({
             x: x,
             y: y
         });
+        this.x = x;
+        this.y = y;
     },
 
     getPosition: function () {
-        return this.el.getPosition();
+        //return this.el.getPosition();
+        return {x: this.x, y: this.y}
     },
 
     moveTo: function (x, y, speed) {
@@ -110,8 +115,8 @@ var AnimatedSprite = new Class({
             var pos = this.getPosition();
             this.el.setStyles({
                 'background-position': this.currentContext.x + 'px ' + this.currentContext.y + 'px',
-                /*'top': pos.y,
-                'left': pos.x,*/
+                'top': pos.y,
+                'left': pos.x,
                 'width': this.currentContext.w,
                 'height': this.currentContext.h
             });

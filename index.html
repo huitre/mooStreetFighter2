@@ -72,6 +72,7 @@
                 </div>
             </div>
         </div>
+<<<<<<< Updated upstream
         <div id="running">
             <div id="status">
                 <div id="player1-health"></div>
@@ -115,4 +116,45 @@
         console.log(e);  
     }
 </script>
+=======
+    </body>
+    <script type="text/javascript">
+        var globalCounter = 0;
+        var characterUrl = 'sprites/characters/';
+        var backgroundUrl = 'sprites/background/';
+        var foregroundUrl = 'sprites/foreground/';
+        var frontgroundUrl = 'sprites/frontground/';
+        var myMooStreetFighter = null;
+
+        window.addEvent('domready', function() {
+            myMooStreetFighter = new mooStreetFighter({    
+                menu: {
+                    element: 'menu'
+                },
+                ui: {
+                    time: 'time-left',
+                    p1h: 'player1-health',
+                    p2h: 'player2-health'
+                },
+                stage: {
+                    main: 'stage',
+                    background: 'background',
+                    player: {
+                        p1: 'player1',
+                        p2: 'player2'
+                    }
+                }
+            });  
+            try {    
+                myMooStreetFighter.startGame();
+                myMooStreetFighter.getPlayerManager().setPlayer1('ken');
+                myMooStreetFighter.getPlayerManager().setPlayer2('ken');
+                myMooStreetFighter.getStageManager().setStage('japan');
+                myMooStreetFighter.launch();
+            } catch (e) {    
+                console.log(e);  
+            }
+        });
+    </script>
+>>>>>>> Stashed changes
 </html>
