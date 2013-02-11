@@ -103,11 +103,14 @@ var mooStreetFighter = new Class({
         var that = this,
             players = this.playerManager.getPlayers();
         this.menuManager.hide();
-        this.stageManager.prepare();
-        this.playerManager.prepare();
-        this.inputManager.prepare(players);
-        this.collisionManager.addCollider(players);
-        this.physicManager.addCollider(players);
-        this.play();
+        var t = function () {
+            this.stageManager.prepare();
+            this.playerManager.prepare();
+            this.inputManager.prepare(players);
+            this.collisionManager.addCollider(players);
+            this.physicManager.addCollider([this.playerManager.getPlayer1()]);
+            this.play();
+        }
+        t.bind(this).delay(1000);
     }
 });

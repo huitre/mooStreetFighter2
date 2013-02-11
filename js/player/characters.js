@@ -14,7 +14,7 @@ var ICollider = new Class({
     collideWith: function (objectCollider) {},
 
     /**
-     * Methode de detection des collisions entre l'objet 
+     * Methode de detection des collisions entre l'objet
      * et la liste des objets ICollider present sur la scene
      * @return bool
      */
@@ -50,12 +50,12 @@ var ICollider = new Class({
 
 
     /**
-     * Methode de detection des collisions entre l'objet 
+     * Methode de detection des collisions entre l'objet
      * et la liste des objets ICollider present sur la scene.
      * TODO : detection par shape ou par pixels.
      */
     getCollidingPoint: function () {},
-    
+
     /**
      * Retourne les dimensions de l'objet ICollider.
      * @return object
@@ -63,24 +63,108 @@ var ICollider = new Class({
     getBounds: function () {}
 });
 
+
+var IPhysic = new Class({
+    vx : 0,
+    vy : 0,
+    gravity : 9,
+
+    applyGravity: function () {
+        var pos = this.getPosition();
+        pos.x += this.vx;
+        pos.y += this.vy;
+        this.vy += this.gravity;
+        return pos;
+    },
+
+    setForce: function (vx, vy) {
+        this.vx = vx;
+        this.vy = vy;
+    },
+
+    addForce: function (fx, fy) {
+        this.vx += fx;
+        this.vy += fy;
+    },
+
+    isOnFloor: function () {}
+
+});
+
 var Character = new Class({
     Extends : AnimatedSprite,
-    Implements : [Events, ICollider],
+    Implements : [Events, ICollider, IPhysic],
+
+    isJumping: true,
+    isMoving: false,
+    isAttacking: false,
+    isHitable: false,
 
     initialize : function ( options ) {
         this.parent(options);
     },
-    
+
     collideWith: function (objectCollider) {
     },
 
     getCollidingPoint: function () {},
 
     getBounds: function () {
-        var c = this.getCurrentPlayedContext(),
-            p = this.getPosition();
-        return {x: p.x, y: p.y, w: c.w, h: c.h}
+       return this.getCurrentBounds();
+    },
+
+    isOnFloor : function () {
+        this.isJumping = false;
+        if (!this.isMoving)
+            this.setCurrentAnimation('idle');
+    },
+
+    jump: function () {
+        if (!this.isJumping) {
+            this.isJumping = true;
+            this.setCurrentAnimation('jump');
+            this.addForce(0, -25);
+        }
+    },
+
+    moveLeft: function () {
+        this.setCurrentAnimation('walkright');
+        this.addForce(-5, 0);
+        this.isMoving = true;
+    },
+
+    moveRight: function () {
+        this.isMoving = true;
+        this.setCurrentAnimation('walkright');
+        this.addForce(5, 0);
+    },
+
+    crouch: function () {
+        this.isMoving = true;
+    },
+
+    lpunch: function () {
+        this.isAttacking = true;
+        this.isHitable = true;
+        this.isMoving = true;
+        this.setCurrentAnimation('lpunch');
+    },
+
+    getHit: function () {
+
+    },
+
+    reset: function (force) {
+        this.isHitable = false;
+        if (!this.isJumping) {
+            this.isAttacking = this.getCurrentFrame() < this.getCurrentAnimation().length;
+            if (!this.isAttacking || force) {
+                this.isMoving = false;
+                this.setCurrentAnimation('idle');
+            }
+        }
     }
+
 })
 
 var Ken = new Class({
