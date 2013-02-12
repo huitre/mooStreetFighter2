@@ -4,8 +4,28 @@
 		"selected_items":
 		[
 			[
+				"is",
+				"isAttacking"
+			],
+			[
+				"init",
+				"initialize"
+			],
+			[
 				"set",
-				"setPosition"
+				"setCurrentFrame"
+			],
+			[
+				"setC",
+				"setCurrentFrame"
+			],
+			[
+				"getC",
+				"getCurrentAnimation"
+			],
+			[
+				"curr",
+				"currentFrame"
 			],
 			[
 				"curre",
@@ -74,14 +94,6 @@
 			[
 				"start",
 				"startGame"
-			],
-			[
-				"is",
-				"isVisible"
-			],
-			[
-				"curr",
-				"currentRate"
 			],
 			[
 				"getCurre",
@@ -502,79 +514,11 @@
 			[
 				"margin",
 				"margin-top"
-			],
-			[
-				"min",
-				"min-width"
-			],
-			[
-				"se",
-				"setupCampaignPopupButton"
-			],
-			[
-				"margin-",
-				"margin-left"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 5371,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/style.css",
-			"settings":
-			{
-				"buffer_size": 3978,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/player/sprite.js",
-			"settings":
-			{
-				"buffer_size": 4036,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/player/manager.js",
-			"settings":
-			{
-				"buffer_size": 4611,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/player/characters.js",
-			"settings":
-			{
-				"buffer_size": 2503,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/mooStreetFighter.js",
-			"settings":
-			{
-				"buffer_size": 2850,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/player/animation.js",
-			"settings":
-			{
-				"buffer_size": 1275,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -652,11 +596,16 @@
 	},
 	"file_history":
 	[
+		"/home/joffrey/localworkspace/street-fighter/js/player/animation.js",
+		"/home/joffrey/localworkspace/street-fighter/js/mooStreetFighter.js",
+		"/home/joffrey/localworkspace/street-fighter/css/style.css",
 		"/home/joffrey/localworkspace/street-fighter/js/player/characters.js",
+		"/home/joffrey/localworkspace/street-fighter/js/player/sprite.js",
+		"/home/joffrey/localworkspace/street-fighter/js/player/manager.js",
+		"/home/joffrey/workspace/developer/joffrey/iwdwebsite/index.html",
+		"/home/joffrey/localworkspace/street-fighter/index.html",
 		"/home/joffrey/localworkspace/street-fighter/js/menu.js",
 		"/home/joffrey/localworkspace/street-fighter/street-fighter.sublime-project",
-		"/home/joffrey/localworkspace/street-fighter/js/player/manager.js",
-		"/home/joffrey/localworkspace/street-fighter/js/mooStreetFighter.js",
 		"/home/joffrey/localworkspace/street-fighter/js/mootools-core-1.4.5-yc.js",
 		"/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
 		"/home/joffrey/localworkspace/street-fighter/README",
@@ -774,12 +723,7 @@
 		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern2/2013-01-17/2013-01-17-dloccitanern2.log",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/action-bar.phtml",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/side-bar.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/content.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Pointofsale/AbstractController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Campaign/EditController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/pointofsale/campaign/side-bar.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Pointofsale/EditController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/pointofsale/info/content.phtml"
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/content.phtml"
 	],
 	"find":
 	{
@@ -1162,205 +1106,8 @@
 	"groups":
 	[
 		{
-			"selected": 3,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "index.html",
-					"settings":
-					{
-						"buffer_size": 5371,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4790,
-								4790
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1428.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "css/style.css",
-					"settings":
-					{
-						"buffer_size": 3978,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								387,
-								387
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/player/sprite.js",
-					"settings":
-					{
-						"buffer_size": 4036,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2871,
-								2871
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "js/player/manager.js",
-					"settings":
-					{
-						"buffer_size": 4611,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								4430,
-								4430
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2244.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "js/player/characters.js",
-					"settings":
-					{
-						"buffer_size": 2503,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1751,
-								1751
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 765.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "js/mooStreetFighter.js",
-					"settings":
-					{
-						"buffer_size": 2850,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1734,
-								1734
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1224.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "js/player/animation.js",
-					"settings":
-					{
-						"buffer_size": 1275,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1275,
-								1275
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],

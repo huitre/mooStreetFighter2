@@ -67,7 +67,7 @@ var ICollider = new Class({
 var IPhysic = new Class({
     vx : 0,
     vy : 0,
-    gravity : 9,
+    gravity : 4,
 
     applyGravity: function () {
         var pos = this.getPosition();

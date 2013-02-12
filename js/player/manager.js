@@ -125,7 +125,7 @@ var StageManager = new Class({
         // positionnement des joueurs
         p1.setPosition(stagePos.width/2  - 100, stagePos.height - floor - p1.getCurrentPlayedContext().h);
         p2.setPosition(stagePos.width/2 + 100, stagePos.height - floor - p2.getCurrentPlayedContext().h);
-        // gravity test
+
     },
 
     render: function () {
@@ -171,22 +171,29 @@ var InputManager = new Class({
                 switch (e.key) {
                     case 'space':
                         player1.lpunch();
-                    break;
+                        break;
                     case 'up':
                         player1.jump();
-                    break;
-
+                        break;
                     case 'left':
                         player1.moveLeft();
                     break;
-
                     case 'right':
                         player1.moveRight();
                     break;
                 }
             },
-            'keyup' : function () {
-                player1.reset();
+            'keyup' : function (e) {
+                switch (e.key) {
+                    case 'right':
+                    case 'left':
+                        player1.reset(true);
+                    break;
+
+                    default:
+                        player1.reset();
+                    break;
+                }
             }
         })
     }

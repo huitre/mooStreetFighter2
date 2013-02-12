@@ -169,7 +169,7 @@ var AnimatedSprite = new Class({
     },
 
     getCurrentFrameTimer: function () {
-        return this.currentContext.rate | 200;
+        return this.getCurrentPlayedContext().rate | 133;
     },
 
     setRate: function (ms) {
