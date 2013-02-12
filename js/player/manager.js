@@ -70,13 +70,15 @@ var PlayerManager = new Class({
     },
 
     prepare: function () {
-        this.player1.show();
-        this.player2.show();
+        this.getPlayers().each(function(player) {
+            player.show();
+        });
     },
 
     render : function () {
-        this.player1.render();
-        this.player2.render();
+        this.getPlayers().each(function(player) {
+            player.render();
+        });
     }
 })
 
