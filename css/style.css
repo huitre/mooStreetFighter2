@@ -162,4 +162,14 @@ body {
 .s:hover.spain { background-position : -457px -486px !important;}
 .s:hover.urss { background-position : -373px -486px !important;}
 
-#player1, #player2 { position: absolute; padding: 0; margin: 0; }
+#player1, #player2 {
+    position: absolute; padding: 0; margin: 0;
+    -webkit-transition-property: top;
+    -moz-transition-property: top;
+    -o-transition-property: top;
+    transition-property: top;
+    -webkit-transition-duration: 16ms;
+    /*-moz-transition-duration: 16ms;
+    -o-transition-duration: 16ms;
+    transition-duration: 16ms;*/
+}

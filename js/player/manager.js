@@ -125,6 +125,7 @@ var StageManager = new Class({
         // positionnement des joueurs
         p1.setPosition(stagePos.width/2  - 100, stagePos.height - floor - p1.getCurrentPlayedContext().h);
         p2.setPosition(stagePos.width/2 + 100, stagePos.height - floor - p2.getCurrentPlayedContext().h);
+        // gravity test
     },
 
     render: function () {
@@ -157,17 +158,62 @@ var CollisionManager = new Class({
 });
 
 var InputManager = new Class({
-    Implements: Manager
+    Implements: Manager,
+
+    initialize: function () {
+
+    },
+
+    prepare: function (players) {
+        var player1 = players[0];
+        $(window).addEvents({
+            'keydown': function (e) {
+                switch (e.key) {
+                    case 'space':
+                        player1.lpunch();
+                    break;
+                    case 'up':
+                        player1.jump();
+                    break;
+
+                    case 'left':
+                        player1.moveLeft();
+                    break;
+
+                    case 'right':
+                        player1.moveRight();
+                    break;
+                }
+            },
+            'keyup' : function () {
+                player1.reset();
+            }
+        })
+    }
 });
 
 var PhysicManager = new Class({
     Extends : CollisionManager,
     Implements: Manager,
 
-    floor: 30,
+    floor: 209,
 
     update: function () {
+        var that = this;
+        this.colliderList.each(function (collider) {
+            var g = collider.applyGravity(),
+                b = collider.getBounds();
 
+            b.x = g.x;
+            b.y = g.y;
+            if (b.h + b.y > that.floor && collider.vy != 0) {
+                collider.setPosition(b.x, b.y - (b.h + b.y - that.floor) + 1);
+                collider.setForce(0, 0);
+                collider.isOnFloor();
+            } else {
+                collider.setPosition(b.x, b.y);
+            }
+        });
     }
 });
 

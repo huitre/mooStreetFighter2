@@ -6,6 +6,8 @@ var Sprite = new Class({
 
     el: null,
     isVisible: true,
+    x : 0,
+    y : 0,
 
     initialize: function (options) {
         if (options) {
@@ -33,8 +35,10 @@ var Sprite = new Class({
     getCurrentBounds: function () {
         var currentContext = this.getCurrentPlayedContext();
         var bounds = {
-            w: currentContext.x,
-            h: currentContext.y
+            x: this.x,
+            y: this.y,
+            w: currentContext.w,
+            h: currentContext.h
         }
         return bounds;
     },
@@ -52,12 +56,11 @@ var Sprite = new Class({
 
     render: function () {
         if (this.isVisible) {
-            var context = this.getCurrentPlayedContext(),
-                pos = this.getPosition();
+            var context = this.getCurrentPlayedContext();
             this.el.setStyles({
                 'background-position': '0 0',
-                'top': pos.y,
-                'left': pos.x,
+                'top': this.y + 'px',
+                'left': this.x + 'px',
                 'width': context.w,
                 'height': context.h
             });
@@ -65,14 +68,16 @@ var Sprite = new Class({
     },
 
     setPosition: function (x, y) {
-        this.el.setPosition({
-            x: x,
-            y: y
+        this.el.setStyles({
+            'top': y + 'px',
+            'left': x + 'px'
         });
+        this.x = x;
+        this.y = y;
     },
 
     getPosition: function () {
-        return this.el.getPosition();
+        return {x: this.x, y: this.y}
     },
 
     moveTo: function (x, y, speed) {
@@ -113,8 +118,8 @@ var AnimatedSprite = new Class({
             var pos = this.getPosition();
             this.el.setStyles({
                 'background-position': this.currentContext.x + 'px ' + this.currentContext.y + 'px',
-                /*'top': pos.y,
-                'left': pos.x,*/
+                'top': pos.y + 'px',
+                'left': pos.x + 'px',
                 'width': this.currentContext.w,
                 'height': this.currentContext.h
             });
@@ -131,16 +136,24 @@ var AnimatedSprite = new Class({
 
     playNextFrame: function () {
         this.currentFrame = this.currentFrame + 1;
-        if (this.currentFrame > this.getCurrentAnimation().length - 1)
+        if (this.currentFrame > this.getCurrentAnimation().length - 1) {
             this.currentFrame = 0;
+            this.reset(true);
+        }
     },
 
     setCurrentAnimation: function (animation) {
+        if (animation != this.getCurrentAnimationName())
+            this.setCurrentFrame(0);
         this.currentAnimation = animation;
     },
 
     getCurrentAnimationName: function () {
         return this.currentAnimation;
+    },
+
+    setCurrentFrame: function (n) {
+        this.currentFrame = n;
     },
 
     getCurrentFrame: function () {
