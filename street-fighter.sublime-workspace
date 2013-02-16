@@ -4,12 +4,64 @@
 		"selected_items":
 		[
 			[
-				"co",
-				"collisionManager"
+				"is",
+				"isAttacking"
+			],
+			[
+				"init",
+				"initialize"
+			],
+			[
+				"set",
+				"setCurrentFrame"
+			],
+			[
+				"setC",
+				"setCurrentFrame"
+			],
+			[
+				"getC",
+				"getCurrentAnimation"
+			],
+			[
+				"curr",
+				"currentFrame"
+			],
+			[
+				"curre",
+				"currentFrame"
 			],
 			[
 				"get",
-				"getCurrentPlayedContext"
+				"getMilliseconds"
+			],
+			[
+				"play",
+				"playNextFrame"
+			],
+			[
+				"current",
+				"currentRate"
+			],
+			[
+				"pre",
+				"prepareVersusStage"
+			],
+			[
+				"stage",
+				"stagePos"
+			],
+			[
+				"sta",
+				"stagePos"
+			],
+			[
+				"padd",
+				"padding"
+			],
+			[
+				"co",
+				"collisionManager"
 			],
 			[
 				"ch",
@@ -36,10 +88,6 @@
 				"player2"
 			],
 			[
-				"stage",
-				"stageManager"
-			],
-			[
 				"in",
 				"inputManager"
 			],
@@ -48,32 +96,12 @@
 				"startGame"
 			],
 			[
-				"play",
-				"playerManager"
-			],
-			[
-				"is",
-				"isVisible"
-			],
-			[
-				"curr",
-				"currentRate"
-			],
-			[
-				"current",
-				"currentAnimation"
-			],
-			[
 				"getCurre",
 				"getCurrentPlayedContext"
 			],
 			[
 				"cu",
 				"getCurrentFrame"
-			],
-			[
-				"curre",
-				"currentContext"
 			],
 			[
 				"getCu",
@@ -464,10 +492,6 @@
 				"navigationParameters"
 			],
 			[
-				"set",
-				"setupSeeMoreButton"
-			],
-			[
 				"di",
 				"display"
 			],
@@ -490,132 +514,11 @@
 			[
 				"margin",
 				"margin-top"
-			],
-			[
-				"min",
-				"min-width"
-			],
-			[
-				"padd",
-				"padding-left"
-			],
-			[
-				"se",
-				"setupCampaignPopupButton"
-			],
-			[
-				"margin-",
-				"margin-left"
-			],
-			[
-				"but",
-				"button-icon-bottom"
-			],
-			[
-				"content",
-				"content-box"
 			]
 		]
 	},
 	"buffers":
 	[
-		{
-			"file": "index.html",
-			"settings":
-			{
-				"buffer_size": 4539,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 0,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/mooStreetFighter.js",
-			"settings":
-			{
-				"buffer_size": 2388,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "css/style.css",
-			"settings":
-			{
-				"buffer_size": 3978,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/player/manager.js",
-			"settings":
-			{
-				"buffer_size": 3706,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/player/characters.js",
-			"settings":
-			{
-				"buffer_size": 610,
-				"line_ending": "Unix",
-				"name": "var Ken = new Class({"
-			}
-		},
-		{
-			"file": "js/player/sprite.js",
-			"settings":
-			{
-				"buffer_size": 3709,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/player/animation.js",
-			"settings":
-			{
-				"buffer_size": 1275,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/huitre/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 13149,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "/home/huitre/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-			"settings":
-			{
-				"buffer_size": 57,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "js/menu.js",
-			"settings":
-			{
-				"buffer_size": 4744,
-				"line_ending": "Unix"
-			}
-		},
-		{
-			"file": "README",
-			"settings":
-			{
-				"buffer_size": 115,
-				"line_ending": "Unix"
-			}
-		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -693,10 +596,19 @@
 	},
 	"file_history":
 	[
-		"/home/huitre/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/huitre/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
-		"/home/joffrey/localworkspace/street-fighter/street-fighter.sublime-project",
+		"/home/joffrey/localworkspace/street-fighter/js/player/animation.js",
+		"/home/joffrey/localworkspace/street-fighter/js/mooStreetFighter.js",
+		"/home/joffrey/localworkspace/street-fighter/css/style.css",
+		"/home/joffrey/localworkspace/street-fighter/js/player/characters.js",
+		"/home/joffrey/localworkspace/street-fighter/js/player/sprite.js",
+		"/home/joffrey/localworkspace/street-fighter/js/player/manager.js",
+		"/home/joffrey/workspace/developer/joffrey/iwdwebsite/index.html",
+		"/home/joffrey/localworkspace/street-fighter/index.html",
 		"/home/joffrey/localworkspace/street-fighter/js/menu.js",
+		"/home/joffrey/localworkspace/street-fighter/street-fighter.sublime-project",
+		"/home/joffrey/localworkspace/street-fighter/js/mootools-core-1.4.5-yc.js",
+		"/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/joffrey/localworkspace/street-fighter/README",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/module/Popup.js.rej",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/svn-commit.tmp~",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/svn-commit.tmp~",
@@ -811,16 +723,7 @@
 		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern2/2013-01-17/2013-01-17-dloccitanern2.log",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/action-bar.phtml",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/side-bar.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/content.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Pointofsale/AbstractController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Campaign/EditController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/pointofsale/campaign/side-bar.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/controller/Pointofsale/EditController.php",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/pointofsale/info/content.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern2/2013-01-16/2013-01-16-dloccitanern2.log",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module/pointofsale/Store.js",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/js/fr/iwd/module/utils/ToolBar.js",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.3/src/php/fr/iwd/controller/Campaign/EditController.php"
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/content.phtml"
 	],
 	"find":
 	{
@@ -831,6 +734,7 @@
 		"height": 0.0,
 		"where_history":
 		[
+			"/home/joffrey/localworkspace/street-fighter/js",
 			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass",
 			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5",
 			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd",
@@ -929,6 +833,10 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"console.log",
+			"    ",
+			"                ",
+			"       ",
 			"bg",
 			"()",
 			"drag and",
@@ -1052,18 +960,16 @@
 			"successhisto",
 			"successhisty",
 			"see",
-			"seeall",
-			"a:hover",
-			"campain",
-			"pointof",
-			"$this->pointOfSale->id"
+			"seeall"
 		],
 		"highlight": true,
-		"in_selection": true,
+		"in_selection": false,
 		"preserve_case": false,
 		"regex": false,
 		"replace_history":
 		[
+			"    ",
+			"",
 			"background",
 			"static function is$1 () {",
 			"preg_match(\"/$1/\", $_SERVER['HTTP_USER_AGENT'])",
@@ -1189,9 +1095,7 @@
 			"<span>",
 			"info",
 			"Browser",
-			"div",
-			"button-icon-arrow-right",
-			""
+			"div"
 		],
 		"reverse": false,
 		"show_context": false,
@@ -1202,341 +1106,8 @@
 	"groups":
 	[
 		{
-			"selected": 9,
 			"sheets":
 			[
-				{
-					"buffer": 0,
-					"file": "index.html",
-					"settings":
-					{
-						"buffer_size": 4539,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 1,
-					"file": "/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 0,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"translate_tabs_to_spaces": false
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"file": "js/mooStreetFighter.js",
-					"settings":
-					{
-						"buffer_size": 2388,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "css/style.css",
-					"settings":
-					{
-						"buffer_size": 3978,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/SCSS/SCSS.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1754.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "js/player/manager.js",
-					"settings":
-					{
-						"buffer_size": 3706,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1683.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "js/player/characters.js",
-					"settings":
-					{
-						"buffer_size": 610,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"auto_name": "var Ken = new Class({",
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "js/player/sprite.js",
-					"settings":
-					{
-						"buffer_size": 3709,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 918.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "js/player/animation.js",
-					"settings":
-					{
-						"buffer_size": 1275,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "/home/huitre/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 13149,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								1778,
-								1778
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 225.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 9,
-					"file": "/home/huitre/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-					"settings":
-					{
-						"buffer_size": 57,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								54,
-								54
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 10,
-					"file": "js/menu.js",
-					"settings":
-					{
-						"buffer_size": 4744,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								0
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 4,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 2077.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 11,
-					"file": "README",
-					"settings":
-					{
-						"buffer_size": 115,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								115,
-								115
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				}
 			]
 		}
 	],
