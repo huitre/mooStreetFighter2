@@ -164,10 +164,19 @@ var PhysicManager = new Class({
     Extends : CollisionManager,
     Implements: Manager,
 
-    floor: 30,
+    floor: 209,
 
     update: function () {
+        var that = this;
+        this.colliderList.each(function (collider) {
+            var b = collider.getBounds();
+            
+            if (b.y + b.h > that.floor) {
+                b.y = b.y - ((b.y + b.h) - that.floor);
+            }
 
+            collider.setPosition(b.x, b.y);
+        });
     }
 });
 

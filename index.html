@@ -92,30 +92,36 @@
         var backgroundUrl = 'sprites/background/';
         var foregroundUrl = 'sprites/foreground/';
         var frontgroundUrl = 'sprites/frontground/';
-    
+
+        var myMooStreetFighter = null;
+
         window.addEvent('domready', function() {
-            var myMooStreetFighter = new mooStreetFighter({    
-                menu: {      
-                    element: 'menu'    
+            myMooStreetFighter = new mooStreetFighter({    
+                menu: {
+                    element: 'menu'
                 },
-                ui: {      
+                ui: {
                     time: 'time-left',
-                    p1h: 'player1-health',      
-                    p2h: 'player2-health'    
+                    p1h: 'player1-health',
+                    p2h: 'player2-health'
                 },
-                stage: {      
+                stage: {
                     main: 'stage',
                     background: 'background',
                     player: {
                         p1: 'player1',
-                        p2: 'player2'      
-                    }    
-                }     
+                        p2: 'player2'
+                    }
+                }
             });  
-            try {    
-                myMooStreetFighter.startGame();  
-            } catch (e) {    
-                console.log(e);  
+            try {
+                myMooStreetFighter.startGame();
+                myMooStreetFighter.getPlayerManager().setPlayer1('ken');
+                myMooStreetFighter.getPlayerManager().setPlayer2('ken');
+                myMooStreetFighter.getStageManager().setStage('japan');
+                myMooStreetFighter.launch();
+            } catch (e) {
+                console.log(e);
             }
         });
     </script>
