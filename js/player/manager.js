@@ -2,21 +2,6 @@
  * @author Huitre<gohin.j@gmail.com>
  */
 
-var Manager = new Class({
-    Implements : Options,
-    initialize: function (game) {
-        this.game = game;
-    },
-    update: function () {},
-    render: function () {},
-    start: function () {},
-    stop: function () {},
-    prepare: function () {},
-    init: function (options) {
-        this.setOptions(options);
-    }
-})
-
 var PlayerManager = new Class({
     Implements: Manager,
     player1: null,
@@ -154,48 +139,6 @@ var CollisionManager = new Class({
         this.colliderList.each(function (collider, index) {
             collider.isColliding(that.colliderList);
         });
-    }
-});
-
-var InputManager = new Class({
-    Implements: Manager,
-
-    initialize: function () {
-
-    },
-
-    prepare: function (players) {
-        var player1 = players[0];
-        $(window).addEvents({
-            'keydown': function (e) {
-                switch (e.key) {
-                    case 'space':
-                        player1.lpunch();
-                        break;
-                    case 'up':
-                        player1.jump();
-                        break;
-                    case 'left':
-                        player1.moveLeft();
-                    break;
-                    case 'right':
-                        player1.moveRight();
-                    break;
-                }
-            },
-            'keyup' : function (e) {
-                switch (e.key) {
-                    case 'right':
-                    case 'left':
-                        player1.reset(true);
-                    break;
-
-                    default:
-                        player1.reset();
-                    break;
-                }
-            }
-        })
     }
 });
 
