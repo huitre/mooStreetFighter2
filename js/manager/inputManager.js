@@ -2,10 +2,19 @@
  * @author Huitre<gohin.j@gmail.com>
  */
 var KeyConfiguration = {
-    a: 'lp',
-    s: 'hp',
-    z: 'lk',
-    x: 'hk'
+    'a': 'lp',
+    's': 'hp',
+    'z': 'lk',
+    'x': 'hk',
+    // cardinalite pour les directions
+    'up': 'n',
+    'down': 's',
+    'left': 'o',
+    'right': 'e',
+    'upleft': 'no',
+    'upright': 'ne',
+    'downleft': 'so',
+    'downright': 'se'
 }
 
 var InputManager = new Class({
@@ -14,8 +23,8 @@ var InputManager = new Class({
     // buffer des touches
     keyList: [],
     // buffer des actions (coup de poings, coup de pieds...)
-    actionList[],
-    rate: 500,
+    actionList: [],
+    rate: 200,
     // temps de latence entre 2 touches
     // avant de savoir si l'on a fini un combo
     comboTimeOut: 200,
@@ -37,8 +46,7 @@ var InputManager = new Class({
         var that = this;
         this.nextTicks = this.lastTicks = this.getTicks() + this.rate;
         $(window).addEvents({
-            'keydown': funct
-            ion (e) {
+            'keydown': function (e) {
                 if (e.key != 'f12')
                     e.preventDefault();
                 that.push(e.key);
@@ -52,12 +60,9 @@ var InputManager = new Class({
     push: function (key) {
         this.inCombo = true;
         this.keyList.push(key);
-        $('combo-status').set('html', this.keyList);
     },
 
     pop: function () {
-        this.inCombo = false;
-        this.lastTicks = this.getTicks();
     },
 
     /*
@@ -76,19 +81,47 @@ var InputManager = new Class({
      * de vider le buffer si besoin et de transformer la liste de touches en actions
      */
     update: function () {
-        if (this.getTicks() > this.nextTicks && !this.isInCombo()) {
+        if (this.getTicks() > this.nextTicks) {
             this.translate();
             this.nextTicks = this.getTicks() + this.rate;
             this.clean();
+            this.displayActions();
         }            
     },
 
+    displayActions: function () {
+        var imgs = [];
+        for (var i = 0, max = this.actionList.length; i < max; i++) {
+            imgs.push('<img src="sprites/combo/' + this.actionList[i] + '.png"/>');
+        }
+        $('combo-status').set('html', imgs.join(''));
+        if (this.actionList.length > 20)
+            this.actionList = [];
+    },
+
     /*
-     * Methode 
+     * Methode de suppression du buffer
      */
     clean: function () {
         this.keyList = [];
     },
 
-    translate: function () {}
+    /*
+     * Sert a transformer les touches enfoncees en actions
+     * pour les combos et les actions des personnages
+     */
+    translate: function () {
+        // parcours en sens inverse pour trouver la
+        // 1ere touche appuyee
+        var key = this.keyList.join('');
+        if (KeyConfiguration[key]) {
+            this.actionList.push(KeyConfiguration[key]);
+        } else {
+            for (var i = key.length - 1; i > -1; --i) {
+                if (KeyConfiguration[key[i]]) {
+                    this.actionList.push(KeyConfiguration[key[i]]);
+                }
+            }
+        }
+    }
 });
