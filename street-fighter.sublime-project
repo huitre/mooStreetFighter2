@@ -2,19 +2,7 @@
 	"folders":
 	[
 		{
-			"path": "/home/huitre/workspace/mooStreetFighter2"
-<<<<<<< HEAD
-=======
-		},
-		{
-			"path": "/home/joffrey/localworkspace/street-fighter"
-		},
-		{
-			"path": "/home/joffrey/localworkspace/iwdwebsite"
-		},
-		{
-			"path": "/home/joffrey/workspace/developer/joffrey/iwdwebsite"
->>>>>>> fix-optimisation-framerate
+			"path": "js"
 		}
 	]
 }

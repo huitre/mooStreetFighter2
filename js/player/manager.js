@@ -35,6 +35,7 @@ var PlayerManager = new Class({
 
         // set defaults to Ken for the moment
         options.animation = Animation.ken;
+        options.attackList = SpecialAttack.ken;
         options.image = characterUrl + characterName + '.gif';
         options.currentAnimation = 'idle';
         player = new Ken(options);

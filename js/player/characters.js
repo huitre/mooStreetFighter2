@@ -95,6 +95,7 @@ var Character = new Class({
     Extends : AnimatedSprite,
     Implements : [Events, ICollider, IPhysic],
 
+    attackList : {},
     isJumping: true,
     isMoving: false,
     isAttacking: false,
@@ -102,6 +103,7 @@ var Character = new Class({
 
     initialize : function ( options ) {
         this.parent(options);
+        this.attackList = options.attackList;
     },
 
     collideWith: function (objectCollider) {
@@ -141,6 +143,7 @@ var Character = new Class({
 
     crouch: function () {
         this.isMoving = true;
+        his.setCurrentAnimation('crouch');
     },
 
     lpunch: function () {
@@ -163,6 +166,12 @@ var Character = new Class({
                 this.setCurrentAnimation('idle');
             }
         }
+    },
+
+    execute: function (actionList) {
+        // on verifie si l'on a une attaque speciale en 1er
+
+        // puis on execute les actions du buffer
     }
 
 })

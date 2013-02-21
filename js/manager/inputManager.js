@@ -47,7 +47,7 @@ var InputManager = new Class({
         this.nextTicks = this.lastTicks = this.getTicks() + this.rate;
         $(window).addEvents({
             'keydown': function (e) {
-                if (e.key != 'f12')
+                if (e.key != 'f12' || 'f5')
                     e.preventDefault();
                 that.push(e.key);
             },
@@ -83,9 +83,10 @@ var InputManager = new Class({
     update: function () {
         if (this.getTicks() > this.nextTicks) {
             this.translate();
-            this.nextTicks = this.getTicks() + this.rate;
             this.clean();
+            this.execute();
             this.displayActions();
+            this.nextTicks = this.getTicks() + this.rate;
         }            
     },
 
@@ -117,11 +118,17 @@ var InputManager = new Class({
         if (KeyConfiguration[key]) {
             this.actionList.push(KeyConfiguration[key]);
         } else {
-            for (var i = key.length - 1; i > -1; --i) {
-                if (KeyConfiguration[key[i]]) {
-                    this.actionList.push(KeyConfiguration[key[i]]);
+            for (var i = this.keyList.length - 1; i > -1; --i) {
+                if (KeyConfiguration[this.keyList[i]]) {
+                    this.actionList.push(KeyConfiguration[this.keyList[i]]);
                 }
             }
         }
+    },
+
+    execute: function () {
+        this.game.getPlayerManager().getPlayers().each(function (player) {
+            player.execute(this.actionList);
+        }.bind(this));
     }
 });

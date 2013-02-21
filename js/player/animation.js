@@ -1,6 +1,15 @@
 /**
  * @author Huitre<gohin.j@gmail.com>
  */
+ /*
+  * Fichier de description des animations de chaque personnage
+  *
+  * Structure : 
+        characterName :
+            animationName : [ 
+                    {-left, -top, width, height, time between frame}
+                ]
+  */
 var Animation = {
   ken : {
     idle : [
