@@ -106,10 +106,11 @@ var AnimatedSprite = new Class({
         this.parent(options);
         this.animation = this.options.animation;
         this.currentAnimation = this.options.currentAnimation;
+        this.ticks = new Date();
     },
 
     getTicks: function () {
-        return new Date().getTime();
+        return Date.now();
     },
 
     render: function () {
@@ -169,7 +170,7 @@ var AnimatedSprite = new Class({
     },
 
     getCurrentFrameTimer: function () {
-        return this.getCurrentPlayedContext().rate | 133;
+        return this.getCurrentPlayedContext().rate || 133;
     },
 
     setRate: function (ms) {

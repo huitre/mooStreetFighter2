@@ -1,6 +1,8 @@
 <html>
     <head>
         <script src="js/mootools-core-1.4.5-yc.js"></script><script src="js/mootools-more-1.4.0.1.js"></script>
+        <script src="js/manager/abstractManager.js"></script>
+        <script src="js/manager/inputManager.js"></script>
         <script src="js/player/animation.js"></script>
         <script src="js/player/sprite.js"></script>
         <script src="js/player/manager.js"></script>
@@ -9,6 +11,11 @@
         <script src="js/menu.js"></script>
         <style type="text/css">
             @import "css/style.css";
+            #combo-status {
+                height: 30px;
+                line-height: 30px;
+                vertical-align: middle;
+            }
         </style>
     </head>
     <body>
@@ -83,6 +90,7 @@
                     <div id="player1"></div>
                     <div id="player2"></div>
                 </div>
+                <div id="combo-status" style="color: #fff"></div>
             </div>
         </div>
     </body>
@@ -95,7 +103,6 @@
         var myMooStreetFighter = null;
 
         window.addEvent('domready', function() {
-
             (function() {
                 var lastTime = 0;
                 var vendors = ['ms', 'moz', 'webkit', 'o'];
@@ -121,7 +128,7 @@
                     };
             }());
 
-            myMooStreetFighter = new mooStreetFighter({    
+            myMooStreetFighter = new mooStreetFighter({
                 menu: {
                     element: 'menu'
                 },
@@ -130,7 +137,7 @@
                     p1h: 'player1-health',
                     p2h: 'player2-health'
                 },
-                stage: {
+                stage: {
                     main: 'stage',
                     background: 'background',
                     player: {
@@ -138,15 +145,15 @@
                         p2: 'player2'
                     }
                 }
-            });  
-            try {    
+            });
+            try {
                 myMooStreetFighter.startGame();
                 myMooStreetFighter.getPlayerManager().setPlayer1('ken');
                 myMooStreetFighter.getPlayerManager().setPlayer2('ken');
                 myMooStreetFighter.getStageManager().setStage('japan');
                 myMooStreetFighter.launch();
-            } catch (e) {    
-                console.log(e);  
+            } catch (e) {
+                console.log(e);
             }
         });
     </script>
