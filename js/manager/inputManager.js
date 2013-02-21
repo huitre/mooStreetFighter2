@@ -104,7 +104,7 @@ var InputManager = new Class({
 
     pop: function (key) {
         if (this.pushedKeys[key])
-            this.pushedKeys[key] = false;  
+            this.pushedKeys[key] = false;
     },
 
     /*
@@ -128,7 +128,7 @@ var InputManager = new Class({
             this.execute();
             this.nextTicks = this.getTicks() + this.rate;
             this.clean();
-        }            
+        }
     },
 
     /*
