@@ -153,16 +153,45 @@ var Character = new Class({
         this.addForce(5, 0);
     },
 
+    setAttackState: function () {
+        this.isAttacking = true;
+        this.isHitable = true;
+        this.isMoving = true;
+    },
+
     crouch: function () {
         this.isMoving = true;
         this.setCurrentAnimation('crouch');
     },
 
     lpunch: function () {
-        this.isAttacking = true;
-        this.isHitable = true;
-        this.isMoving = true;
+        this.setAttackState();
         this.setCurrentAnimation('lpunch');
+    },
+
+    mediumPunch: function () {
+        this.setAttackState();
+        this.setCurrentAnimation('mpunch');
+    },
+
+    highPunch: function () {
+        this.setAttackState();
+        this.setCurrentAnimation('mpunch');
+    },
+
+    lkick: function () {
+        this.setAttackState();
+        this.setCurrentAnimation('lkick');
+    },
+
+    mediumkick: function () {
+        this.setAttackState();
+        this.setCurrentAnimation('lkick');
+    },
+
+    highKick: function () {
+        this.setAttackState();
+        this.setCurrentAnimation('lkick');
     },
 
     getHit: function () {
@@ -185,10 +214,13 @@ var Character = new Class({
         actionList = this.checkForSpecialAttack(actionList);
         // puis on execute les actions du buffer
         for (var i = actionList.length -1; i > -1; i--) {
-            if (this[actionList[i]]) {
-                this[actionList[i]]();
+            for (var j = actionList[i].length -1; j > -1; j--) {
+                if (this[actionList[i][j]]) {
+                    this[actionList[i][j]]();
+                }
             }
         }
+        
         return [];
         return actionList;
     },

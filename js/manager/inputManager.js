@@ -105,8 +105,8 @@ var InputManager = new Class({
      */
     clean: function () {
         this.keyList = [];
-        if (this.actionList.length > 20)
-            this.actionList = this.actionList.slice(0,1);
+        /*if (this.actionList.length > 20)
+            this.actionList = this.actionList.slice(0,1);*/
     },
 
     /*
@@ -147,8 +147,8 @@ var InputManager = new Class({
 
     execute: function () {
         // TODO : prevoir 2 joueurs
-        /*this.game.getPlayerManager().getPlayers().each(function (player) {
-            player.execute(this.actionList);
+        /*this.game.getPlayerManager().getPlayers().each(function (player, playerNumber) {
+            player.execute(this.actionList[playerNumber]);
         }.bind(this));*/
         this.actionList = this.game.getPlayerManager().getPlayer1().execute(this.actionList);
     }
