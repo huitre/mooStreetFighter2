@@ -93,7 +93,6 @@ var InputManager = new Class({
             this.translate();
             this.clean();
             this.execute();
-            this.displayActions();
             this.nextTicks = this.getTicks() + this.rate;
         }            
     },
@@ -119,7 +118,7 @@ var InputManager = new Class({
     clean: function () {
         this.keyList = [];
         if (this.actionList.length > 20)
-            this.actionList = this.actionList.slice(1,1);
+            this.actionList = this.actionList.slice(0,1);
     },
 
     /*
@@ -147,9 +146,9 @@ var InputManager = new Class({
                 sdirTmp = dirTmp.join('');
                 if (dir[sdirTmp])
                     tmp.push(dir[sdirTmp]);
-                /*else
+                else
                     for (var j = dirTmp.length - 1; j > -1; j--)
-                        tmp.push(dir[dirTmp[j]]);*/
+                        tmp.push(dir[dirTmp[j]]);
 
             }
             this.actionList.push(tmp);
@@ -157,8 +156,10 @@ var InputManager = new Class({
     },
 
     execute: function () {
-        this.game.getPlayerManager().getPlayers().each(function (player) {
+        // TODO : prevoir 2 joueurs
+        /*this.game.getPlayerManager().getPlayers().each(function (player) {
             player.execute(this.actionList);
-        }.bind(this));
+        }.bind(this));*/
+        this.actionList = this.game.getPlayerManager().getPlayer1().execute(this.actionList);
     }
 });

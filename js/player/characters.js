@@ -129,6 +129,18 @@ var Character = new Class({
         }
     },
 
+    // wrapper pour les noms courts d'action
+    o: function () { this.moveLeft() },
+    e: function () { this.moveRight() },
+    n: function () { this.jump() },
+    s: function () { this.crouch() },
+    lp: function () { this.lpunch() },
+    mp: function () { this.mediumPunch() },
+    hp: function () { this.highPunch() },
+    lk: function () { this.lkick() },
+    mk: function () { this.mediumKick() },
+    hk: function () { this.highKick() },
+
     moveLeft: function () {
         this.setCurrentAnimation('walkright');
         this.addForce(-5, 0);
@@ -143,7 +155,7 @@ var Character = new Class({
 
     crouch: function () {
         this.isMoving = true;
-        his.setCurrentAnimation('crouch');
+        this.setCurrentAnimation('crouch');
     },
 
     lpunch: function () {
@@ -170,8 +182,18 @@ var Character = new Class({
 
     execute: function (actionList) {
         // on verifie si l'on a une attaque speciale en 1er
-
+        actionList = this.checkForSpecialAttack(actionList);
         // puis on execute les actions du buffer
+        for (var i = actionList.length -1; i > -1; i--) {
+            if (this[actionList[i]]) {
+                this[actionList[i]]();
+            }
+        }
+        return actionList;
+    },
+
+    checkForSpecialAttack: function (actionList) {
+        return actionList;
     }
 
 })
