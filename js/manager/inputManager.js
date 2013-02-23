@@ -40,10 +40,13 @@ var InputManager = new Class({
     nextTicks: 0,
     lastTicks: 0,
 
+    comboDisplayer : null,
+
     initialize: function (options) {
         this.parent(options);
         $(window).removeEvents('keydown');
         $(window).removeEvents('keyup');
+        this.comboDisplayer = new ComboDisplayer();
     },
 
     /*
@@ -97,21 +100,6 @@ var InputManager = new Class({
         }            
     },
 
-    displayActions: function () {
-        var str = [],
-            displayDiv = $('combo-status');
-
-        for (var i = 0, max = this.actionList.length; i < max; i++) {
-            str.push('<div>');
-            for (var j = 0, maxj = this.actionList[i].length; j < maxj; j++) {
-                str.push('<img src="sprites/combo/' + this.actionList[i][j] + '.png"/>');
-            }
-            str.push('</div>');
-        }
-
-        displayDiv.set('html', str.join(''));
-    },
-
     /*
      * Methode de suppression du buffer
      */
@@ -152,7 +140,9 @@ var InputManager = new Class({
 
             }
             this.actionList.push(tmp);
+            this.comboDisplayer.setContent(this.actionList);
         }
+        this.comboDisplayer.display();
     },
 
     execute: function () {

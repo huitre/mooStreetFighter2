@@ -189,6 +189,7 @@ var Character = new Class({
                 this[actionList[i]]();
             }
         }
+        return [];
         return actionList;
     },
 
