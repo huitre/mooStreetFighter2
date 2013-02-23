@@ -3,18 +3,30 @@
         <script src="js/mootools-core-1.4.5-yc.js"></script><script src="js/mootools-more-1.4.0.1.js"></script>
         <script src="js/manager/abstractManager.js"></script>
         <script src="js/manager/inputManager.js"></script>
+        <script src="js/manager/physicManager.js"></script>
+        <script src="js/manager/stageManager.js"></script>
         <script src="js/player/animation.js"></script>
+        <script src="js/player/attacklist.js"></script>
         <script src="js/player/sprite.js"></script>
         <script src="js/player/manager.js"></script>
         <script src="js/player/characters.js"></script>
         <script src="js/mooStreetFighter.js"></script>
-        <script src="js/menu.js"></script>
+        <script src="js/ui/menu.js"></script>
+        <script src="js/ui/comboDisplayer.js"></script>
         <style type="text/css">
             @import "css/style.css";
             #combo-status {
                 height: 30px;
                 line-height: 30px;
                 vertical-align: middle;
+                position: absolute;
+                top : 0;
+                left: 30px;
+            }
+            #combo-status div img {
+                display: inline-block;
+                width: 17px;
+                height: 17px;
             }
         </style>
     </head>
@@ -121,7 +133,6 @@
                         lastTime = currTime + timeToCall;
                         return id;
                     };
-
                 if (!window.cancelAnimationFrame)
                     window.cancelAnimationFrame = function(id) {
                         clearTimeout(id);

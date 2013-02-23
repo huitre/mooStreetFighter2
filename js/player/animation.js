@@ -1,6 +1,15 @@
 /**
  * @author Huitre<gohin.j@gmail.com>
  */
+ /*
+  * Fichier de description des animations de chaque personnage
+  *
+  * Structure : 
+        characterName :
+            animationName : [ 
+                    {-left, -top, width, height, time between frame}
+                ]
+  */
 var Animation = {
   ken : {
     idle : [
@@ -17,9 +26,16 @@ var Animation = {
       {x : -401, y : -17, w : 43, h : 82, rate: 50}
     ],
     lpunch : [
-      {x : -3,   y : -133, w : 43, h : 82, rate: 20},
-      {x : -52,  y : -133, w : 57, h : 82, rate: 30},
-      {x : -117, y : -133, w : 43, h : 82, rate: 10}
+      {x : -3,   y : -133, w : 43, h : 82, rate: 40},
+      {x : -52,  y : -133, w : 57, h : 82, rate: 50},
+      {x : -117, y : -133, w : 43, h : 82, rate: 30}
+    ],
+    mpunch : [
+      {x : -170, y : -130, w : 43, h : 82, rate: 30},
+      {x : -218, y : -130, w : 51, h : 85, rate: 60},
+      {x : -273, y : -130, w : 73, h : 82, rate: 60},
+      {x : -353, y : -130, w : 51, h : 85, rate: 50},
+      {x : -411, y : -130, w : 43, h : 85, rate: 40}
     ],
     lkick : [
       {x : -6,   y : -260, w : 49, h : 86},
@@ -44,6 +60,9 @@ var Animation = {
       {x : -537, y : -15, w: 43, h: 81},
       {x : -575, y : -15, w: 43, h: 81},
       {x : -614, y : -15, w: 42, h: 81},
+      {x : -498, y : -6, w: 43, h: 93}
+    ],
+    crouch : [
       {x : -498, y : -6, w: 43, h: 93}
     ]
   }
