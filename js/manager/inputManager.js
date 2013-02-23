@@ -2,19 +2,27 @@
  * @author Huitre<gohin.j@gmail.com>
  */
 var KeyConfiguration = {
-    'a': 'lp',
-    's': 'hp',
-    'z': 'lk',
-    'x': 'hk',
-    // cardinalite pour les directions
-    'up': 'n',
-    'down': 's',
-    'left': 'o',
-    'right': 'e',
-    'upleft': 'no',
-    'upright': 'ne',
-    'downleft': 'so',
-    'downright': 'se'
+    'attack' : {
+        'a': 'lp',
+        's': 'hp',
+        'z': 'lk',
+        'x': 'hk'
+    },
+    'directions' : {
+        // cardinalite pour les directions
+        'up': 'n',
+        'down': 's',
+        'left': 'o',
+        'right': 'e',
+        'upleft': 'no',
+        'leftup': 'no',
+        'rightup': 'ne',
+        'upright': 'ne',
+        'leftdown': 'so',
+        'downleft': 'so',
+        'downright': 'se',
+        'rightdown': 'se'
+    }
 }
 
 var InputManager = new Class({
@@ -24,7 +32,7 @@ var InputManager = new Class({
     keyList: [],
     // buffer des actions (coup de poings, coup de pieds...)
     actionList: [],
-    rate: 200,
+    rate: 100,
     // temps de latence entre 2 touches
     // avant de savoir si l'on a fini un combo
     comboTimeOut: 200,
@@ -47,7 +55,7 @@ var InputManager = new Class({
         this.nextTicks = this.lastTicks = this.getTicks() + this.rate;
         $(window).addEvents({
             'keydown': function (e) {
-                if (e.key != 'f12' || 'f5')
+                if (e.key != 'f12' && e.key != 'f5')
                     e.preventDefault();
                 that.push(e.key);
             },
@@ -91,13 +99,18 @@ var InputManager = new Class({
     },
 
     displayActions: function () {
-        var imgs = [];
+        var str = [],
+            displayDiv = $('combo-status');
+
         for (var i = 0, max = this.actionList.length; i < max; i++) {
-            imgs.push('<img src="sprites/combo/' + this.actionList[i] + '.png"/>');
+            str.push('<div>');
+            for (var j = 0, maxj = this.actionList[i].length; j < maxj; j++) {
+                str.push('<img src="sprites/combo/' + this.actionList[i][j] + '.png"/>');
+            }
+            str.push('</div>');
         }
-        $('combo-status').set('html', imgs.join(''));
-        if (this.actionList.length > 20)
-            this.actionList = [];
+
+        displayDiv.set('html', str.join(''));
     },
 
     /*
@@ -105,6 +118,8 @@ var InputManager = new Class({
      */
     clean: function () {
         this.keyList = [];
+        if (this.actionList.length > 20)
+            this.actionList = this.actionList.slice(1,1);
     },
 
     /*
@@ -114,15 +129,30 @@ var InputManager = new Class({
     translate: function () {
         // parcours en sens inverse pour trouver la
         // 1ere touche appuyee
-        var key = this.keyList.join('');
-        if (KeyConfiguration[key]) {
-            this.actionList.push(KeyConfiguration[key]);
-        } else {
-            for (var i = this.keyList.length - 1; i > -1; --i) {
-                if (KeyConfiguration[this.keyList[i]]) {
-                    this.actionList.push(KeyConfiguration[this.keyList[i]]);
+        var tmp = [],
+            key = this.keyList,
+            attack = KeyConfiguration['attack'],
+            dir = KeyConfiguration['directions'];
+        for (var i = key.length - 1; i > -1; --i) {
+            if (attack[key[i]]) {
+                tmp.push(attack[key[i]]);
+            } else if (dir[key[i]]) {
+                // on veut pouvoir dire que ['up', 'right']
+                // equivaut a 'upright'
+                var dirTmp = [], sdirTmp;
+                while(dir[key[i]]) {
+                    dirTmp.push(key[i]);
+                    i--;
                 }
+                sdirTmp = dirTmp.join('');
+                if (dir[sdirTmp])
+                    tmp.push(dir[sdirTmp]);
+                /*else
+                    for (var j = dirTmp.length - 1; j > -1; j--)
+                        tmp.push(dir[dirTmp[j]]);*/
+
             }
+            this.actionList.push(tmp);
         }
     },
 

@@ -173,3 +173,7 @@ body {
     -o-transition-duration: 16ms;
     transition-duration: 16ms;*/
 }
+
+#running {
+    position: relative;
+}
