@@ -43,9 +43,9 @@ var Animation = {
       {x : -411, y : -130, w : 43, h : 85, rate: 40, deltaX: 0, deltaY: 3}
     ],
     lkick : [
-      {x : -6,   y : -260, w : 49, h : 86, rate: 500, deltaX: 6, deltaY: 0},
-      {x : -62,  y : -260, w : 67, h : 86, rate: 500, deltaX: 17, deltaY: 0},
-      {x : -135, y : -260, w : 49, h : 86, rate: 500, deltaX: 6, deltaY: 0},
+      {x : -6,   y : -260, w : 49, h : 86, rate: 50, deltaX: 6, deltaY: 0},
+      {x : -62,  y : -260, w : 67, h : 86, rate: 50, deltaX: 17, deltaY: 0},
+      {x : -135, y : -260, w : 49, h : 86, rate: 50, deltaX: 6, deltaY: 0},
     ],
     shoryuken : [
       {x : -246, y : -0, w : 73, h : 100, deltaX: 0, deltaY: 0},
