@@ -18,10 +18,10 @@
 var Animation = {
   ken : {
     idle : [
-      {x : -6,  y : -18,  w : 43, h : 81, deltaX: 0, deltaY: 0},
-      {x : -55,  y : -18, w : 43, h : 81, deltaX: 0, deltaY: 0},
-      {x : -105, y : -18, w : 43, h : 81, deltaX: 0, deltaY: 0},
-      {x : -154, y : -18, w : 43, h : 81, deltaX: 0, deltaY: 0}
+      {x : -6,  y : -18,  w : 43, h : 81, rate:500, deltaX: 0, deltaY: 0},
+      {x : -55,  y : -18, w : 43, h : 81, rate:500, deltaX: 0, deltaY: 0},
+      {x : -105, y : -18, w : 43, h : 81, rate:500, deltaX: 0, deltaY: 0},
+      {x : -154, y : -18, w : 43, h : 81, rate:500, deltaX: 0, deltaY: 0}
     ],
     walkright : [
       {x : -205, y : -17, w : 44, h : 82, rate: 50, deltaX: 0, deltaY: 0},
@@ -36,16 +36,16 @@ var Animation = {
       {x : -117, y : -133, w : 43, h : 82, rate: 30, deltaX: 0, deltaY: 0}
     ],
     mpunch : [
-      {x : -170, y : -130, w : 43, h : 82, rate: 30, deltaX: 0, deltaY: 0},
-      {x : -218, y : -130, w : 51, h : 85, rate: 60, deltaX: 0, deltaY: 3},
-      {x : -273, y : -130, w : 73, h : 82, rate: 60, deltaX: 0, deltaY: 0},
-      {x : -353, y : -130, w : 51, h : 85, rate: 50, deltaX: 0, deltaY: 3},
-      {x : -411, y : -130, w : 43, h : 85, rate: 40, deltaX: 0, deltaY: 3}
+      {x : -170, y : -130, w : 43, h : 85, rate: 300, deltaX: 0, deltaY: 0},
+      {x : -218, y : -130, w : 51, h : 85, rate: 600, deltaX: 0, deltaY: 0},
+      {x : -273, y : -130, w : 73, h : 85, rate: 600, deltaX: 0, deltaY: 0},
+      {x : -353, y : -130, w : 51, h : 85, rate: 500, deltaX: 0, deltaY: 0},
+      {x : -411, y : -130, w : 43, h : 85, rate: 400, deltaX: 0, deltaY: 0}
     ],
     lkick : [
-      {x : -6,   y : -260, w : 49, h : 86, rate: 50, deltaX: 6, deltaY: 0},
-      {x : -62,  y : -260, w : 67, h : 86, rate: 50, deltaX: 17, deltaY: 0},
-      {x : -135, y : -260, w : 49, h : 86, rate: 50, deltaX: 6, deltaY: 0},
+      {x : -6,   y : -260, w : 49, h : 86, rate: 500, deltaX: 6, deltaY: 0},
+      {x : -62,  y : -260, w : 67, h : 86, rate: 500, deltaX: 17, deltaY: 0},
+      {x : -135, y : -260, w : 49, h : 86, rate: 500, deltaX: 6, deltaY: 0},
     ],
     shoryuken : [
       {x : -246, y : -0, w : 73, h : 100, deltaX: 0, deltaY: 0},

@@ -129,9 +129,6 @@ var AnimatedSprite = new Class({
         }
     },
 
-    /*
-     * 
-     */
     updateAnimation: function () {
         if ( this.getTicks() > this.nextTicks ) {
             this.playNextFrame();
@@ -147,13 +144,25 @@ var AnimatedSprite = new Class({
             this.currentFrame = 0;
             this.reset(true);
         }
+        this.normalizeDelta();
+    },
+
+    normalizeDelta: function () {
         // on decale le sprite suivant la differente entre les images, pour centrer l'animation
         var pos = this.getPosition(),
             currentContext = this.getCurrentPlayedContext(),
             lastContext = this.getLastContext(),
-            deltaY = currentContext.deltaY - lastContext.deltaY,
-            deltaX = currentContext.deltaX - lastContext.deltaX;
-        this.setPosition((pos.x - deltaX), (pos.y + deltaY));
+            deltaY = (currentContext.h - lastContext.h),
+            deltaX = (currentContext.w - lastContext.w);
+
+        if (!currentContext.deltaX)
+            deltaX *= -1;
+        if (!currentContext.deltaY)
+            deltaY *= -1;
+            //deltaY = currentContext.deltaY - lastContext.deltaY - (currentContext.h - lastContext.h),
+            //deltaX = currentContext.deltaX - lastContext.deltaX - (currentContext.w - lastContext.w);
+        this.setPosition((pos.x - deltaX), (pos.y - deltaY));
+        console.log('pos.x ' + pos.x, 'new pos.x ' + this.getPosition().x);
     },
 
     setCurrentAnimation: function (animation) {
