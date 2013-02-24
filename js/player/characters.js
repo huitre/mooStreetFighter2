@@ -107,6 +107,7 @@ var Character = new Class({
     },
 
     collideWith: function (objectCollider) {
+        //console.log('collide with', objectCollider);
     },
 
     getCollidingPoint: function () {},
@@ -222,7 +223,6 @@ var Character = new Class({
         }
         
         return [];
-        return actionList;
     },
 
     checkForSpecialAttack: function (actionList) {

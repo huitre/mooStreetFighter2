@@ -95,6 +95,7 @@ var AnimatedSprite = new Class({
     // variable de contexte courant
     currentAnimation: 'idle',
     currentFrame: 0,
+    lastFrame: 0,
     currentRate: 1000 / 60,
     currentContext: null,
 
@@ -114,18 +115,17 @@ var AnimatedSprite = new Class({
     },
 
     render: function () {
+        this.updateAnimation();
         this.currentContext = this.getCurrentPlayedContext();
         if (this.isVisible && !this.isPaused) {
-            var pos = this.getPosition();
+               
             this.el.setStyles({
                 'background-position': this.currentContext.x + 'px ' + this.currentContext.y + 'px',
-                'top': pos.y + 'px',
-                'left': pos.x + 'px',
                 'width': this.currentContext.w,
                 'height': this.currentContext.h
             });
+
         }
-        this.updateAnimation();
     },
 
     updateAnimation: function () {
@@ -136,11 +136,19 @@ var AnimatedSprite = new Class({
     },
 
     playNextFrame: function () {
+        this.lastFrame = this.currentFrame;
         this.currentFrame = this.currentFrame + 1;
         if (this.currentFrame > this.getCurrentAnimation().length - 1) {
             this.currentFrame = 0;
             this.reset(true);
         }
+        // on decale le sprite suivant la differente entre les images, pour centrer l'animation
+        var pos = this.getPosition(),
+            currentContext = this.getCurrentPlayedContext(),
+            lastContext = this.getLastContext();
+            deltaY = currentContext.deltaY - lastContext.deltaY,
+            deltaX = currentContext.deltaX - lastContext.deltaX;
+        this.setPosition((pos.x - deltaX), (pos.y - deltaY));
     },
 
     setCurrentAnimation: function (animation) {
@@ -163,6 +171,10 @@ var AnimatedSprite = new Class({
 
     getCurrentAnimation: function () {
         return this.animation[this.getCurrentAnimationName()];
+    },
+
+    getLastContext: function () {
+        return this.animation[this.getCurrentAnimationName()][this.lastFrame];
     },
 
     getCurrentPlayedContext: function () {
