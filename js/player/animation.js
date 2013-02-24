@@ -68,7 +68,8 @@ var Animation = {
       {x : -498, y : -6, w: 43, h: 93, deltaX: 0, deltaY: 0}
     ],
     crouch : [
-      {x : -498, y : -6, w: 43, h: 93, deltaX: 0, deltaY: 0}
+      {x : -1113, y : -24, w: 43, h: 75, deltaX: 0, deltaY: 0},
+      {x : -1160, y : -43, w: 43, h: 56, deltaX: 0, deltaY: 19}
     ]
   }
 };

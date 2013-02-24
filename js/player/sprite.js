@@ -153,7 +153,7 @@ var AnimatedSprite = new Class({
             lastContext = this.getLastContext(),
             deltaY = currentContext.deltaY - lastContext.deltaY,
             deltaX = currentContext.deltaX - lastContext.deltaX;
-        this.setPosition((pos.x - deltaX), (pos.y - deltaY));
+        this.setPosition((pos.x - deltaX), (pos.y + deltaY));
     },
 
     setCurrentAnimation: function (animation) {

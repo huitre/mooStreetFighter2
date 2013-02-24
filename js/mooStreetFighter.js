@@ -107,7 +107,7 @@ var mooStreetFighter = new Class({
             this.playerManager.prepare();
             this.inputManager.prepare(players);
             this.collisionManager.addCollider(players);
-            //this.physicManager.addCollider([this.playerManager.getPlayer1()]);
+            this.physicManager.addCollider([this.playerManager.getPlayer1()]);
             this.play();
         }
         t.bind(this).delay(1000);
