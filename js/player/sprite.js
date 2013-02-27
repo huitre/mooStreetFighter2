@@ -68,6 +68,7 @@ var Sprite = new Class({
     },
 
     setPosition: function (x, y) {
+        //console.log(this.getCurrentAnimationName() + ' setPosition x ' + x + ' y ' + y);
         this.el.setStyles({
             'top': y + 'px',
             'left': x + 'px'
@@ -109,6 +110,7 @@ var AnimatedSprite = new Class({
         this.animation = this.options.animation;
         this.currentAnimation = this.options.currentAnimation;
         this.ticks = new Date();
+        this.lastPosition = this.getPosition();
     },
 
     getTicks: function () {
@@ -116,58 +118,60 @@ var AnimatedSprite = new Class({
     },
 
     render: function () {
-        this.updateAnimation();
-        this.currentContext = this.getCurrentPlayedContext();
+        var currentContext = this.getCurrentPlayedContext();
         if (this.isVisible && !this.isPaused) {
-               
             this.el.setStyles({
-                'background-position': this.currentContext.x + 'px ' + this.currentContext.y + 'px',
-                'width': this.currentContext.w,
-                'height': this.currentContext.h
+                'background-position': currentContext.x + 'px ' + currentContext.y + 'px',
+                'width': currentContext.w,
+                'height': currentContext.h
             });
 
         }
+        this.updateAnimation();
+    },
+
+    setNextTicks: function () {
+        this.nextTicks = this.getTicks() + this.getCurrentFrameTimer();
     },
 
     updateAnimation: function () {
         if ( this.getTicks() > this.nextTicks ) {
             this.playNextFrame();
-            this.nextTicks = this.getTicks() + this.getCurrentFrameTimer();
+            this.setNextTicks();
         }
     },
 
     playNextFrame: function () {
         this.lastFrame = this.currentFrame;
-        this.lastAnimation = this.getCurrentAnimationName();
+        this.lastAnimation = this.currentAnimation;
         this.currentFrame = this.currentFrame + 1;
         if (this.currentFrame > this.getCurrentAnimation().length - 1) {
-            this.currentFrame = 0;
-            this.reset(true);
+            this.changeAnimationTo('idle');
         }
-        this.normalizeDelta();
     },
 
-    normalizeDelta: function () {
-        // on decale le sprite suivant la differente entre les images, pour centrer l'animation
-        var pos = this.getPosition(),
-            currentContext = this.getCurrentPlayedContext(),
-            lastContext = this.getLastContext(),
-            deltaY = (currentContext.h - lastContext.h),
-            deltaX = (currentContext.w - lastContext.w);
-
-        if (!currentContext.deltaX)
-            deltaX *= -1;
-        if (!currentContext.deltaY)
-            deltaY *= -1;
-            //deltaY = currentContext.deltaY - lastContext.deltaY - (currentContext.h - lastContext.h),
-            //deltaX = currentContext.deltaX - lastContext.deltaX - (currentContext.w - lastContext.w);
-        this.setPosition((pos.x - deltaX), (pos.y - deltaY));
-        console.log('pos.x ' + pos.x, 'new pos.x ' + this.getPosition().x);
+    changeAnimationTo: function (animation) {
+        this.setCurrentAnimation(animation);
+        var lastContext = this.getLastContext(),
+            context = this.getCurrentPlayedContext();
+        this.el.setStyles({
+            'width': lastContext.w,
+            'height': lastContext.h
+        });
+        try {
+        this.setPosition(
+            this.x + context.deltaX - lastContext.deltaX,
+            this.y + context.deltaY - lastContext.deltaY
+        );
+        } catch (e) {
+            debugger;
+        }
     },
 
     setCurrentAnimation: function (animation) {
-        if (animation != this.getCurrentAnimationName())
-            this.setCurrentFrame(0);
+        this.lastPosition = this.getPosition();
+        this.setCurrentFrame(0);
+        this.setNextTicks();
         this.currentAnimation = animation;
     },
 

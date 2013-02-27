@@ -30,13 +30,13 @@ var Character = new Class({
     isOnFloor : function () {
         this.isJumping = false;
         if (!this.isMoving)
-            this.setCurrentAnimation('idle');
+            this.changeAnimationTo('idle');
     },
 
     jump: function () {
         if (!this.isJumping) {
             this.isJumping = true;
-            this.setCurrentAnimation('jump');
+            this.changeAnimationTo('jump');
             this.addForce(0, -25);
         }
     },
@@ -54,14 +54,14 @@ var Character = new Class({
     hk: function () { this.highKick() },
 
     moveLeft: function () {
-        this.setCurrentAnimation('walkright');
+        this.changeAnimationTo('walkright');
         this.addForce(-5, 0);
         this.isMoving = true;
     },
 
     moveRight: function () {
         this.isMoving = true;
-        this.setCurrentAnimation('walkright');
+        this.changeAnimationTo('walkright');
         this.addForce(5, 0);
     },
 
@@ -73,37 +73,37 @@ var Character = new Class({
 
     crouch: function () {
         this.isMoving = true;
-        this.setCurrentAnimation('crouch');
+        this.changeAnimationTo('crouch');
     },
 
     lpunch: function () {
         this.setAttackState();
-        this.setCurrentAnimation('lpunch');
+        this.changeAnimationTo('lpunch');
     },
 
     mediumPunch: function () {
         this.setAttackState();
-        this.setCurrentAnimation('mpunch');
+        this.changeAnimationTo('mpunch');
     },
 
     highPunch: function () {
         this.setAttackState();
-        this.setCurrentAnimation('mpunch');
+        this.changeAnimationTo('mpunch');
     },
 
     lkick: function () {
         this.setAttackState();
-        this.setCurrentAnimation('lkick');
+        this.changeAnimationTo('lkick');
     },
 
     mediumkick: function () {
         this.setAttackState();
-        this.setCurrentAnimation('lkick');
+        this.changeAnimationTo('lkick');
     },
 
     highKick: function () {
         this.setAttackState();
-        this.setCurrentAnimation('lkick');
+        this.changeAnimationTo('lkick');
     },
 
     getHit: function () {
@@ -116,7 +116,9 @@ var Character = new Class({
             this.isAttacking = this.getCurrentFrame() < this.getCurrentAnimation().length;
             if (!this.isAttacking || force) {
                 this.isMoving = false;
-                this.setCurrentAnimation('idle');
+                this.changeAnimationTo('idle');
+                this.setCurrentFrame(0);
+                this.setNextTicks();
             }
         }
     },

@@ -3,8 +3,8 @@
  */
 
 var mooStreetFighter = new Class({
-    framerate: 1000 / 30,
-    optios: null,
+    framerate: 1000,
+    options: null,
     playerManager: null,
     stageManager: null,
     menuManager: null,
@@ -59,7 +59,9 @@ var mooStreetFighter = new Class({
         var that = this;
         requestAnimationFrame(function () { that.play() });
         that.render();
-        //this.gameLoop.periodical(this.framerate);
+        /*var gameLoop = function () {
+            that.render();
+        }.periodical(this.framerate);*/
     },
 
     pause: function () {
