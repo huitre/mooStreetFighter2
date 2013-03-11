@@ -88,7 +88,7 @@ var Sprite = new Class({
 
 var AnimatedSprite = new Class({
     Extends : Sprite,
-    Implements: [Events],
+    Implements: Events,
 
     // contenu
     animation: null,
@@ -110,12 +110,15 @@ var AnimatedSprite = new Class({
         this.animation = this.options.animation;
         this.currentAnimation = this.options.currentAnimation;
         this.ticks = new Date();
+        this.setNextTicks();
         this.lastPosition = this.getPosition();
+        this.addEvent(sfEvent.ANIMATION_END, this.onAnimationEnd);
     },
 
     getTicks: function () {
         return Date.now();
     },
+
 
     render: function () {
         var currentContext = this.getCurrentPlayedContext();
@@ -146,11 +149,16 @@ var AnimatedSprite = new Class({
         this.lastAnimation = this.currentAnimation;
         this.currentFrame = this.currentFrame + 1;
         if (this.currentFrame > this.getCurrentAnimation().length - 1) {
-            this.changeAnimationTo('idle');
+            this.fireEvent(sfEvent.ANIMATION_END, [this, this.getCurrentAnimation]);
         }
     },
 
+    onAnimationEnd: function (e, data) {
+        this.currentFrame = 0;
+    },
+
     changeAnimationTo: function (animation) {
+        this.fireEvent(sfEvent.ANIMATION_START);
         this.setCurrentAnimation(animation);
         var lastContext = this.getLastContext(),
             context = this.getCurrentPlayedContext();
@@ -160,8 +168,8 @@ var AnimatedSprite = new Class({
         });
         try {
         this.setPosition(
-            this.x + context.deltaX - lastContext.deltaX,
-            this.y + context.deltaY - lastContext.deltaY
+            this.x + (context.deltaX - lastContext.deltaX),
+            this.y + (context.deltaY - lastContext.deltaY)
         );
         } catch (e) {
             debugger;

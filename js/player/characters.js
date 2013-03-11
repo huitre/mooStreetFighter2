@@ -9,12 +9,15 @@ var Character = new Class({
     attackList : {},
     isJumping: true,
     isMoving: false,
+    isCrouching: false,
+    isBlocking: false,
     isAttacking: false,
     isHitable: false,
 
     initialize : function ( options ) {
         this.parent(options);
         this.attackList = options.attackList;
+        this.addEvent(sfEvent.ANIMATION_END, this.updateState);
     },
 
     collideWith: function (objectCollider) {
@@ -29,8 +32,6 @@ var Character = new Class({
 
     isOnFloor : function () {
         this.isJumping = false;
-        if (!this.isMoving)
-            this.changeAnimationTo('idle');
     },
 
     jump: function () {
@@ -71,8 +72,15 @@ var Character = new Class({
         this.isMoving = true;
     },
 
+    onAttackEnd: function () {
+        this.isAttacking = false;
+        this.isHitable = false;
+        this.isMoving = false;
+    },
+
     crouch: function () {
         this.isMoving = true;
+        this.isCrouching = true;
         this.changeAnimationTo('crouch');
     },
 
@@ -110,31 +118,28 @@ var Character = new Class({
 
     },
 
-    reset: function (force) {
+    updateState: function (e, force) {
         this.isHitable = false;
         if (!this.isJumping) {
-            this.isAttacking = this.getCurrentFrame() < this.getCurrentAnimation().length;
-            if (!this.isAttacking || force) {
+            if (!this.isAttacking) {
                 this.isMoving = false;
-                this.changeAnimationTo('idle');
-                this.setCurrentFrame(0);
-                this.setNextTicks();
             }
         }
+        this.changeAnimationTo('idle');
     },
 
-    execute: function (actionList) {
+    onInputReady: function (e, actionList) {
+        console.log(e, actionList);
         // on verifie si l'on a une attaque speciale en 1er
         actionList = this.checkForSpecialAttack(actionList);
         // puis on execute les actions du buffer
         for (var i = actionList.length -1; i > -1; i--) {
             for (var j = actionList[i].length -1; j > -1; j--) {
-                if (this[actionList[i][j]]) {
-                    this[actionList[i][j]]();
+                if (this[actionList[i][j].action]) {
+                    this[actionList[i][j].action]();
                 }
             }
         }
-        
         return [];
     },
 
