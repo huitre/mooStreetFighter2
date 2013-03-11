@@ -63,8 +63,9 @@ var PlayerManager = new Class({
 
     render : function () {
         this.getPlayers().each(function(player) {
-            player.render();
+//            player.render();
         });
+        this.player1.render();
     }
 })
 

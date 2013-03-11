@@ -3,8 +3,8 @@
  */
 
 var mooStreetFighter = new Class({
-    framerate: 1000 / 30,
-    optios: null,
+    framerate: 1000,
+    options: null,
     playerManager: null,
     stageManager: null,
     menuManager: null,
@@ -51,15 +51,17 @@ var mooStreetFighter = new Class({
         this.inputManager.update();
         this.collisionManager.update();
         this.stageManager.render();
-        this.playerManager.render();
         this.physicManager.update();
+        this.playerManager.render();
     },
 
     play: function () {
         var that = this;
         requestAnimationFrame(function () { that.play() });
         that.render();
-        //this.gameLoop.periodical(this.framerate);
+        /*var gameLoop = function () {
+            that.render();
+        }.periodical(this.framerate);*/
     },
 
     pause: function () {
@@ -113,3 +115,12 @@ var mooStreetFighter = new Class({
         t.bind(this).delay(1000);
     }
 });
+
+var sfEvent = {
+    ANIMATION_START: 'sf2.animation.start',
+    ANIMATION_RUNNING: 'sf2.animation.running',
+    ANIMATION_END: 'sf2.animation.end',
+    ON_ATTACK_START: 'sf2.attack.start',
+    ON_ATTACK_END: 'sf2.attack.end',
+    ON_INPUT_READY: 'sf2.input.ready'
+}
