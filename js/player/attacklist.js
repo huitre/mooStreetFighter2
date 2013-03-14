@@ -15,20 +15,20 @@
  var SpecialAttack = {
     ken : {
         'forwardpunch' : [
-          ['e', 'hp'],
-          ['o', 'hp']
+          'ehp',
+          'ohp'
         ],
         'hadoken' : [
-            ['s', 'se', 'e', 'lp'], 
-            ['s', 'so', 'o', 'lp']
+            'sseelp', 
+            'ssoolp'
         ],
         'shoryuken' : [
-            ['s', 'se', 'e', 'hp'], 
-            ['s', 'so', 'o', 'hp']
+            'sseehp', 
+            'ssoohp'
         ],
         'tatsumakisenpyaku' : [
-            ['s', 'se', 'e', 'lk'], 
-            ['s', 'so', 'o', 'lk']
+            'sseelk', 
+            'ssoolk'
         ]
     }
  }

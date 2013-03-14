@@ -85,34 +85,34 @@ var Character = new Class({
         this.changeAnimationTo('crouch');
     },
 
-    lpunch: function () {
+    attack: function (attackName) {
+        if (!this.isAttacking)
+            this.changeAnimationTo(attackName);
         this.setAttackState();
-        this.changeAnimationTo('lpunch');
+    },
+
+    lpunch: function () {
+        this. attack('lpunch');
     },
 
     mediumPunch: function () {
-        this.setAttackState();
-        this.changeAnimationTo('mpunch');
+        this.attack('mpunch');
     },
 
     highPunch: function () {
-        this.setAttackState();
-        this.changeAnimationTo('mpunch');
+        this.attack('mpunch');
     },
 
     lkick: function () {
-        this.setAttackState();
-        this.changeAnimationTo('lkick');
+        this.attack('lkick');
     },
 
     mediumkick: function () {
-        this.setAttackState();
-        this.changeAnimationTo('lkick');
+        this.attack('lkick');
     },
 
     highKick: function () {
-        this.setAttackState();
-        this.changeAnimationTo('lkick');
+        this.attack('lkick');
     },
 
     getHit: function () {
@@ -133,6 +133,7 @@ var Character = new Class({
         // on verifie si l'on a une attaque speciale en 1er
         actionList = this.checkForSpecialAttack(actionList);
         // puis on execute les actions du buffer
+        if (!!actionList)
         for (var i = actionList.length -1; i > -1; i--) {
             for (var j = actionList[i].length -1; j > -1; j--) {
                 if (this[actionList[i][j].action]) {
@@ -144,7 +145,15 @@ var Character = new Class({
     },
 
     checkForSpecialAttack: function (actionList) {
-        
+        console.log(this.attackList);
+        for (var i in this.attackList) {
+            for (var j in this.attackList[i]) {
+                //for (var k in actionList)
+                console.log(actionList.join(''));
+                    
+            }
+        }
+        return actionList;
     }
 
 })
