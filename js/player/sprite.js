@@ -88,7 +88,6 @@ var Sprite = new Class({
 
 var AnimatedSprite = new Class({
     Extends : Sprite,
-    Implements: Events,
 
     // contenu
     animation: null,
@@ -112,7 +111,8 @@ var AnimatedSprite = new Class({
         this.ticks = new Date();
         this.setNextTicks();
         this.lastPosition = this.getPosition();
-        this.addEvent(sfEvent.ANIMATION_END, this.onAnimationEnd);
+        this.name = 'toto' + Math.random();
+        //GlobalDispatcher.addListener(sfEvent.ANIMATION_END, function (e) { this.onAnimationEnd(e) }.bind(this));
     },
 
     getTicks: function () {
@@ -149,16 +149,17 @@ var AnimatedSprite = new Class({
         this.lastAnimation = this.currentAnimation;
         this.currentFrame = this.currentFrame + 1;
         if (this.currentFrame > this.getCurrentAnimation().length - 1) {
-            this.fireEvent(sfEvent.ANIMATION_END, [this, this.getCurrentAnimation]);
+            GlobalDispatcher.fireEvent(sfEvent.ANIMATION_END);
+            this.onAnimationEnd();
         }
     },
 
-    onAnimationEnd: function (e, data) {
+    onAnimationEnd: function () {
         this.currentFrame = 0;
     },
 
     changeAnimationTo: function (animation) {
-        this.fireEvent(sfEvent.ANIMATION_START);
+        GlobalDispatcher.fireEvent(sfEvent.ANIMATION_START);
         this.setCurrentAnimation(animation);
         var lastContext = this.getLastContext(),
             context = this.getCurrentPlayedContext();
@@ -208,7 +209,7 @@ var AnimatedSprite = new Class({
     },
 
     getCurrentFrameTimer: function () {
-        return this.getCurrentPlayedContext().rate || 133;
+        return this.getCurrentPlayedContext().rate | 133;
     },
 
     setRate: function (ms) {

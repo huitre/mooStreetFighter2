@@ -4,7 +4,7 @@
 
 var Character = new Class({
     Extends : AnimatedSprite,
-    Implements : [Events, ICollider, IPhysic],
+    Implements : [ICollider, IPhysic],
 
     attackList : {},
     isJumping: true,
@@ -17,7 +17,8 @@ var Character = new Class({
     initialize : function ( options ) {
         this.parent(options);
         this.attackList = options.attackList;
-        this.addEvent(sfEvent.ANIMATION_END, this.updateState);
+        GlobalDispatcher.addListener(sfEvent.ANIMATION_END, function (data, target) { this.updateState(data, target) }.bind(this));
+        GlobalDispatcher.addListener(sfEvent.ON_INPUT_READY, this.onInputReady, this);
     },
 
     collideWith: function (objectCollider) {
@@ -128,8 +129,7 @@ var Character = new Class({
         this.changeAnimationTo('idle');
     },
 
-    onInputReady: function (e, actionList) {
-        console.log(e, actionList);
+    onInputReady: function (actionList) {
         // on verifie si l'on a une attaque speciale en 1er
         actionList = this.checkForSpecialAttack(actionList);
         // puis on execute les actions du buffer
@@ -144,7 +144,7 @@ var Character = new Class({
     },
 
     checkForSpecialAttack: function (actionList) {
-        return actionList;
+        
     }
 
 })

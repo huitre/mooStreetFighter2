@@ -14,6 +14,10 @@
   */
  var SpecialAttack = {
     ken : {
+        'forwardpunch' : [
+          ['e', 'hp'],
+          ['o', 'hp']
+        ],
         'hadoken' : [
             ['s', 'se', 'e', 'lp'], 
             ['s', 'so', 'o', 'lp']

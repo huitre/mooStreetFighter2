@@ -137,6 +137,7 @@ var InputManager = new Class({
      */
     clean: function () {
         this.keyList = [];
+        this.actionList = [];
         /*if (this.actionList.length > 20)
             this.actionList = this.actionList.slice(0,1);*/
     },
@@ -192,7 +193,7 @@ var InputManager = new Class({
     },
 
     execute: function () {
-        //this.fireEvent(sfEvent.ON_INPUT_READY, [this.actionList, this.keyPressed]);
-        
+        if (this.actionList.length > 0)
+            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_READY, [this.actionList, this.keyPressed], this);
     }
 });
