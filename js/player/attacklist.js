@@ -13,18 +13,32 @@
                 ]
   */
  var SpecialAttack = {
-    ken : {
-        'hadoken' : [
-            ['s', 'se', 'e', 'lp'], 
-            ['s', 'so', 'o', 'lp']
+    ken: {
+        'forwardpunch': [
+          'ehp',
+          'hpe',
+          'ohp',
+          'hpo'
         ],
-        'shoryuken' : [
-            ['s', 'se', 'e', 'hp'], 
-            ['s', 'so', 'o', 'hp']
+        'hadoken': [
+            'sseelp', 
+            'ssoolp',
+            'lpssee', 
+            'lpssoo'
         ],
-        'tatsumakisenpyaku' : [
-            ['s', 'se', 'e', 'lk'], 
-            ['s', 'so', 'o', 'lk']
+        'shoryuken': [
+            'sseehp', 
+            'ssoohp'
+        ],
+        'tatsumakisenpyaku': [
+            'sseelk', 
+            'ssoolk',
+            'sseehk', 
+            'ssoohk'
+        ],
+        'shoryuken': [
+          'ososlp',
+          'eseslp'
         ]
     }
  }

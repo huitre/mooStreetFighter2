@@ -59,6 +59,8 @@ var PlayerManager = new Class({
         this.getPlayers().each(function(player) {
             player.show();
         });
+
+        GlobalDispatcher.addListener(sfEvent.ON_INPUT_READY, this.player1.onInputReady, this.player1);
     },
 
     render : function () {

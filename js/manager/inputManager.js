@@ -25,8 +25,30 @@ var KeyConfiguration = {
     }
 }
 
+/*
+ * Represente l'etat d'une action suite a une suite de touches presses
+ * ex : haut-droite presse depuis 2secondes
+ */
+var Key = new Class({
+    repeated: 0,
+    action: null,
+    sinceLastPress: 0, // not for now
+    pressed: true,
+
+    initialize: function (action) {
+        this.action = action;
+        this.sinceLastPress = Date.now();
+        this.pressed = true;
+    },
+
+    addRepetition: function () {
+        this.repeated++;
+    }
+})
+
 var InputManager = new Class({
     Extends: Manager,
+    Implements: [Events],
 
     // buffer des touches
     keyList: [],
@@ -40,13 +62,14 @@ var InputManager = new Class({
     nextTicks: 0,
     lastTicks: 0,
 
-    comboDisplayer : null,
+    // status des touches de direction
+    pushedKeys: {},
+
 
     initialize: function (options) {
         this.parent(options);
         $(window).removeEvents('keydown');
         $(window).removeEvents('keyup');
-        this.comboDisplayer = new ComboDisplayer();
     },
 
     /*
@@ -60,10 +83,11 @@ var InputManager = new Class({
             'keydown': function (e) {
                 if (e.key != 'f12' && e.key != 'f5')
                     e.preventDefault();
+                e.stopPropagation();
                 that.push(e.key);
             },
             'keyup' : function (e) {
-                that.pop();
+                that.pop(e.key);
             }
         })
     },
@@ -71,9 +95,16 @@ var InputManager = new Class({
     push: function (key) {
         this.inCombo = true;
         this.keyList.push(key);
+        if (KeyConfiguration['attack'][key] ||
+            KeyConfiguration['directions'][key]
+            ) {
+            this.pushedKeys[key] = true;
+        }
     },
 
-    pop: function () {
+    pop: function (key) {
+        if (this.pushedKeys[key])
+            this.pushedKeys[key] = false;  
     },
 
     /*
@@ -93,10 +124,10 @@ var InputManager = new Class({
      */
     update: function () {
         if (this.getTicks() > this.nextTicks) {
-            this.translate();
-            this.clean();
+            this.translate(this.keyList);
             this.execute();
             this.nextTicks = this.getTicks() + this.rate;
+            this.clean();
         }            
     },
 
@@ -105,6 +136,7 @@ var InputManager = new Class({
      */
     clean: function () {
         this.keyList = [];
+        this.actionList = [];
         /*if (this.actionList.length > 20)
             this.actionList = this.actionList.slice(0,1);*/
     },
@@ -113,43 +145,55 @@ var InputManager = new Class({
      * Sert a transformer les touches enfoncees en actions
      * pour les combos et les actions des personnages
      */
-    translate: function () {
+    translate: function (keyList) {
         // parcours en sens inverse pour trouver la
         // 1ere touche appuyee
         var tmp = [],
-            key = this.keyList,
+            key = keyList,
             attack = KeyConfiguration['attack'],
             dir = KeyConfiguration['directions'];
+        // tant que l'on a recu des touches
         for (var i = key.length - 1; i > -1; --i) {
             if (attack[key[i]]) {
                 tmp.push(attack[key[i]]);
             } else if (dir[key[i]]) {
-                // on veut pouvoir dire que ['up', 'right']
-                // equivaut a 'upright'
+                // tant que l'on a une touche de direction
                 var dirTmp = [], sdirTmp;
                 while(dir[key[i]]) {
                     dirTmp.push(key[i]);
                     i--;
                 }
+                // on veut pouvoir dire que ['up', 'right']
+                // equivaut a 'upright'
                 sdirTmp = dirTmp.join('');
                 if (dir[sdirTmp])
                     tmp.push(dir[sdirTmp]);
                 else
                     for (var j = dirTmp.length - 1; j > -1; j--)
                         tmp.push(dir[dirTmp[j]]);
-
             }
-            this.actionList.push(tmp);
-            this.comboDisplayer.setContent(this.actionList);
         }
-        this.comboDisplayer.display();
+        // on verifie les repetitions
+        var last = 0, cleanTmp = [], key;
+        for (k = 0, m = tmp.length; k < m; k++) {
+            if (last != tmp[k]) {
+                key = new Key(tmp[k]);
+                cleanTmp.push(key);
+            } else {
+                key.addRepetition();
+            }
+            last = tmp[k];
+        }
+        if (cleanTmp.length)
+            this.actionList.push(cleanTmp);
+    },
+
+    getPushedKeys: function () {
+        return this.pushedKeys;
     },
 
     execute: function () {
-        // TODO : prevoir 2 joueurs
-        /*this.game.getPlayerManager().getPlayers().each(function (player, playerNumber) {
-            player.execute(this.actionList[playerNumber]);
-        }.bind(this));*/
-        this.actionList = this.game.getPlayerManager().getPlayer1().execute(this.actionList);
+        if (this.actionList.length > 0)
+            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_READY, [this.actionList, this.pushedKeys], this);
     }
 });

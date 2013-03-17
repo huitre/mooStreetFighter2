@@ -177,3 +177,7 @@ body {
 #running {
     position: relative;
 }
+
+#player1 {
+    border: none;
+}

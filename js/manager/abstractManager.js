@@ -1,5 +1,5 @@
 var Manager = new Class({
-    Implements : Options,
+    Implements : [Options],
     initialize: function (game) {
         this.game = game;
     },
