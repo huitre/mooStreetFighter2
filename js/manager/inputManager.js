@@ -65,13 +65,11 @@ var InputManager = new Class({
     // status des touches de direction
     pushedKeys: {},
 
-    comboDisplayer : null,
 
     initialize: function (options) {
         this.parent(options);
         $(window).removeEvents('keydown');
         $(window).removeEvents('keyup');
-        this.comboDisplayer = new ComboDisplayer();
     },
 
     /*
@@ -99,8 +97,9 @@ var InputManager = new Class({
         this.keyList.push(key);
         if (KeyConfiguration['attack'][key] ||
             KeyConfiguration['directions'][key]
-            )
+            ) {
             this.pushedKeys[key] = true;
+        }
     },
 
     pop: function (key) {
@@ -185,15 +184,16 @@ var InputManager = new Class({
             }
             last = tmp[k];
         }
-        if (cleanTmp.length) {
+        if (cleanTmp.length)
             this.actionList.push(cleanTmp);
-            this.comboDisplayer.setContent(this.actionList);
-        }
-        this.comboDisplayer.display();
+    },
+
+    getPushedKeys: function () {
+        return this.pushedKeys;
     },
 
     execute: function () {
         if (this.actionList.length > 0)
-            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_READY, [this.actionList, this.keyPressed], this);
+            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_READY, [this.actionList, this.pushedKeys], this);
     }
 });

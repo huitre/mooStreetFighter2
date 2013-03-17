@@ -13,22 +13,32 @@
                 ]
   */
  var SpecialAttack = {
-    ken : {
-        'forwardpunch' : [
+    ken: {
+        'forwardpunch': [
           'ehp',
-          'ohp'
+          'hpe',
+          'ohp',
+          'hpo'
         ],
-        'hadoken' : [
+        'hadoken': [
             'sseelp', 
-            'ssoolp'
+            'ssoolp',
+            'lpssee', 
+            'lpssoo'
         ],
-        'shoryuken' : [
+        'shoryuken': [
             'sseehp', 
             'ssoohp'
         ],
-        'tatsumakisenpyaku' : [
+        'tatsumakisenpyaku': [
             'sseelk', 
-            'ssoolk'
+            'ssoolk',
+            'sseehk', 
+            'ssoohk'
+        ],
+        'shoryuken': [
+          'ososlp',
+          'eseslp'
         ]
     }
  }

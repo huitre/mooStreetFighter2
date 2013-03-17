@@ -3,8 +3,8 @@
  */
 
 var Character = new Class({
-    Extends : AnimatedSprite,
-    Implements : [ICollider, IPhysic],
+    Extends: AnimatedSprite,
+    Implements: [ICollider, IPhysic],
 
     attackList : {},
     isJumping: true,
@@ -13,12 +13,14 @@ var Character = new Class({
     isBlocking: false,
     isAttacking: false,
     isHitable: false,
+    comboDisplayer: null,
+    keyPressed: null,
 
     initialize : function ( options ) {
         this.parent(options);
         this.attackList = options.attackList;
+        this.comboDisplayer = new ComboDisplayer();
         GlobalDispatcher.addListener(sfEvent.ANIMATION_END, function (data, target) { this.updateState(data, target) }.bind(this));
-        GlobalDispatcher.addListener(sfEvent.ON_INPUT_READY, this.onInputReady, this);
     },
 
     collideWith: function (objectCollider) {
@@ -119,38 +121,65 @@ var Character = new Class({
 
     },
 
-    updateState: function (e, force) {
-        this.isHitable = false;
-        if (!this.isJumping) {
-            if (!this.isAttacking) {
-                this.isMoving = false;
-            }
-        }
-        this.changeAnimationTo('idle');
+    updateStateOnInput: function (inputState) {
+        this.keyPressed = inputState;
     },
 
-    onInputReady: function (actionList) {
-        // on verifie si l'on a une attaque speciale en 1er
-        actionList = this.checkForSpecialAttack(actionList);
-        // puis on execute les actions du buffer
-        if (!!actionList)
-        for (var i = actionList.length -1; i > -1; i--) {
-            for (var j = actionList[i].length -1; j > -1; j--) {
-                if (this[actionList[i][j].action]) {
-                    this[actionList[i][j].action]();
+    isInactive: function () {
+        return false;
+    },
+
+    updateState: function (e, force) {
+        this.isHitable = false;
+        this.isAttacking = false;
+        this.isMoving = false;
+        if (this.isInactive())
+            this.changeAnimationTo('idle');
+    },
+
+    onInputReady: function (actionListAndKeysList) {
+
+        if (actionListAndKeysList.length > 0) {
+            this.updateStateOnInput(actionListAndKeysList[1]);
+            this.comboDisplayer.setContent(actionListAndKeysList[0]);
+            
+            // on verifie si l'on a une attaque speciale en 1er
+            actionList = this.checkForSpecialAttack(this.comboDisplayer.getContent());
+            this.comboDisplayer.display();
+
+            // puis on execute les actions du buffer
+            if (!!actionList)
+            for (var i = actionList.length -1; i > -1; i--) {
+                for (var j = actionList[i].length -1; j > -1; j--) {
+                    if (this[actionList[i][j].action]) {
+                        //this[actionList[i][j].action]();
+                    }
                 }
             }
         }
-        return [];
+    },
+
+    actionListToStr: function (actionList) {
+        var actionStr = '';
+        for (var i = 0, max = actionList.length; i < max; i++) {
+            for (var j = 0, maxj = actionList[i].length; j < maxj; j++) {
+                if (actionList[i][j].action) {
+                    actionStr = actionStr + actionList[i][j].action + '';
+                }
+            }
+        }
+        return actionStr;
     },
 
     checkForSpecialAttack: function (actionList) {
-        console.log(this.attackList);
-        for (var i in this.attackList) {
-            for (var j in this.attackList[i]) {
-                //for (var k in actionList)
-                console.log(actionList.join(''));
-                    
+        var actionStr = this.actionListToStr(actionList);
+        for (var attackName in this.attackList) {
+            for (var i = this.attackList[attackName].length -1; i > -1; i--) {
+                if (actionStr.indexOf(this.attackList[attackName][i]) > 0 ) {
+                    $('debugger').set('html', attackName);
+                    if (this[attackName])
+                        this[attackName]();
+                }
             }
         }
         return actionList;
@@ -161,7 +190,23 @@ var Character = new Class({
 var Ken = new Class({
     Extends : Character,
 
-    initialize : function ( options ) {
+    initialize: function (options) {
         this.parent(options);
+    },
+
+    forwardpunch: function () {
+
+    },
+
+    hadoken: function () {
+
+    },
+
+    shoryuken: function () {
+
+    },
+
+    tatsumakisenpyaku: function () {
+        this.attack('tatsumakisenpyaku');
     }
 });

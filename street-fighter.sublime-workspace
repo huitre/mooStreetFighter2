@@ -4,64 +4,288 @@
 		"selected_items":
 		[
 			[
+				"act",
+				"actionStr"
+			],
+			[
+				"ac",
+				"actionStr"
+			],
+			[
+				"dat",
+				"Date"
+			],
+			[
+				"com",
+				"combo"
+			],
+			[
+				"action",
+				"actionList"
+			],
+			[
 				"is",
-				"isAttacking"
+				"isMoving"
 			],
 			[
-				"init",
-				"initialize"
+				"at",
+				"attackList"
 			],
 			[
-				"set",
-				"setCurrentFrame"
+				"att",
+				"attackList"
 			],
 			[
-				"setC",
-				"setCurrentFrame"
+				"attack",
+				"attackName"
 			],
 			[
-				"getC",
-				"getCurrentAnimation"
+				"li",
+				"listener"
 			],
 			[
-				"curr",
-				"currentFrame"
+				"list",
+				"listener"
 			],
 			[
-				"curre",
-				"currentFrame"
+				"E",
+				"EventDispatcher"
+			],
+			[
+				"e",
+				"eventName"
+			],
+			[
+				"remove",
+				"removeAllListener"
+			],
+			[
+				"ev",
+				"eventData"
+			],
+			[
+				"event",
+				"eventName"
+			],
+			[
+				"even",
+				"eventName"
+			],
+			[
+				"on",
+				"onInputReady"
+			],
+			[
+				"in",
+				"InputManager"
+			],
+			[
+				"add",
+				"addEvent"
+			],
+			[
+				"co",
+				"console"
+			],
+			[
+				"A",
+				"ANIMATION_END"
 			],
 			[
 				"get",
-				"getMilliseconds"
+				"getCurrentAnimation"
+			],
+			[
+				"pr",
+				"pressed"
+			],
+			[
+				"dir",
+				"directions"
+			],
+			[
+				"ke",
+				"KeyConfiguration"
 			],
 			[
 				"play",
 				"playNextFrame"
 			],
 			[
+				"curre",
+				"currentFrame"
+			],
+			[
+				"pus",
+				"pushedKeys"
+			],
+			[
+				"time",
+				"timePressed"
+			],
+			[
+				"clea",
+				"cleanTmp"
+			],
+			[
+				"le",
+				"length"
+			],
+			[
+				"de",
+				"deltaY"
+			],
+			[
+				"delta",
+				"deltaY"
+			],
+			[
+				"x",
+				"deltaX"
+			],
+			[
+				"la",
+				"lastContext"
+			],
+			[
+				"last",
+				"lastContext"
+			],
+			[
+				"set",
+				"setStyles"
+			],
+			[
+				"ne",
+				"newX"
+			],
+			[
+				"diff",
+				"diffY"
+			],
+			[
+				"pl",
+				"playNextFrame"
+			],
+			[
+				"cu",
+				"currentAnimation"
+			],
+			[
+				"new",
+				"newY"
+			],
+			[
+				"nex",
+				"newX"
+			],
+			[
+				"curr",
+				"currentAnimation"
+			],
+			[
+				"las",
+				"lastFrame"
+			],
+			[
+				"cur",
+				"currentAnimation"
+			],
+			[
+				"del",
+				"deltaX"
+			],
+			[
+				"getc",
+				"getCurrentAnimationName"
+			],
+			[
+				"d",
+				"deltaY"
+			],
+			[
+				"no",
+				"normalizeDelta"
+			],
+			[
+				"getCu",
+				"getCurrentAnimationName"
+			],
+			[
+				"l",
+				"lastFrame"
+			],
+			[
 				"current",
-				"currentRate"
+				"currentFrame"
 			],
 			[
-				"pre",
-				"prepareVersusStage"
+				"Ac",
+				"actionList"
 			],
 			[
-				"stage",
-				"stagePos"
+				"combo",
+				"comboDisplayer"
 			],
 			[
-				"sta",
-				"stagePos"
+				"move",
+				"moveRight"
 			],
 			[
-				"padd",
-				"padding"
+				"di",
+				"display"
 			],
 			[
-				"co",
-				"collisionManager"
+				"img",
+				"imgs"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"key",
+				"keyList"
+			],
+			[
+				"gam",
+				"gameLoop"
+			],
+			[
+				"ph",
+				"PhysicManager"
+			],
+			[
+				"coll",
+				"colliderList"
+			],
+			[
+				"col",
+				"collideWith"
+			],
+			[
+				"c",
+				"cBounds"
+			],
+			[
+				"ob",
+				"oBounds"
+			],
+			[
+				"object",
+				"objectCollider"
+			],
+			[
+				"collider",
+				"colliderList"
+			],
+			[
+				"getCurrent",
+				"getCurrentFrameTimer"
+			],
+			[
+				"getT",
+				"getTicks"
 			],
 			[
 				"ch",
@@ -76,20 +300,12 @@
 				"background"
 			],
 			[
-				"pl",
-				"player2-health"
-			],
-			[
-				"time",
-				"time-left"
-			],
-			[
 				"player",
 				"player2"
 			],
 			[
-				"in",
-				"inputManager"
+				"stage",
+				"stageManager"
 			],
 			[
 				"start",
@@ -98,14 +314,6 @@
 			[
 				"getCurre",
 				"getCurrentPlayedContext"
-			],
-			[
-				"cu",
-				"getCurrentFrame"
-			],
-			[
-				"getCu",
-				"getCurrentFrame"
 			],
 			[
 				"show",
@@ -168,10 +376,6 @@
 				"_getOldGuidelineForPOSId"
 			],
 			[
-				"li",
-				"link-guideline"
-			],
-			[
 				"setupD",
 				"setupDeleteGuidelineButton"
 			],
@@ -218,10 +422,6 @@
 			[
 				"reflo",
 				"_reflowLayout"
-			],
-			[
-				"c",
-				"cbox"
 			],
 			[
 				"selec",
@@ -308,217 +508,82 @@
 				"resizeAllImages"
 			],
 			[
-				"on",
-				"onUploadComplete"
-			],
-			[
-				"ac",
-				"actionbarHeight"
-			],
-			[
 				"nav",
 				"navHeight"
 			],
 			[
 				"re",
 				"result-bar"
-			],
-			[
-				"out",
-				"outerHTML"
-			],
-			[
-				"stop",
-				"stopPropagation"
-			],
-			[
-				"sto",
-				"stopPropagation"
-			],
-			[
-				"event",
-				"eventType"
-			],
-			[
-				"eve",
-				"eventType"
-			],
-			[
-				"ex",
-				"exportexcelstock"
-			],
-			[
-				"gldp",
-				"gldp-main-android"
-			],
-			[
-				"marg",
-				"marginTop"
-			],
-			[
-				"g",
-				"gldp"
-			],
-			[
-				"paddin",
-				"padding"
-			],
-			[
-				"pop",
-				"popup"
-			],
-			[
-				"_sel",
-				"_selectedContent"
-			],
-			[
-				"repla",
-				"replaceWith"
-			],
-			[
-				"form",
-				"formPath"
-			],
-			[
-				"guideline",
-				"guideline3d"
-			],
-			[
-				"_s",
-				"_selectionText"
-			],
-			[
-				"th",
-				"that"
-			],
-			[
-				"_se",
-				"_selectedContent"
-			],
-			[
-				"_selec",
-				"_selectionText"
-			],
-			[
-				"Too",
-				"ToolBar"
-			],
-			[
-				"sl",
-				"sleepToolBar"
-			],
-			[
-				"point",
-				"pointOfSale"
-			],
-			[
-				"image",
-				"imagePath"
-			],
-			[
-				"submi",
-				"submitHandler"
-			],
-			[
-				"su",
-				"submitHandler"
-			],
-			[
-				"wake",
-				"wakeUpUpload"
-			],
-			[
-				"tr",
-				"trClass"
-			],
-			[
-				"sur",
-				"surveyName"
-			],
-			[
-				"survey",
-				"surveyName"
-			],
-			[
-				"val",
-				"valid"
-			],
-			[
-				"obj",
-				"objNumber"
-			],
-			[
-				"op",
-				"opacity"
-			],
-			[
-				"le",
-				"length"
-			],
-			[
-				"ic",
-				"iconList"
-			],
-			[
-				"sele",
-				"selectors"
-			],
-			[
-				"tool",
-				"toolbar"
-			],
-			[
-				"setup",
-				"setupToolBar"
-			],
-			[
-				"i",
-				"important"
-			],
-			[
-				"el",
-				"element"
-			],
-			[
-				"ma",
-				"margin-left"
-			],
-			[
-				"bor",
-				"border-bottom"
-			],
-			[
-				"navg",
-				"navigationParameters"
-			],
-			[
-				"di",
-				"display"
-			],
-			[
-				"poin",
-				"pointOfSaleId"
-			],
-			[
-				"navi",
-				"navigationParameters"
-			],
-			[
-				"na",
-				"navigationParameters"
-			],
-			[
-				"padding",
-				"padding-right"
-			],
-			[
-				"margin",
-				"margin-top"
 			]
 		]
 	},
 	"buffers":
 	[
+		{
+			"file": "index.html",
+			"settings":
+			{
+				"buffer_size": 7478,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/mooStreetFighter.js",
+			"settings":
+			{
+				"buffer_size": 3300,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/player/characters.js",
+			"settings":
+			{
+				"buffer_size": 4693,
+				"line_ending": "Unix",
+				"name": "var Ken = new Class({"
+			}
+		},
+		{
+			"file": "js/player/manager.js",
+			"settings":
+			{
+				"buffer_size": 1774,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/manager/inputManager.js",
+			"settings":
+			{
+				"buffer_size": 5341,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/ui/comboDisplayer.js",
+			"settings":
+			{
+				"buffer_size": 908,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/event/dispatcher.js",
+			"settings":
+			{
+				"buffer_size": 1230,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "js/player/attacklist.js",
+			"settings":
+			{
+				"buffer_size": 701,
+				"line_ending": "Unix"
+			}
+		}
 	],
 	"build_system": "",
 	"command_palette":
@@ -526,6 +591,10 @@
 		"height": 392.0,
 		"selected_items":
 		[
+			[
+				"S",
+				"Set Syntax: CSS"
+			],
 			[
 				"setS",
 				"Set Syntax: SCSS"
@@ -579,7 +648,7 @@
 				"Package Control: Install Package"
 			]
 		],
-		"width": 449.0
+		"width": 392.0
 	},
 	"console":
 	{
@@ -596,19 +665,27 @@
 	},
 	"file_history":
 	[
-		"/home/joffrey/localworkspace/street-fighter/js/player/animation.js",
-		"/home/joffrey/localworkspace/street-fighter/js/mooStreetFighter.js",
-		"/home/joffrey/localworkspace/street-fighter/css/style.css",
-		"/home/joffrey/localworkspace/street-fighter/js/player/characters.js",
-		"/home/joffrey/localworkspace/street-fighter/js/player/sprite.js",
-		"/home/joffrey/localworkspace/street-fighter/js/player/manager.js",
-		"/home/joffrey/workspace/developer/joffrey/iwdwebsite/index.html",
-		"/home/joffrey/localworkspace/street-fighter/index.html",
-		"/home/joffrey/localworkspace/street-fighter/js/menu.js",
-		"/home/joffrey/localworkspace/street-fighter/street-fighter.sublime-project",
-		"/home/joffrey/localworkspace/street-fighter/js/mootools-core-1.4.5-yc.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/player/sprite.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/event/dispatcher.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/manager/physicManager.js",
+		"/home/huitre/workspace/mooStreetFighter2/css/style.css",
+		"/home/huitre/workspace/mooStreetFighter2/js/manager/stageManager.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/player/animation.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/manager/abstractManager.js",
+		"/home/huitre/workspace/mooStreetFighter2/sprites/characters/ken.sprites",
+		"/home/huitre/workspace/mooStreetFighter2/js/player/ken.json",
+		"/home/huitre/workspace/mooStreetFighter2/js/manager/inputManager.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/ui/comboDisplayer.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/player/manager.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/player/attacklist.js",
+		"/home/huitre/workspace/mooStreetFighter2/js/menu.js",
+		"/home/huitre/workspace/mooStreetFighter2/README",
+		"/home/huitre/.config/sublime-text-2/Packages/Default/Preferences.sublime-settings",
 		"/home/joffrey/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
-		"/home/joffrey/localworkspace/street-fighter/README",
+		"/home/huitre/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/huitre/.config/sublime-text-2/Packages/User/Default (Linux).sublime-keymap",
+		"/home/joffrey/localworkspace/street-fighter/street-fighter.sublime-project",
+		"/home/joffrey/localworkspace/street-fighter/js/menu.js",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/module/Popup.js.rej",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/iwd/svn-commit.tmp~",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/trunk/src/js/fr/svn-commit.tmp~",
@@ -715,15 +792,7 @@
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/patch.12880",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/css/ie8-prod.css",
 		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/css/app-prod.css",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/css/login-prod.css",
-		"/home/joffrey/ievms.sh",
-		"/home/joffrey/localworkspace/ie8vm.sh",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/js/fr/iwd/log/logger.js",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scripts/pointofsale/info/parts/types/attachment.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/client/displayer/logs/dloccitanern2/2013-01-17/2013-01-17-dloccitanern2.log",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/action-bar.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/side-bar.phtml",
-		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.4/src/php/fr/iwd/View/scripts/campaign/content.phtml"
+		"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/www/css/login-prod.css"
 	],
 	"find":
 	{
@@ -731,10 +800,10 @@
 	},
 	"find_in_files":
 	{
-		"height": 0.0,
+		"height": 93.0,
 		"where_history":
 		[
-			"/home/joffrey/localworkspace/street-fighter/js",
+			"/home/huitre/workspace/mooStreetFighter2/js",
 			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd/View/scss/sass",
 			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5",
 			"/mnt/server-dev/home/joffrey/workspace/fr.iwd/4.3.5/src/php/fr/iwd",
@@ -833,10 +902,18 @@
 		"case_sensitive": false,
 		"find_history":
 		[
-			"console.log",
-			"    ",
-			"                ",
-			"       ",
+			"console",
+			"', '",
+			"changeAnimationTo",
+			"setCurrentAnimation",
+			"setCurre",
+			"this.lastAnimation",
+			"setCurrentAn",
+			"filter",
+			"}",
+			"width=\"300\"",
+			"-(.*)\\n",
+			"context",
 			"bg",
 			"()",
 			"drag and",
@@ -952,15 +1029,7 @@
 			"successhistory",
 			"succeshistory",
 			"debugger;",
-			"debugger",
-			"successHistory",
-			"fr.iwd.network.Ajax:history",
-			"fr.iwd.network.Ajax:history:beforeSend",
-			"beforesendHistory",
-			"successhisto",
-			"successhisty",
-			"see",
-			"seeall"
+			"debugger"
 		],
 		"highlight": true,
 		"in_selection": false,
@@ -968,7 +1037,11 @@
 		"regex": false,
 		"replace_history":
 		[
-			"    ",
+			"",
+			"changeAnimationTo",
+			", deltaX: 0, deltaY: 0}",
+			"width=\"270\"",
+			"<li>$1</li>\\n",
 			"",
 			"background",
 			"static function is$1 () {",
@@ -1091,11 +1164,7 @@
 			"$actionbar",
 			"v_",
 			"?></span>",
-			"</span>",
-			"<span>",
-			"info",
-			"Browser",
-			"div"
+			"</span>"
 		],
 		"reverse": false,
 		"show_context": false,
@@ -1106,8 +1175,234 @@
 	"groups":
 	[
 		{
+			"selected": 7,
 			"sheets":
 			[
+				{
+					"buffer": 0,
+					"file": "index.html",
+					"settings":
+					{
+						"buffer_size": 7478,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4838,
+								4838
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1080.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "js/mooStreetFighter.js",
+					"settings":
+					{
+						"buffer_size": 3300,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								3300,
+								3300
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "js/player/characters.js",
+					"settings":
+					{
+						"buffer_size": 4693,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4350,
+								4350
+							]
+						],
+						"settings":
+						{
+							"auto_name": "var Ken = new Class({",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1995.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "js/player/manager.js",
+					"settings":
+					{
+						"buffer_size": 1774,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1601,
+								1601
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 585.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "js/manager/inputManager.js",
+					"settings":
+					{
+						"buffer_size": 5341,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								5149,
+								5149
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 2272.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 5,
+					"file": "js/ui/comboDisplayer.js",
+					"settings":
+					{
+						"buffer_size": 908,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								169,
+								169
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "js/event/dispatcher.js",
+					"settings":
+					{
+						"buffer_size": 1230,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1143,
+								1143
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 7,
+					"file": "js/player/attacklist.js",
+					"settings":
+					{
+						"buffer_size": 701,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								674,
+								674
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
 			]
 		}
 	],
@@ -1239,6 +1534,6 @@
 	"show_open_files": true,
 	"show_tabs": true,
 	"side_bar_visible": true,
-	"side_bar_width": 310.0,
+	"side_bar_width": 221.0,
 	"status_bar_visible": true
 }
