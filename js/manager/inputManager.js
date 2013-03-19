@@ -94,17 +94,20 @@ var InputManager = new Class({
 
     push: function (key) {
         this.inCombo = true;
-        this.keyList.push(key);
+        if (!this.pushedKeys[key])
+            this.keyList.push(key);
         if (KeyConfiguration['attack'][key] ||
             KeyConfiguration['directions'][key]
             ) {
             this.pushedKeys[key] = true;
         }
+        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.translate([key]), this.pushedKeys], this);
     },
 
     pop: function (key) {
         if (this.pushedKeys[key])
             this.pushedKeys[key] = false;
+        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_RELEASED, [this.translate([key]), this.pushedKeys], this);
     },
 
     /*
@@ -128,6 +131,7 @@ var InputManager = new Class({
             this.execute();
             this.nextTicks = this.getTicks() + this.rate;
             this.clean();
+            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys], this);
         }
     },
 
@@ -156,7 +160,7 @@ var InputManager = new Class({
         for (var i = key.length - 1; i > -1; --i) {
             if (attack[key[i]]) {
                 tmp.push(attack[key[i]]);
-            } else if (dir[key[i]]) {
+            } /*else if (dir[key[i]]) {
                 // tant que l'on a une touche de direction
                 var dirTmp = [], sdirTmp;
                 while(dir[key[i]]) {
@@ -171,8 +175,35 @@ var InputManager = new Class({
                 else
                     for (var j = dirTmp.length - 1; j > -1; j--)
                         tmp.push(dir[dirTmp[j]]);
-            }
+            }*/
         }
+
+        var str = '', k = KeyConfiguration, dir = {'up': true, 'left': true, 'down': true, 'right': true},
+            keyList = this.pushedKeys;
+        if (keyList.up) {
+            str = k[keyList.up];
+            if (keyList.left)
+                str +=  k[keyList.left];
+            if (keyList.right)
+                str +=  k[keyList.right];
+            tmp.push(str);
+        }
+        if (keyList.down) {
+            str = k[keyList.down];
+            if (keyList.left)
+                str += k[keyList.left];
+            if (keyList.right)
+                str += k[keyList.right];
+            tmp.push(str);
+        }
+        if (keyList.left)
+            tmp.push(k[keyList.left]);
+        if (keyList.right)
+            tmp.push(k[keyList.right]);
+        for (var a in keyList)
+            if (!dir[a])
+                tmp.push(k[a]);
+
         // on verifie les repetitions
         var last = 0, cleanTmp = [], key;
         for (k = 0, m = tmp.length; k < m; k++) {
