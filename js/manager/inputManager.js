@@ -94,17 +94,20 @@ var InputManager = new Class({
 
     push: function (key) {
         this.inCombo = true;
-        this.keyList.push(key);
+        if (!this.pushedKeys[key])
+            this.keyList.push(key);
         if (KeyConfiguration['attack'][key] ||
             KeyConfiguration['directions'][key]
             ) {
             this.pushedKeys[key] = true;
         }
+        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.translate([key]), this.pushedKeys], this);
     },
 
     pop: function (key) {
         if (this.pushedKeys[key])
             this.pushedKeys[key] = false;
+        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_RELEASED, [this.translate([key]), this.pushedKeys], this);
     },
 
     /*
