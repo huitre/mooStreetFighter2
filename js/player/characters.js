@@ -14,12 +14,13 @@ var Character = new Class({
     isAttacking: false,
     isHitable: false,
     comboDisplayer: null,
-    keyPressed: null,
+    comboManager: null,
 
     initialize : function ( options ) {
         this.parent(options);
         this.attackList = options.attackList;
         this.comboDisplayer = new ComboDisplayer();
+        this.comboManager = new ComboManager();
         GlobalDispatcher.addListener(sfEvent.ANIMATION_END, function (data, target) { this.updateState(data, target) }.bind(this));
     },
 
@@ -137,54 +138,24 @@ var Character = new Class({
             this.changeAnimationTo('idle');
     },
 
-    onInputReady: function (actionListAndKeysList) {
-
-        if (actionListAndKeysList.length > 0) {
-            this.updateStateOnInput(actionListAndKeysList[1]);
-            this.comboDisplayer.setContent(actionListAndKeysList[0]);
-            
-            // on verifie si l'on a une attaque speciale en 1er
-            actionList = this.checkForSpecialAttack(this.comboDisplayer.getContent());
-            this.comboDisplayer.display();
-
-            // puis on execute les actions du buffer
-            if (!!actionList)
-            for (var i = actionList.length -1; i > -1; i--) {
-                for (var j = actionList[i].length -1; j > -1; j--) {
-                    if (this[actionList[i][j].action]) {
-                        //this[actionList[i][j].action]();
-                    }
-                }
-            }
-        }
+    onInputPressed: function (keyList) {
+        this.comboManager.pushKeyList(keyList);
+        this.executeActionList(this.comboManager.translate(keyList));
     },
 
-    actionListToStr: function (actionList) {
-        var actionStr = '';
+    executeActionList: function (actionList) {
         for (var i = 0, max = actionList.length; i < max; i++) {
-            for (var j = 0, maxj = actionList[i].length; j < maxj; j++) {
-                if (actionList[i][j].action) {
-                    actionStr = actionStr + actionList[i][j].action + '';
-                }
-            }
+            if (this[actionList])
+                this[actionList]();
         }
-        return actionStr;
     },
 
-    checkForSpecialAttack: function (actionList) {
-        var actionStr = this.actionListToStr(actionList);
-        for (var attackName in this.attackList) {
-            for (var i = this.attackList[attackName].length -1; i > -1; i--) {
-                if (actionStr.indexOf(this.attackList[attackName][i]) > 0 ) {
-                    $('debugger').set('html', attackName);
-                    if (this[attackName])
-                        this[attackName]();
-                }
-            }
-        }
-        return actionList;
-    }
+    onInputReleased: function (keyList) {
+        
+    },
 
+    onInputReady: function (keyList) {
+    }
 })
 
 var Ken = new Class({
@@ -207,6 +178,7 @@ var Ken = new Class({
     },
 
     tatsumakisenpyaku: function () {
+        this.addForce(5, 5);
         this.attack('tatsumakisenpyaku');
     }
 });
