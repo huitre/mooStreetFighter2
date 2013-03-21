@@ -61,6 +61,7 @@ var PlayerManager = new Class({
         });
 
         GlobalDispatcher.addListener(sfEvent.ON_INPUT_READY, this.player1.onInputReady, this.player1);
+        GlobalDispatcher.addListener(sfEvent.ON_INPUT_PUSHED, this.player1.onInputPushed, this.player1);
         GlobalDispatcher.addListener(sfEvent.ON_INPUT_PRESSED, this.player1.onInputPressed, this.player1);
         GlobalDispatcher.addListener(sfEvent.ON_INPUT_RELEASED, this.player1.onInputReleased, this.player1);
     },

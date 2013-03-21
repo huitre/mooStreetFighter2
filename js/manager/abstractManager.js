@@ -1,5 +1,9 @@
 var Manager = new Class({
     Implements : [Options],
+    nextTicks: 1,
+    lastTicks: 0,
+    rate: 133,
+
     initialize: function (game) {
         this.game = game;
     },
@@ -13,5 +17,8 @@ var Manager = new Class({
     },
     getTicks: function () {
         return Date.now();
+    },
+    getNextTick: function () {
+        this.nextTicks = this.getTicks() + this.rate;
     }
 })

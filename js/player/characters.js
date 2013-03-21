@@ -122,10 +122,6 @@ var Character = new Class({
 
     },
 
-    updateStateOnInput: function (inputState) {
-        this.keyPressed = inputState;
-    },
-
     isInactive: function () {
         return false;
     },
@@ -138,25 +134,34 @@ var Character = new Class({
             this.changeAnimationTo('idle');
     },
 
-    onInputPressed: function (keyList) {
-        this.comboManager.pushKeyList(keyList);
-        this.executeActionList(this.comboManager.translate(keyList));
-    },
 
     executeActionList: function (actionList) {
         for (var i = 0, max = actionList.length; i < max; i++) {
-            if (this[actionList])
-                this[actionList]();
+            if (this[actionList[i].action])
+                this[actionList[i].action]();
         }
     },
 
-    onInputReleased: function (keyList) {
-        
+    onInputPushed: function (keyList) {
+        console.log('onInputPushed')
+        this.comboManager.onKeyDown(keyList);
+        //this.onInputPressed(keyList);
     },
 
-    onInputReady: function (keyList) {
+    onInputReleased: function (keyList) {
+        //console.log('onInputReleased');
+        this.comboManager.onKeyUp(keyList);
+    },
+
+    onInputPressed: function (keyList) {
+        //console.log('onInputPressed');
+        this.executeActionList(this.comboManager.translate(keyList));
+    },
+
+    onInputReady: function () {
     }
 })
+
 
 var Ken = new Class({
     Extends : Character,

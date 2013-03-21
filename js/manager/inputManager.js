@@ -40,7 +40,7 @@ var InputManager = new Class({
 
     // status des touches de direction
     pushedKeys: null,
-    rate: 50,
+    rate: 133,
 
 
     initialize: function (options) {
@@ -77,11 +77,11 @@ var InputManager = new Class({
         if (KeyConfiguration[key]) {
             this.pushedKeys[key] = true;
         }
+        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [this.pushedKeys], this);
     },
 
     pop: function (key) {
-        if (this.pushedKeys[key])
-            this.pushedKeys[key] = false;
+        this.pushedKeys[key] = false;
         GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_RELEASED, [this.pushedKeys], this);
     },
 
@@ -91,12 +91,17 @@ var InputManager = new Class({
 
     update: function () {
         if (this.nextTicks >= this.lastTicks) {
-            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys], this);
+            if (this.hasTouchPressed())
+                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys], this);
             this.getNextTick();
         }
     },
 
-    getNextTick: function () {
-        this.nextTicks = this.getTicks() + this.rate;
+    hasTouchPressed: function () {
+        for (var key in this.pushedKeys) {
+            if (this.pushedKeys[key] === true)
+                return true;
+        }
+        return false;
     }
 });
