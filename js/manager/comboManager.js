@@ -85,5 +85,33 @@ var ComboManager = new Class({
                 tmp.push(k[a]);
 
         return tmp;
+    },
+
+    actionListToStr: function (actionList) {
+        var actionStr = '';
+        for (var i = 0, max = actionList.length; i < max; i++) {
+            for (var j = 0, maxj = actionList[i].length; j < maxj; j++) {
+                if (actionList[i][j].action) {
+                    actionStr = actionStr + actionList[i][j].action + '';
+                }
+            }
+        }
+        return actionStr;
+    },
+
+    checkForSpecialAttack: function () {
+        var actionStr = this.actionListToStr(this.actionList),
+            comboList = [];
+        if (this.actionList.length > 10)
+            debugger;
+        for (var attackName in this.attackList) {
+            for (var i = this.attackList[attackName].length -1; i > -1; i--) {
+                if (actionStr.indexOf(this.attackList[attackName][i]) > 0 ) {
+                    comboList.push(this.attackList[attackName][i]);
+                }
+            }
+        }
+        return comboList;
     }
+
 });

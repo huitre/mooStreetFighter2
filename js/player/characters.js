@@ -151,6 +151,8 @@ var Character = new Class({
     onInputReleased: function (keyList) {
         //console.log('onInputReleased');
         this.comboManager.onKeyUp(keyList);
+        var comboList = this.comboManager.checkForSpecialAttack();
+        console.log(comboList);
     },
 
     onInputPressed: function (keyList) {
