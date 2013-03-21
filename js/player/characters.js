@@ -21,7 +21,7 @@ var Character = new Class({
         this.attackList = options.attackList;
         this.comboDisplayer = new ComboDisplayer();
         this.comboManager = new ComboManager();
-        GlobalDispatcher.addListener(sfEvent.ANIMATION_END, function (data, target) { this.updateState(data, target) }.bind(this));
+        GlobalDispatcher.addListener(sfEvent.ANIMATION_END, this.updateState, this);
     },
 
     collideWith: function (objectCollider) {
@@ -123,13 +123,14 @@ var Character = new Class({
     },
 
     isInactive: function () {
-        return false;
+        return !this.comboManager.hasTouchPressed();
     },
 
     updateState: function (e, force) {
         this.isHitable = false;
         this.isAttacking = false;
         this.isMoving = false;
+        this.isCrouching = false;
         if (this.isInactive())
             this.changeAnimationTo('idle');
     },
@@ -143,16 +144,19 @@ var Character = new Class({
     },
 
     onInputPushed: function (keyList) {
-        console.log('onInputPushed')
+        //console.log('onInputPushed')
         this.comboManager.onKeyDown(keyList);
+        this.comboDisplayer.setContent(this.comboManager.getActionList());
+        this.comboDisplayer.display();
         //this.onInputPressed(keyList);
     },
 
     onInputReleased: function (keyList) {
         //console.log('onInputReleased');
         this.comboManager.onKeyUp(keyList);
-        var comboList = this.comboManager.checkForSpecialAttack();
-        console.log(comboList);
+        var comboList = this.comboManager.checkForSpecialAttack(this.attackList);
+        if (comboList.length)
+            console.log(comboList);
     },
 
     onInputPressed: function (keyList) {

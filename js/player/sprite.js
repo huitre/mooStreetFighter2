@@ -178,7 +178,9 @@ var AnimatedSprite = new Class({
     },
 
     setCurrentAnimation: function (animation) {
-        this.lastPosition = this.getPosition();
+        if (this.lastAnimation == animation)
+            return false;
+        this.lastAnimation = this.currentAnimation;
         this.setCurrentFrame(0);
         this.setNextTicks();
         this.currentAnimation = animation;
@@ -205,11 +207,14 @@ var AnimatedSprite = new Class({
     },
 
     getCurrentPlayedContext: function () {
-        return this.animation[this.getCurrentAnimationName()][this.getCurrentFrame()];
+        var currentAnimation = this.getCurrentAnimation();
+        if (this.getCurrentFrame() >= currentAnimation.length)
+            return currentAnimation[0];
+        return currentAnimation[this.getCurrentFrame()];
     },
 
     getCurrentFrameTimer: function () {
-        return this.getCurrentPlayedContext().rate | 133;
+        return this.getCurrentPlayedContext().rate || 133;
     },
 
     setRate: function (ms) {

@@ -16,8 +16,13 @@ var ComboManager = new Class({
         this.setContent(translated);
     },
 
+    getActionList: function () {
+        return this.actionList;
+    },
+
     setContent: function (actionList) {
         this.actionList.push(actionList);
+        //this.actionList = actionList;
         if (this.actionList.length > this.max)
             while (this.actionList.length > this.max)
                 this.actionList.shift();
@@ -59,7 +64,7 @@ var ComboManager = new Class({
             str = k['up'];
             if (keyList.left)
                 str +=  k['left'];
-            if (keyList.right)
+            else if (keyList.right)
                 str +=  k['right'];
             tmp.push(str);
         }
@@ -68,7 +73,7 @@ var ComboManager = new Class({
             str = k['down'];
             if (keyList.left)
                 str += k['left'];
-            if (keyList.right)
+            else if (keyList.right)
                 str += k['right'];
             tmp.push(str);
         }
@@ -99,19 +104,25 @@ var ComboManager = new Class({
         return actionStr;
     },
 
-    checkForSpecialAttack: function () {
+    checkForSpecialAttack: function (attackList) {
         var actionStr = this.actionListToStr(this.actionList),
             comboList = [];
-        if (this.actionList.length > 10)
-            debugger;
-        for (var attackName in this.attackList) {
-            for (var i = this.attackList[attackName].length -1; i > -1; i--) {
-                if (actionStr.indexOf(this.attackList[attackName][i]) > 0 ) {
-                    comboList.push(this.attackList[attackName][i]);
+        for (var attackName in attackList) {
+            for (var i = attackList[attackName].length -1; i > -1; i--) {
+                if (actionStr.indexOf(attackList[attackName][i]) > 0 ) {
+                    comboList.push(attackList[attackName][i]);
                 }
             }
         }
         return comboList;
+    },
+
+    hasTouchPressed: function () {
+        for (var key in this.keyPressed) {
+            if (this.keyPressed[key] === true)
+                return true;
+        }
+        return false;
     }
 
 });

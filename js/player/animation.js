@@ -18,9 +18,9 @@
 var Animation = {
   ken : {
     idle : [
-      {x: -6,  y: -18,  w : 43, h: 81, rate:50, deltaX: 0, deltaY: 0},
-      {x: -55,  y: -18, w : 43, h: 81, rate:50, deltaX: 0, deltaY: 0},
-      {x: -105, y: -18, w : 43, h: 81, rate:50, deltaX: 0, deltaY: 0},
+      {x: -6,  y: -18,  w : 43, h: 81, rate:70, deltaX: 0, deltaY: 0},
+      {x: -55,  y: -18, w : 43, h: 81, rate:90, deltaX: 0, deltaY: 0},
+      {x: -105, y: -18, w : 43, h: 81, rate:110, deltaX: 0, deltaY: 0},
       {x: -154, y: -18, w : 43, h: 81, rate:50, deltaX: 0, deltaY: 0}
     ],
     walkright : [
@@ -36,15 +36,15 @@ var Animation = {
       {x: -121, y: -134, w : 57, h: 81, rate: 50, deltaX: 0, deltaY: 0}
     ],
     mpunch: [
-      {x: -178, y: -130, w : 72, h: 86, rate: 30, deltaX: 0, deltaY: -4},
-      {x: -250, y: -130, w : 72, h: 86, rate: 60, deltaX: 0, deltaY: -4},
-      {x: -322, y: -130, w : 72, h: 86, rate: 60, deltaX: 0, deltaY: -4},
-      {x: -394, y: -130, w : 72, h: 86, rate: 50, deltaX: 0, deltaY: -4},
-      {x: -466, y: -130, w : 72, h: 86, rate: 40, deltaX: 0, deltaY: -4}
+      {x: -178, y: -129, w : 72, h: 86, rate: 30, deltaX: 0, deltaY: -4},
+      {x: -250, y: -129, w : 72, h: 86, rate: 60, deltaX: 0, deltaY: -4},
+      {x: -322, y: -129, w : 72, h: 86, rate: 60, deltaX: 0, deltaY: -4},
+      {x: -394, y: -129, w : 72, h: 86, rate: 50, deltaX: 0, deltaY: -4},
+      {x: -466, y: -129, w : 72, h: 86, rate: 40, deltaX: 0, deltaY: -4}
     ],
     lkick : [
       {x: -7,   y: -261, w : 67, h: 85, rate: 50, deltaX: -7, deltaY: -5},
-      {x: -74,  y: -261, w : 67, h: 85, rate: 80, deltaX: -17, deltaY: -5},
+      {x: -74,  y: -261, w : 67, h: 85, rate: 80, deltaX: -7, deltaY: -5},
       {x: -141, y: -261, w : 67, h: 85, rate: 80, deltaX: -7, deltaY: -5},
     ],
     shoryuken : [

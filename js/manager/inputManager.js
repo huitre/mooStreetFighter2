@@ -40,7 +40,7 @@ var InputManager = new Class({
 
     // status des touches de direction
     pushedKeys: null,
-    rate: 133,
+    rate: 600,
 
 
     initialize: function (options) {
