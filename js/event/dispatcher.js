@@ -37,7 +37,19 @@ var EventDispatcher = new Class({
                 listener.callback.apply(listener.scope, data);
             })
         }
-    }    
+    }
 })
 
 var GlobalDispatcher = new EventDispatcher();
+
+var sfEvent = {
+    ANIMATION_START: 'sf2.animation.start',
+    ANIMATION_RUNNING: 'sf2.animation.running',
+    ANIMATION_END: 'sf2.animation.end',
+    ON_ATTACK_START: 'sf2.attack.start',
+    ON_ATTACK_END: 'sf2.attack.end',
+    ON_INPUT_READY: 'sf2.input.ready',
+    ON_INPUT_PUSHED: 'sf2.input.keypushed',
+    ON_INPUT_PRESSED: 'sf2.input.keypressed',
+    ON_INPUT_RELEASED: 'sf2.input.keyreleased'
+}
