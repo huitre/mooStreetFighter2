@@ -3,15 +3,20 @@ var DIR = {'up': true, 'left': true, 'down': true, 'right': true};
 var ComboManager = new Class({
     Extends: Manager,
     Implements: [Events],
-    keyPressed: {},
+    keyPressed: null,
     actionList: [],
 
     onKeyDown: function (keyList) {
+        if (this.keyPressed == null)
+            this.keyPressed = {};
         for (var key in keyList) {
             if (!this.keyPressed[key]) {
                 this.keyPressed[key] = true;
             }
         }
+        // on force la mise a jour des touches avant le translate
+        // pour ne pas avoir de touches parasites
+        this.onKeyUp(keyList);
         var translated = this.translate(this.keyPressed);
         this.setContent(translated);
     },
@@ -22,7 +27,6 @@ var ComboManager = new Class({
 
     setContent: function (actionList) {
         this.actionList.push(actionList);
-        //this.actionList = actionList;
         if (this.actionList.length > this.max)
             while (this.actionList.length > this.max)
                 this.actionList.shift();
@@ -30,8 +34,7 @@ var ComboManager = new Class({
 
     onKeyUp: function (keyList) {
         for (var key in keyList) {
-            if (this.keyPressed[key])
-                this.keyPressed[key] = keyList[key];
+            this.keyPressed[key] = keyList[key];
         }
     },
 
@@ -107,6 +110,7 @@ var ComboManager = new Class({
     checkForSpecialAttack: function (attackList) {
         var actionStr = this.actionListToStr(this.actionList),
             comboList = [];
+
         for (var attackName in attackList) {
             for (var i = attackList[attackName].length -1; i > -1; i--) {
                 if (actionStr.indexOf(attackList[attackName][i]) > 0 ) {

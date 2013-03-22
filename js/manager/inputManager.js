@@ -21,7 +21,6 @@ var Key = new Class({
     repeated: 0,
     action: null,
     sinceLastPress: 0, // not for now
-    pressed: true,
 
     initialize: function (action) {
         this.action = action;
@@ -39,7 +38,7 @@ var InputManager = new Class({
     Implements: [Events],
 
     // status des touches de direction
-    pushedKeys: null,
+    pushedKeys: {},
     rate: 600,
 
 
@@ -54,7 +53,7 @@ var InputManager = new Class({
      * Methode d'initialisation appelee avant le debut du combat
      * charge de mettre en place la capture des inputs
      */
-    prepare: function (players) {
+    prepare: function () {
         var that = this;
         this.nextTicks = this.lastTicks = this.getTicks();
         $(window).addEvents({
