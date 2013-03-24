@@ -82,7 +82,8 @@ var Sprite = new Class({
     },
 
     moveTo: function (x, y, speed) {
-
+        if (!speed)
+            speed = 1000; // 1 seconde par defaut
     }
 });
 
@@ -159,13 +160,14 @@ var AnimatedSprite = new Class({
     },
 
     changeAnimationTo: function (animation) {
+        console.log(animation);
         GlobalDispatcher.fireEvent(sfEvent.ANIMATION_START);
         this.setCurrentAnimation(animation);
         var lastContext = this.getLastContext(),
             context = this.getCurrentPlayedContext();
         this.el.setStyles({
-            'width': lastContext.w,
-            'height': lastContext.h
+            'width': context.w,
+            'height': context.h
         });
         try {
         this.setPosition(
@@ -173,7 +175,7 @@ var AnimatedSprite = new Class({
             this.y + (context.deltaY - lastContext.deltaY)
         );
         } catch (e) {
-            debugger;
+           // debugger;
         }
     },
 

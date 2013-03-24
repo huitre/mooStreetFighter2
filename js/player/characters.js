@@ -2,9 +2,27 @@
  * @author Huitre<gohin.j@gmail.com>
  */
 
+var IActionable = new Class({
+    // wrapper pour les noms courts d'action
+    o: function () { this.moveLeft() },
+    e: function () { this.moveRight() },
+    n: function () { this.jump() },
+    no: function () { this.forwardJump('left') },
+    ne: function () { this.forwardJump('right') },
+    s: function () { this.crouch() },
+    se: function () { this.crouch() },
+    so: function () { this.crouch() },
+    lp: function () { this.lowpunch() },
+    mp: function () { this.mediumPunch() },
+    hp: function () { this.highPunch() },
+    lk: function () { this.lowkick() },
+    mk: function () { this.mediumKick() },
+    hk: function () { this.highKick() },
+});
+
 var Character = new Class({
     Extends: AnimatedSprite,
-    Implements: [ICollider, IPhysic],
+    Implements: [ICollider, IPhysic, IActionable],
 
     attackList : {},
     isJumping: true,
@@ -38,36 +56,49 @@ var Character = new Class({
         this.isJumping = false;
     },
 
-    jump: function () {
+    forwardJump: function (dir) {
+        if (dir == 'left') {
+
+        }
         if (!this.isJumping) {
             this.isJumping = true;
+            this.isMoving = true;
+            this.isHitable = true;
             this.changeAnimationTo('jump');
             this.addForce(0, -25);
         }
     },
 
-    // wrapper pour les noms courts d'action
-    o: function () { this.moveLeft() },
-    e: function () { this.moveRight() },
-    n: function () { this.jump() },
-    s: function () { this.crouch() },
-    lp: function () { this.lpunch() },
-    mp: function () { this.mediumPunch() },
-    hp: function () { this.highPunch() },
-    lk: function () { this.lkick() },
-    mk: function () { this.mediumKick() },
-    hk: function () { this.highKick() },
+    jump: function () {
+        if (!this.isJumping) {
+            this.isJumping = true;
+            this.isMoving = true;
+            this.isHitable = true;
+            this.changeAnimationTo('jump');
+            this.addForce(0, -25);
+        }
+    },
+
+    canMove: function () {
+        if (this.isAttacking || this.isCrouching || this.isJumping || this.isBlocking)
+            return false;
+        return true;
+    },
 
     moveLeft: function () {
-        this.changeAnimationTo('walkright');
-        this.addForce(-5, 0);
-        this.isMoving = true;
+        if (this.canMove()) {
+            this.changeAnimationTo('walkright');
+            this.addForce(-5, 0);
+            this.isMoving = true;
+        }
     },
 
     moveRight: function () {
-        this.isMoving = true;
-        this.changeAnimationTo('walkright');
-        this.addForce(5, 0);
+        if (this.canMove()) {
+            this.isMoving = true;
+            this.changeAnimationTo('walkright');
+            this.addForce(5, 0);
+        }
     },
 
     setAttackState: function () {
@@ -89,12 +120,17 @@ var Character = new Class({
     },
 
     attack: function (attackName) {
-        if (!this.isAttacking)
+        if (!this.isAttacking) {
+            if (this.isCrouching)
+                attackName = 'crouch' + attackName;
+            if (this.isJumping)
+                attackName = 'jump' + attackName;
             this.changeAnimationTo(attackName);
+        }
         this.setAttackState();
     },
 
-    lpunch: function () {
+    lowpunch: function () {
         this. attack('lpunch');
     },
 
@@ -127,12 +163,12 @@ var Character = new Class({
     },
 
     updateState: function (e, force) {
-        this.isHitable = false;
         this.isAttacking = false;
-        this.isMoving = false;
-        this.isCrouching = false;
-        if (this.isInactive())
+        if (this.isInactive()) {
             this.changeAnimationTo('idle');
+            this.isHitable = false;
+            this.isCrouching = false;
+        }
     },
 
 
@@ -144,23 +180,20 @@ var Character = new Class({
     },
 
     onInputPushed: function (keyList) {
-        //console.log('onInputPushed')
         this.comboManager.onKeyDown(keyList);
         this.comboDisplayer.setContent(this.comboManager.getActionList());
         this.comboDisplayer.display();
-        //this.onInputPressed(keyList);
+        var comboList = this.comboManager.checkForSpecialAttack(this.attackList);
+        for (var i = 0, max = comboList.length; i < max; i++)
+            if (this[comboList[i]])
+                this[comboList[i]]();
     },
 
     onInputReleased: function (keyList) {
-        //console.log('onInputReleased');
         this.comboManager.onKeyUp(keyList);
-        var comboList = this.comboManager.checkForSpecialAttack(this.attackList);
-        if (comboList.length)
-            console.log(comboList);
     },
 
     onInputPressed: function (keyList) {
-        //console.log('onInputPressed');
         this.executeActionList(this.comboManager.translate(keyList));
     },
 
@@ -189,7 +222,8 @@ var Ken = new Class({
     },
 
     tatsumakisenpyaku: function () {
-        this.addForce(5, 5);
+        console.log('tatsumakisenpyaku');
+        this.moveTo(25, 15);
         this.attack('tatsumakisenpyaku');
     }
 });

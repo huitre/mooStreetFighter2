@@ -6,14 +6,14 @@ var ComboDisplayer = new Class({
         var str = [],
             displayDiv = $('combo-status');
             
-        for (var i = this.content.length -1; i > -1; i--) {
-            str.push('<div>');
-            for (var j = 0; j > -1; j--) {
-                for (var k = this.content[i][j].length -1; k > -1; k--) {
+        for (var i = this.content.length -1; i > -1; i--) { 
+            for (var j = this.content[i].length -1; j > -1; j--) { 
+                str.push('<div>');
+                for (var k = this.content[i][j].length -1; k > -1; k--) { 
                     str.push('<img src="sprites/combo/' + this.content[i][j][k].action + '.png"/>');
-                }
+                } 
+                str.push('</div>');
             }
-            str.push('</div>');
         }
         displayDiv.set('html', str.join(''));
     },

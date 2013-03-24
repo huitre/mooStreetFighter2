@@ -5,6 +5,7 @@ var ComboManager = new Class({
     Implements: [Events],
     keyPressed: null,
     actionList: [],
+    max: 20,
 
     onKeyDown: function (keyList) {
         if (this.keyPressed == null)
@@ -114,7 +115,7 @@ var ComboManager = new Class({
         for (var attackName in attackList) {
             for (var i = attackList[attackName].length -1; i > -1; i--) {
                 if (actionStr.indexOf(attackList[attackName][i]) > 0 ) {
-                    comboList.push(attackList[attackName][i]);
+                    comboList.push(attackName);
                 }
             }
         }
