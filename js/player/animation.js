@@ -68,7 +68,32 @@ var Animation = {
       {x: -627, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: 0},
       {x: -670, y: -6, w: 43, h: 93, rate: 20, deltaX: 0, deltaY: 0}
     ],
+    jumpforwardright: [
+      {x:-754, y: -7, w:74, h: 93, deltaX: 31, deltaY: 12},
+      {x:-828, y: -7, w:74, h: 93, deltaX: 31, deltaY: 12},
+      {x:-902, y: -7, w:74, h: 93, deltaX: 31, deltaY: 12},
+      {x:-976, y: -7, w:74, h: 93, deltaX: 31, deltaY: 12},
+      {x:-1050, y: -7, w:74, h: 93, deltaX: 31, deltaY: 12},
+      {x:-1124, y: -7, w:74, h: 93, deltaX: 31, deltaY: 12}
+    ],
+    jumpforwardleft: [
+      {x:-1124, y: -7, w:74, h: 93, deltaX: 0, deltaY: 0},
+      {x:-1050, y: -7, w:74, h: 93, deltaX: 0, deltaY: 0},
+      {x:-976, y: -7, w:74, h: 93, deltaX: 0, deltaY: 0},
+      {x:-902, y: -7, w:74, h: 93, deltaX: 0, deltaY: 0},
+      {x:-828, y: -7, w:74, h: 93, deltaX: 0, deltaY: 0},
+      {x:-754, y: -7, w:74, h: 93, deltaX: 0, deltaY: 0}
+    ],
     jumplpunch: [
+      {x: -1393, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0} 
+    ],
+    jumpmpunch: [
+      {x: -1393, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0} 
+    ],
+    jumplkick: [
+      {x: -1393, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0} 
+    ],
+    jumphkick: [
       {x: -1393, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0} 
     ],
     /* CROUCHING ANIMATION */
@@ -79,12 +104,12 @@ var Animation = {
       {x: -1442, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0}
     ],
     crouchlpunch: [
-      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20, rate:5000},
-      {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20, rate:5000}
+      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20},
+      {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20}
     ],
     crouchmpunch: [
-      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20, rate:500},
-      {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20, rate:500}
+      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20},
+      {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20}
     ],
     crouchlowkick: [
       {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 0},

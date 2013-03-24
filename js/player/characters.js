@@ -61,11 +61,12 @@ var Character = new Class({
             this.isJumping = true;
             this.isMoving = true;
             this.isHitable = true;
-            this.changeAnimationTo('jumpforward');
             if (dir == 'left') {
                 this.addForce(-15, -25);
+                this.changeAnimationTo('jumpforwardleft');
             } else {
                 this.addForce(15, -25);
+                this.changeAnimationTo('jumpforwardright');
             }
         }
     },
