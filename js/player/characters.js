@@ -57,15 +57,16 @@ var Character = new Class({
     },
 
     forwardJump: function (dir) {
-        if (dir == 'left') {
-
-        }
         if (!this.isJumping) {
             this.isJumping = true;
             this.isMoving = true;
             this.isHitable = true;
-            this.changeAnimationTo('jump');
-            this.addForce(0, -25);
+            this.changeAnimationTo('jumpforward');
+            if (dir == 'left') {
+                this.addForce(-15, -25);
+            } else {
+                this.addForce(15, -25);
+            }
         }
     },
 

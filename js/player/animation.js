@@ -60,6 +60,7 @@ var Animation = {
       {x: -398, y: -120, w: 64, h: 119, deltaX: 0, deltaY: 0},
       {x: -468, y: -126, w: 64, h: 115, deltaX: 0, deltaY: 0}
     ],
+    /* JUMPING ANIMATION */
     jump: [
       {x: -498, y: -6, w: 43, h: 93, rate: 20, deltaX: 0, deltaY: 10},
       {x: -541, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: 0},
@@ -67,10 +68,10 @@ var Animation = {
       {x: -627, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: 0},
       {x: -670, y: -6, w: 43, h: 93, rate: 20, deltaX: 0, deltaY: 0}
     ],
-    jumplpunch:
-    blocking: [
-      {x: -1393, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0}
+    jumplpunch: [
+      {x: -1393, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0} 
     ],
+    /* CROUCHING ANIMATION */
     crouch: [
       {x: -1338, y: -24, w: 44, h: 75, deltaX: 0, deltaY: 9}
     ],
@@ -89,6 +90,10 @@ var Animation = {
       {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 0},
       {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 0}
     ],
+    blocking: [
+      {x: -1393, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0}
+    ],
+    /* SPECIAL ATTACK */
     tatsumakisenpyaku: [
       {x: -1097, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
       {x: -1163, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
