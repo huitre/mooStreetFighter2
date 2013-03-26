@@ -45,8 +45,6 @@ var Character = new Class({
     collideWith: function (objectCollider) {
         switch (objectCollider.type) {
             case 'Floor':
-                //this.setPosition(this.x, this.y - (this.h + this.y - objectCollider.y) - 10);
-                //this.setForce(0, 0);
                 this.isOnFloor();
             break;
         }
