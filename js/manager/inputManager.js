@@ -13,9 +13,9 @@ var KeyConfiguration = {
     'right': 'e'
 }
 
-var gamepad = {};
+var GAMEPAD = {};
 
-gamepad.BUTTONS = {
+GAMEPAD.BUTTONS = {
   FACE_1: 0, // Face (main) buttons
   FACE_2: 1,
   FACE_3: 2,
@@ -34,7 +34,7 @@ gamepad.BUTTONS = {
   PAD_RIGHT: 15
 };
 
-gamepad.AXES = {
+GAMEPAD.AXES = {
   LEFT_ANALOGUE_HOR: 0,
   LEFT_ANALOGUE_VERT: 1,
   RIGHT_ANALOGUE_HOR: 2,
@@ -65,6 +65,7 @@ var Key = new Class({
 var GamePadManager = new Class({
     Extends: Manager,
     pushedKeys: {},
+    oldState: {},
     gamepadList: [],
     ANALOGUE_BUTTON_THRESHOLD: 0.01,
     AXIS_THRESHOLD: 0.5,
@@ -72,7 +73,7 @@ var GamePadManager = new Class({
 
     initialize: function (options) {
         this.parent(options);
-        this.pushedKeys = {};
+        this.pushedKeys = this.oldState = {};
         this.gamepadList = navigator.webkitGetGamepads();
     },
 
@@ -91,19 +92,34 @@ var GamePadManager = new Class({
         }
     },
 
+    hasKeyChanged: function () {
+        for (var key in this.pushedKeys) {
+            if (this.pushedKeys[key] !== this.oldState[key])
+                return true;
+        }
+    },
+
+    checkForEventToThrow: function () {
+        if (this.hasKeyChanged()) {
+            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [this.pushedKeys], this);
+        }
+    },
+
     getPushedKeys: function () {
         for (var i = 0, m = this.gamepadList.length; i < m; i++) {
             var g = this.gamepadList[0]; // allow only one gamepad for the moment
             if (g) {
-                this.pushedKeys['right'] = this.isPushed(g, gamepad.BUTTONS.PAD_RIGHT) || this.isStickMoved(g, gamepad.AXES.LEFT_ANALOGUE_HOR);
-                this.pushedKeys['left'] = this.isPushed(g, gamepad.BUTTONS.PAD_LEFT) || this.isStickMoved(g, gamepad.AXES.LEFT_ANALOGUE_HOR, true);
-                this.pushedKeys['up'] = this.isPushed(g, gamepad.BUTTONS.PAD_TOP) || this.isStickMoved(g, gamepad.AXES.LEFT_ANALOGUE_VERT, true);
-                this.pushedKeys['down'] = this.isPushed(g, gamepad.BUTTONS.PAD_BOTTOM) || this.isStickMoved(g, gamepad.AXES.LEFT_ANALOGUE_VERT);
-                this.pushedKeys['a'] = this.isPushed(g, gamepad.BUTTONS.FACE_1);
-                this.pushedKeys['z'] = this.isPushed(g, gamepad.BUTTONS.FACE_2);
-                this.pushedKeys['s'] = this.isPushed(g, gamepad.BUTTONS.FACE_3);
-                this.pushedKeys['x'] = this.isPushed(g, gamepad.BUTTONS.FACE_4);
+                this.pushedKeys['right'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_RIGHT) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_HOR);
+                this.pushedKeys['left'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_LEFT) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_HOR, true);
+                this.pushedKeys['up'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_TOP) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_VERT, true);
+                this.pushedKeys['down'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_BOTTOM) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_VERT);
+                this.pushedKeys['a'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_1);
+                this.pushedKeys['z'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_2);
+                this.pushedKeys['s'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_3);
+                this.pushedKeys['x'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_4);
             }
+            //this.checkForEventToThrow();
+            this.oldState = this.pushedKeys;
         }
     },
 
