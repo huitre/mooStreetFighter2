@@ -8,6 +8,12 @@ var Sprite = new Class({
     isVisible: true,
     x : 0,
     y : 0,
+    to : {
+        x: 0,
+        y: 0,
+        stepX: 0,
+        stepY: 0
+    },
 
     initialize: function (options) {
         if (options) {
@@ -16,6 +22,7 @@ var Sprite = new Class({
             this.el.setStyle('background-image', 'url("' + options.image + '")');
         }
     },
+
     show: function () {
         this.el.show();
     },
@@ -55,20 +62,18 @@ var Sprite = new Class({
     },
 
     render: function () {
-        if (this.isVisible) {
-            var context = this.getCurrentPlayedContext();
+        var currentContext = this.getCurrentPlayedContext();
+        if (this.isVisible && !this.isPaused) {
             this.el.setStyles({
-                'background-position': '0 0',
-                'top': this.y + 'px',
-                'left': this.x + 'px',
-                'width': context.w,
-                'height': context.h
+                'background-position': currentContext.x + 'px ' + currentContext.y + 'px',
+                'width': currentContext.w,
+                'height': currentContext.h
             });
         }
+        this.updatePosition();
     },
 
     setPosition: function (x, y) {
-        //console.log(this.getCurrentAnimationName() + ' setPosition x ' + x + ' y ' + y);
         this.el.setStyles({
             'top': y + 'px',
             'left': x + 'px'
@@ -82,7 +87,20 @@ var Sprite = new Class({
     },
 
     moveTo: function (x, y, speed) {
+        if (!speed)
+            speed = 1000;
+        if (x)
+            this.to.stepX = speed / x;
+        if (y)
+            this.to.stepY = speed / y;
+    },
 
+    updatePosition: function () {
+        if (this.x <= this.to.x)
+            this.x += this.to.stepX;
+        if (this.y <= this.to.y)
+            this.y += this.to.stepY;
+        this.setPosition(this.x, this.y);
     }
 });
 
@@ -121,15 +139,7 @@ var AnimatedSprite = new Class({
 
 
     render: function () {
-        var currentContext = this.getCurrentPlayedContext();
-        if (this.isVisible && !this.isPaused) {
-            this.el.setStyles({
-                'background-position': currentContext.x + 'px ' + currentContext.y + 'px',
-                'width': currentContext.w,
-                'height': currentContext.h
-            });
-
-        }
+        this.parent();
         this.updateAnimation();
     },
 
@@ -161,19 +171,20 @@ var AnimatedSprite = new Class({
     changeAnimationTo: function (animation) {
         GlobalDispatcher.fireEvent(sfEvent.ANIMATION_START);
         this.setCurrentAnimation(animation);
-        var lastContext = this.getLastContext(),
-            context = this.getCurrentPlayedContext();
-        this.el.setStyles({
-            'width': lastContext.w,
-            'height': lastContext.h
-        });
+
         try {
-        this.setPosition(
-            this.x + (context.deltaX - lastContext.deltaX),
-            this.y + (context.deltaY - lastContext.deltaY)
-        );
+            var lastContext = this.getLastContext(),
+                context = this.getCurrentPlayedContext();
+            this.el.setStyles({
+                'width': context.w,
+                'height': context.h
+            });
+            this.setPosition(
+                this.x + (context.deltaX - lastContext.deltaX),
+                this.y + (context.deltaY - lastContext.deltaY)
+            );
         } catch (e) {
-            debugger;
+           // debugger;
         }
     },
 
@@ -214,7 +225,9 @@ var AnimatedSprite = new Class({
     },
 
     getCurrentFrameTimer: function () {
-        return this.getCurrentPlayedContext().rate || 133;
+        if (this.getCurrentPlayedContext().rate)
+            return this.getCurrentPlayedContext().rate;
+        return 133;
     },
 
     setRate: function (ms) {

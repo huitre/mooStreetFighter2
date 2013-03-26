@@ -16,7 +16,11 @@ var PlayerManager = new Class({
     },
 
     getPlayers: function () {
-        return [this.player1, this.player2];
+        if (this.player1 && this.player2)
+            return [this.player1, this.player2];
+        if (this.player1 && !this.player2)
+            return [this.player1];
+        return [this.player2];
     },
 
     getPlayer1: function () {
@@ -57,7 +61,8 @@ var PlayerManager = new Class({
 
     prepare: function () {
         this.getPlayers().each(function(player) {
-            player.show();
+            if (player)
+                player.show();
         });
 
         GlobalDispatcher.addListener(sfEvent.ON_INPUT_READY, this.player1.onInputReady, this.player1);
@@ -68,9 +73,8 @@ var PlayerManager = new Class({
 
     render : function () {
         this.getPlayers().each(function(player) {
-//            player.render();
+            player.render();
         });
-        this.player1.render();
     }
 })
 

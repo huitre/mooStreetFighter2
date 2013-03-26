@@ -13,6 +13,34 @@ var KeyConfiguration = {
     'right': 'e'
 }
 
+var GAMEPAD = {};
+
+GAMEPAD.BUTTONS = {
+  FACE_1: 0, // Face (main) buttons
+  FACE_2: 1,
+  FACE_3: 2,
+  FACE_4: 3,
+  LEFT_SHOULDER: 4, // Top shoulder buttons
+  RIGHT_SHOULDER: 5,
+  LEFT_SHOULDER_BOTTOM: 6, // Bottom shoulder buttons
+  RIGHT_SHOULDER_BOTTOM: 7,
+  SELECT: 8,
+  START: 9,
+  LEFT_ANALOGUE_STICK: 10, // Analogue sticks (if depressible)
+  RIGHT_ANALOGUE_STICK: 11,
+  PAD_TOP: 12, // Directional (discrete) pad
+  PAD_BOTTOM: 13,
+  PAD_LEFT: 14,
+  PAD_RIGHT: 15
+};
+
+GAMEPAD.AXES = {
+  LEFT_ANALOGUE_HOR: 0,
+  LEFT_ANALOGUE_VERT: 1,
+  RIGHT_ANALOGUE_HOR: 2,
+  RIGHT_ANALOGUE_VERT: 3
+};
+
 /*
  * Represente l'etat d'une action suite a une suite de touches presses
  * ex : haut-droite presse depuis 2secondes
@@ -33,19 +61,104 @@ var Key = new Class({
     }
 })
 
+
+var GamePadManager = new Class({
+    Extends: Manager,
+    pushedKeys: {},
+    oldState: {},
+    gamepadList: [],
+    ANALOGUE_BUTTON_THRESHOLD: 0.01,
+    AXIS_THRESHOLD: 0.5,
+
+
+    initialize: function (options) {
+        this.parent(options);
+        this.pushedKeys = this.oldState = {};
+        this.gamepadList = navigator.webkitGetGamepads();
+    },
+
+    isPushed: function (pad, buttonId) {
+       return pad.buttons[buttonId] &&
+         (pad.buttons[buttonId] > this.ANALOGUE_BUTTON_THRESHOLD);
+    },
+
+    isStickMoved: function (pad, axisId, isNegative) {
+        if (typeof pad.axes[axisId] == 'undefined') {
+            return false;
+        } else if (isNegative) {
+            return pad.axes[axisId] < -this.AXIS_THRESHOLD;
+        } else {
+            return pad.axes[axisId] > this.AXIS_THRESHOLD;
+        }
+    },
+
+    hasKeyChanged: function () {
+        for (var key in this.pushedKeys) {
+            if (this.pushedKeys[key] !== this.oldState[key])
+                return true;
+        }
+    },
+
+    checkForEventToThrow: function () {
+        if (this.hasKeyChanged()) {
+            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [this.pushedKeys], this);
+        }
+    },
+
+    getPushedKeys: function () {
+        for (var i = 0, m = this.gamepadList.length; i < m; i++) {
+            var g = this.gamepadList[0]; // allow only one gamepad for the moment
+            if (g) {
+                this.pushedKeys['right'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_RIGHT) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_HOR);
+                this.pushedKeys['left'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_LEFT) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_HOR, true);
+                this.pushedKeys['up'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_TOP) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_VERT, true);
+                this.pushedKeys['down'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_BOTTOM) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_VERT);
+                this.pushedKeys['a'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_1);
+                this.pushedKeys['z'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_2);
+                this.pushedKeys['s'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_3);
+                this.pushedKeys['x'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_4);
+            }
+            //this.checkForEventToThrow();
+            this.oldState = this.pushedKeys;
+        }
+    },
+
+    poll: function () {
+        if (this.nextTicks >= this.lastTicks) {
+            this.getPushedKeys();
+            if (this.hasTouchPressed()) {
+                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys], this);
+            }
+            this.getNextTick();
+        }
+    },
+
+    hasTouchPressed: function () {
+        for (var key in this.pushedKeys) {
+            if (this.pushedKeys[key] === true)
+                return true;
+        }
+    }
+})
+
 var InputManager = new Class({
     Extends: Manager,
     Implements: [Events],
 
+    // gamepads
+    gamepadSupportAvailable: false,
+    gamepadManager: {},
+
     // status des touches de direction
     pushedKeys: {},
-    rate: 600,
+    rate: 6000,
 
 
     initialize: function (options) {
         this.parent(options);
         $(window).removeEvents('keydown');
         $(window).removeEvents('keyup');
+        this.gamepadSupportAvailable = !!navigator.webkitGetGamepads || !!navigator.webkitGamepads;
         this.pushedKeys = {};
     },
 
@@ -67,6 +180,8 @@ var InputManager = new Class({
                 that.pop(e.key);
             }
         })
+        if (this.gamepadSupportAvailable)
+            this.gamepadManager = new GamePadManager();
     },
 
     push: function (key) {
@@ -85,10 +200,14 @@ var InputManager = new Class({
     },
 
     getPushedKeys: function () {
+        if (this.gamepadManager)
+            this.pushedKeys = this.gamepadManager.getPushedKeys();
         return this.pushedKeys;
     },
 
     update: function () {
+        if (this.gamepadManager)
+            this.gamepadManager.poll();
         if (this.nextTicks >= this.lastTicks) {
             if (this.hasTouchPressed())
                 GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys], this);

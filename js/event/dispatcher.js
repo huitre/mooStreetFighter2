@@ -9,7 +9,6 @@ var EventDispatcher = new Class({
         this.listeners[event].each(function (listener, index) {
             if (listener.callback == callback && listener.target == target) {
                 i = index;
-                break;
             }
         });
         if (i > -1)
