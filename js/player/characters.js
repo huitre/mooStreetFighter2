@@ -233,7 +233,7 @@ var Ken = new Class({
     },
 
     tatsumakisenpyaku: function () {
-        this.moveTo(25, 15);
+        this.moveTo(25, 0);
         this.resetState();
         this.attack('tatsumakisenpyaku');
     }
