@@ -67,8 +67,8 @@ var ICollider = new Class({
 var IPhysic = new Class({
     vx: 0,
     vy: 0,
-    gravity : 4,
-    friction: 0.3,
+    gravity : 1,
+    friction: 0.9,
 
     applyGravity: function () {
         var pos = this.getPosition();
@@ -121,7 +121,6 @@ var PhysicManager = new Class({
         this.colliderList.each(function (collider) {
             var g = collider.applyGravity(),
                 b = collider.getBounds();
-
             b.x = g.x;
             b.y = g.y;
             if (b.h + b.y > that.floor && collider.vy != 0) {

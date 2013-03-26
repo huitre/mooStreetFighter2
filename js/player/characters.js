@@ -62,10 +62,10 @@ var Character = new Class({
             this.isMoving = true;
             this.isHitable = true;
             if (dir == 'left') {
-                this.addForce(-15, -25);
+                this.addForce(-15, -12);
                 this.changeAnimationTo('jumpforwardleft');
             } else {
-                this.addForce(15, -25);
+                this.addForce(15, -12);
                 this.changeAnimationTo('jumpforwardright');
             }
         }
@@ -77,7 +77,7 @@ var Character = new Class({
             this.isMoving = true;
             this.isHitable = true;
             this.changeAnimationTo('jump');
-            this.addForce(0, -25);
+            this.addForce(0, -12);
         }
     },
 
@@ -123,9 +123,9 @@ var Character = new Class({
 
     attack: function (attackName) {
         if (!this.isAttacking) {
-            if (this.isCrouching)
+            if (this.isCrouching && !this.isJumping)
                 attackName = 'crouch' + attackName;
-            if (this.isJumping)
+            if (this.isJumping && !this.isCrouching)
                 attackName = 'jump' + attackName;
             this.changeAnimationTo(attackName);
         }
@@ -162,6 +162,15 @@ var Character = new Class({
 
     isInactive: function () {
         return !this.comboManager.hasTouchPressed();
+    },
+
+    resetState: function () {
+        this.isJumping = false;
+        this.isCrouching = false;
+        this.isHitable = false;
+        this.isMoving = false;
+        this.isBlocking = false;
+        this.isAttacking = false;
     },
 
     updateState: function (e, force) {
@@ -224,8 +233,8 @@ var Ken = new Class({
     },
 
     tatsumakisenpyaku: function () {
-        console.log('tatsumakisenpyaku');
         this.moveTo(25, 15);
+        this.resetState();
         this.attack('tatsumakisenpyaku');
     }
 });
