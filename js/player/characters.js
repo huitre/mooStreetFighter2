@@ -186,7 +186,6 @@ var Character = new Class({
         }
     },
 
-
     executeActionList: function (actionList) {
         for (var i = 0, max = actionList.length; i < max; i++) {
             if (this[actionList[i].action])

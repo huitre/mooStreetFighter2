@@ -133,18 +133,17 @@ var AnimatedSprite = new Class({
         //GlobalDispatcher.addListener(sfEvent.ANIMATION_END, function (e) { this.onAnimationEnd(e) }.bind(this));
     },
 
+    render: function () {
+        this.updateAnimation();
+        this.parent();
+    },
+
     getTicks: function () {
         return Date.now();
     },
 
-
-    render: function () {
-        this.parent();
-        this.updateAnimation();
-    },
-
     setNextTicks: function () {
-        this.nextTicks = this.getTicks() + this.getCurrentFrameTimer();
+        this.nextTicks = this.getTicks() + this.getCurrentFrameTimer() * CONFIG.SPEED;
     },
 
     updateAnimation: function () {
@@ -155,8 +154,6 @@ var AnimatedSprite = new Class({
     },
 
     playNextFrame: function () {
-        this.lastFrame = this.currentFrame;
-        this.lastAnimation = this.currentAnimation;
         this.currentFrame = this.currentFrame + 1;
         if (this.currentFrame > this.getCurrentAnimation().length - 1) {
             GlobalDispatcher.fireEvent(sfEvent.ANIMATION_END);
@@ -165,6 +162,7 @@ var AnimatedSprite = new Class({
     },
 
     onAnimationEnd: function () {
+        this.lastFrame = this.currentFrame - 1;
         this.currentFrame = 0;
     },
 
@@ -172,28 +170,26 @@ var AnimatedSprite = new Class({
         GlobalDispatcher.fireEvent(sfEvent.ANIMATION_START);
         this.setCurrentAnimation(animation);
 
+        var lastContext = this.getLastContext(),
+            context = this.getCurrentPlayedContext();
         try {
-            var lastContext = this.getLastContext(),
-                context = this.getCurrentPlayedContext();
-            this.el.setStyles({
-                'width': context.w,
-                'height': context.h
-            });
             this.setPosition(
                 this.x + (context.deltaX - lastContext.deltaX),
                 this.y + (context.deltaY - lastContext.deltaY)
             );
+            console.log(this.y + context.h - 211, animation);
         } catch (e) {
-           // debugger;
+            debugger;
         }
+
     },
 
     setCurrentAnimation: function (animation) {
-        if (this.lastAnimation == animation)
-            return false;
         this.lastAnimation = this.currentAnimation;
-        this.setCurrentFrame(0);
-        this.setNextTicks();
+        if (this.lastAnimation != animation) {
+            this.setCurrentFrame(0);
+            this.setNextTicks();
+        }
         this.currentAnimation = animation;
     },
 
@@ -214,7 +210,7 @@ var AnimatedSprite = new Class({
     },
 
     getLastContext: function () {
-        return this.animation[this.lastAnimation][this.lastFrame];
+        return this.animation[this.lastAnimation][0];
     },
 
     getCurrentPlayedContext: function () {

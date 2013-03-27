@@ -24,11 +24,11 @@ var Animation = {
       {x: -154, y: -18, w: 43, h: 81, rate:50, deltaX: 0, deltaY: 0}
     ],
     walkright: [
-      {x: -205, y: -17, w: 44, h: 82, rate: 50, deltaX: 0, deltaY: 0},
-      {x: -252, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: 0},
-      {x: -301, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: 0},
-      {x: -351, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: 0},
-      {x: -401, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: 0}
+      {x: -205, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: -1},
+      {x: -252, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: -1},
+      {x: -301, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: -1},
+      {x: -351, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: -1},
+      {x: -401, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: -1}
     ],
     lpunch: [
       {x: -7,   y: -134, w: 57, h: 81, rate: 90, deltaX: 0, deltaY: 0},
@@ -36,16 +36,16 @@ var Animation = {
       {x: -121, y: -134, w: 57, h: 81, rate: 50, deltaX: 0, deltaY: 0}
     ],
     mpunch: [
-      {x: -178, y: -129, w: 72, h: 86, rate: 30, deltaX: 0, deltaY: -4},
-      {x: -250, y: -129, w: 72, h: 86, rate: 60, deltaX: 0, deltaY: -4},
-      {x: -322, y: -129, w: 72, h: 86, rate: 60, deltaX: 0, deltaY: -4},
-      {x: -394, y: -129, w: 72, h: 86, rate: 50, deltaX: 0, deltaY: -4},
-      {x: -466, y: -129, w: 72, h: 86, rate: 40, deltaX: 0, deltaY: -4}
+      {x: -178, y: -129, w: 72, h: 86, rate: 30, deltaX: 0, deltaY: -5},
+      {x: -250, y: -129, w: 72, h: 86, rate: 60, deltaX: 0, deltaY: -5},
+      {x: -322, y: -129, w: 72, h: 86, rate: 60, deltaX: 0, deltaY: -5},
+      {x: -394, y: -129, w: 72, h: 86, rate: 50, deltaX: 0, deltaY: -5},
+      {x: -466, y: -129, w: 72, h: 86, rate: 40, deltaX: 0, deltaY: -5}
     ],
     lkick: [
-      {x: -7,   y: -261, w: 67, h: 85, rate: 50, deltaX: -7, deltaY: -5},
-      {x: -74,  y: -261, w: 67, h: 85, rate: 80, deltaX: -7, deltaY: -5},
-      {x: -141, y: -261, w: 67, h: 85, rate: 80, deltaX: -7, deltaY: -5},
+      {x: -7,   y: -261, w: 67, h: 85, rate: 50, deltaX: -17, deltaY: -4},
+      {x: -74,  y: -261, w: 67, h: 85, rate: 80, deltaX: -17, deltaY: -4},
+      {x: -141, y: -261, w: 67, h: 85, rate: 80, deltaX: -17, deltaY: -4},
     ],
     shoryuken: [
       {x: -246, y: -0, w: 73, h: 100, deltaX: 0, deltaY: 0},
@@ -62,11 +62,11 @@ var Animation = {
     ],
     /* JUMPING ANIMATION */
     jump: [
-      {x: -498, y: -6, w: 43, h: 93, rate: 60, deltaX: 0, deltaY: -30},
-      {x: -541, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: 0},
-      {x: -584, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: 0},
-      {x: -627, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: 0},
-      {x: -498, y: -6, w: 43, h: 93, rate: 60, deltaX: 0, deltaY: -30},
+      {x: -498, y: -6, w: 43, h: 93, rate: 60, deltaX: 0, deltaY: -12},
+      {x: -541, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: -12},
+      {x: -584, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: -12},
+      {x: -627, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: -12},
+      {x: -498, y: -6, w: 43, h: 93, rate: 60, deltaX: 0, deltaY: -12},
     ],
     jumpforwardright: [
       {x:-754, y: -7, w:74, h: 93, rate: 50, deltaX: 0, deltaY: 0},
@@ -98,21 +98,21 @@ var Animation = {
     ],
     /* CROUCHING ANIMATION */
     crouch: [
-      {x: -1338, y: -24, w: 44, h: 75, deltaX: 0, deltaY: 9}
+      {x: -1338, y: -24, w: 44, h: 75, deltaX: 0, deltaY: 6}
     ],
     crouchblocking: [
       {x: -1442, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0}
     ],
     crouchlpunch: [
-      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20},
-      {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20}
+      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 27},
+      {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 27}
     ],
     crouchmpunch: [
-      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20},
-      {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 20}
+      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 27},
+      {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 27}
     ],
     crouchlkick: [
-      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 0},
+      {x: -62, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 27},
       {x: -1, y: -420, w: 62, h: 54, deltaX: 0, deltaY: 0}
     ],
     crouchmkick: [
@@ -124,15 +124,15 @@ var Animation = {
     ],
     /* SPECIAL ATTACK */
     tatsumakisenpyaku: [
-      {x: -1097, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
-      {x: -1163, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
-      {x: -1229, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
-      {x: -1295, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
-      {x: -1361, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
-      {x: -1427, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
-      {x: -1493, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
-      {x: -1559, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40},
-      {x: -1625, y: -493, w: 66, h: 121, deltaX: -23, deltaY: 40}
+      {x: -1097, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
+      {x: -1163, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
+      {x: -1229, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
+      {x: -1295, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
+      {x: -1361, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
+      {x: -1427, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
+      {x: -1493, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
+      {x: -1559, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
+      {x: -1625, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40}
     ]
   },
   hadouken: {
