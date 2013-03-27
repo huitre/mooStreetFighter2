@@ -65,7 +65,6 @@ var Key = new Class({
 var GamePadManager = new Class({
     Extends: Manager,
     pushedKeys: {},
-    oldState: {},
     gamepadList: [],
     ANALOGUE_BUTTON_THRESHOLD: 0.01,
     AXIS_THRESHOLD: 0.5,
@@ -73,7 +72,8 @@ var GamePadManager = new Class({
 
     initialize: function (options) {
         this.parent(options);
-        this.pushedKeys = this.oldState = {};
+        this.pushedKeys = {};
+        this.oldPushedKeys = {};
         this.gamepadList = navigator.webkitGetGamepads();
     },
 
@@ -92,39 +92,39 @@ var GamePadManager = new Class({
         }
     },
 
-    hasKeyChanged: function () {
-        for (var key in this.pushedKeys) {
-            if (this.pushedKeys[key] !== this.oldState[key])
-                return true;
+    dispatchPushedButton: function (pushedKeys) {
+        for (var key in pushedKeys) {
+            if (pushedKeys[key] !== this.pushedKeys[key])
+                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [pushedKeys], this);
         }
-    },
-
-    checkForEventToThrow: function () {
-        if (this.hasKeyChanged()) {
-            GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [this.pushedKeys], this);
-        }
+        this.pushedKeys = pushedKeys;
     },
 
     getPushedKeys: function () {
-        for (var i = 0, m = this.gamepadList.length; i < m; i++) {
-            var g = this.gamepadList[0]; // allow only one gamepad for the moment
+        // allow only one gamepad for the moment
+        //for (var i = 0, m = this.gamepadList.length; i < m; i++) {
+            var g = this.gamepadList[0], pushedKeys = {};
             if (g) {
-                this.pushedKeys['right'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_RIGHT) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_HOR);
-                this.pushedKeys['left'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_LEFT) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_HOR, true);
-                this.pushedKeys['up'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_TOP) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_VERT, true);
-                this.pushedKeys['down'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_BOTTOM) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_VERT);
-                this.pushedKeys['a'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_1);
-                this.pushedKeys['z'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_2);
-                this.pushedKeys['s'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_3);
-                this.pushedKeys['x'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_4);
+                pushedKeys['right'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_RIGHT) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_HOR);
+                pushedKeys['left'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_LEFT) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_HOR, true);
+                pushedKeys['up'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_TOP) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_VERT, true);
+                pushedKeys['down'] = this.isPushed(g, GAMEPAD.BUTTONS.PAD_BOTTOM) || this.isStickMoved(g, GAMEPAD.AXES.LEFT_ANALOGUE_VERT);
+                pushedKeys['a'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_1);
+                pushedKeys['z'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_2);
+                pushedKeys['s'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_3);
+                pushedKeys['x'] = this.isPushed(g, GAMEPAD.BUTTONS.FACE_4);
+                this.dispatchPushedButton(pushedKeys);
             }
-            //this.checkForEventToThrow();
-            this.oldState = this.pushedKeys;
-        }
+        //}
+    },
+
+    pollGamePad: function () {
+        this.gamepadList = (navigator.webkitGetGamepads && navigator.webkitGetGamepads()) || navigator.webkitGamepads;
     },
 
     poll: function () {
         if (this.nextTicks >= this.lastTicks) {
+            this.pollGamePad();
             this.getPushedKeys();
             if (this.hasTouchPressed()) {
                 GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys], this);
@@ -200,13 +200,13 @@ var InputManager = new Class({
     },
 
     getPushedKeys: function () {
-        if (this.gamepadManager)
+        if (this.gamepadSupportAvailable && this.gamepadManager.hasTouchPressed())
             this.pushedKeys = this.gamepadManager.getPushedKeys();
         return this.pushedKeys;
     },
 
     update: function () {
-        if (this.gamepadManager)
+        if (this.gamepadSupportAvailable)
             this.gamepadManager.poll();
         if (this.nextTicks >= this.lastTicks) {
             if (this.hasTouchPressed())
