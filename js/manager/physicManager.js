@@ -141,16 +141,16 @@ var PhysicManager = new Class({
         this.colliderList.each(function (collider) {
             var g = collider.update(),
                 b = collider.getBounds();
-/*
+
             b.x = g.x;
             b.y = g.y;
             if (b.h + b.y > that.floor.y && collider.vy != 0) {
                 collider.setPosition(b.x, b.y - (b.h + b.y - that.floor.y));
                 collider.setForce(0, 0);
+                collider.isOnFloor();
             } else {
                 collider.setPosition(b.x, b.y);
-            }*/
-                collider.isOnFloor();
+            }
         });
     }
 });
