@@ -122,7 +122,8 @@ var Character = new Class({
     crouch: function () {
         this.isMoving = true;
         this.isCrouching = true;
-        this.changeAnimationTo('crouch');
+        if (!this.isAttacking)
+            this.changeAnimationTo('crouch');
     },
 
     attack: function (attackName) {
