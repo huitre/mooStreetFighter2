@@ -168,10 +168,10 @@ body {
     -moz-transition-property: top;
     -o-transition-property: top;
     transition-property: top;
-    -webkit-transition-duration: 16ms;
-    -moz-transition-duration: 16ms;
-    -o-transition-duration: 16ms;
-    transition-duration: 16ms;
+    -webkit-transition-duration: 0ms;
+    -moz-transition-duration: 0ms;
+    -o-transition-duration: 0ms;
+    transition-duration: 0ms;
 }
 
 #running {
