@@ -176,8 +176,7 @@ var AnimatedSprite = new Class({
             this.setPosition(
                 this.x + (context.deltaX - lastContext.deltaX),
                 this.y + (context.deltaY - lastContext.deltaY)
-            );
-            console.log(this.y + context.h - 211, animation);
+            );            
         } catch (e) {
             debugger;
         }
@@ -234,3 +233,74 @@ var AnimatedSprite = new Class({
         return this.currentRate;
     }
 });
+
+var Stage = new Class({
+    Extends: Sprite,
+    Implements: ICollider,
+    y: 209,
+    x: -140,
+    w: 800,
+    h: 224,
+    type: 'Stage',
+    background: null,
+    frontground: null,
+    foreground: null,
+    stageName: null,
+
+    initialize: function (options) {
+        options.el = options.main;
+        this.stageName = options.stage;
+        this.parent(options);
+        this.background = $(options.background);
+        this.frontground = $(options.frontground);
+        this.foreground = $(options.foreground);
+        this.background.setStyle(
+            'background-image', "url('" + backgroundUrl + this.stageName + ".png')");
+        this.frontground.setStyle(
+            'background-image', "url('" + frontgroundUrl + this.stageName + ".png')");
+        this.foreground.setStyle(
+            'background-image', "url('" + foregroundUrl + this.stageName + ".png')");
+    },
+
+    scroll: function (offset) {
+
+        /*if(offset > 50){
+            offset = 50;
+        } else if(offset < -50) {
+            offset = -50;
+        }*/
+        this.foreground.setStyle('left', offset * 0.1);
+        this.background.setStyle('left', offset * 0.3);
+        this.frontground.setStyle('left', offset * 0.5);
+    },
+
+    update: function (players) {
+        var pos = [],
+            centerPos = 0;
+        players.each(function (player) {
+            pos.push(player.getPosition().x - player.getCurrentPlayedContext().deltaX);
+            centerPos -= pos[pos.length - 1];
+        }.bind(this));
+        centerPos = centerPos/2 + pos[pos.length - 1];
+        this.scroll(-(centerPos-this.w));
+    },
+
+    // verifie si les joueurs sont dans le niveau
+    checkPlayerBounds: function (collider) {
+        var b = collider.getBounds();
+        
+        if (b.h + b.y > this.h && collider.vy != 0) {
+            //debugger;
+            collider.setPosition(b.x, b.y - (b.h + b.y - this.h));
+            collider.setForce(0, 0);
+            collider.isOnFloor();
+        } else if (b.x < this.x) {
+            collider.setPosition(this.x, b.y);
+        }
+        else if (b.x + b.w > this.w) {
+            collider.setPosition(this.w, b.y);
+        } else {
+            collider.setPosition(b.x, b.y);
+        }
+    },
+})

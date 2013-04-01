@@ -2,21 +2,28 @@ body {
     background: #000;
 }
 
-#background {
-    background : url('../sprites/background/level1.gif');
+#background, #frontground, #foreground {
+    background : url('../sprites/background/level1.gif') no-repeat bottom center;
     width : 768px;
     height: 224px;
     margin: auto;
+    position: absolute;;
 }
 
 #stage {
     margin: auto;
-    width: 500px;
     text-align: center;
-    overflow: hidden;
     height: 224px;
+    width: 800px;
     display: none;
     position: relative;
+}
+
+#viewport {
+    margin: auto;
+    width: 500px;
+    height: 224px;
+    overflow: hidden;
 }
 
 #game {

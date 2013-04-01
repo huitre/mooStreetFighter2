@@ -70,13 +70,14 @@ var IPhysic = new Class({
     gravity : 1,
     friction: 0.9,
 
-    update: function () {
+    update: function (dt) {
         var pos = this.getPosition();
         pos.x += this.vx;
         this.vx *= this.friction;
         pos.y += this.vy;
         this.vy += this.gravity;
-        return pos;
+        this.setPosition(pos.x, pos.y);
+        //debugger
     },
 
     apply: function (pos) {
@@ -114,43 +115,15 @@ var CollisionManager = new Class({
     }
 });
 
-var Floor = new Class({
-    Implements: [ICollider],
-    y: 209,
-    x: 0,
-    w: 10000,
-    h: 10,
-    type: 'Floor'
-})
-
-
 var PhysicManager = new Class({
     Extends : CollisionManager,
     Implements: Manager,
 
-    floor: null,
-
-    initialize: function (options) {
-        this.parent(options);
-        this.floor = new Floor();
-    },
-
     // permet de verifier si l'on reste dans les environs du niveau
-    update: function () {
+    update: function (dt) {
         var that = this;
         this.colliderList.each(function (collider) {
-            var g = collider.update(),
-                b = collider.getBounds();
-
-            b.x = g.x;
-            b.y = g.y;
-            if (b.h + b.y > that.floor.y && collider.vy != 0) {
-                collider.setPosition(b.x, b.y - (b.h + b.y - that.floor.y));
-                collider.setForce(0, 0);
-                collider.isOnFloor();
-            } else {
-                collider.setPosition(b.x, b.y);
-            }
+            collider.update(dt);
         });
     }
 });

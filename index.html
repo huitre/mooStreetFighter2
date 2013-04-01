@@ -42,6 +42,7 @@
                 height: 14px;
                 background-color: yellow;
                 opacity: 0.5;
+                display: none;
             }
         </style>
     </head>
@@ -107,15 +108,19 @@
                 </div>
             </div>
             <div id="running">
-                <div id="status">
-                    <div id="player1-health"></div>
-                    <div id="time-left"></div>
-                    <div id="player2-health"></div>
-                </div>
                 <div id="stage">
-                    <div id="background"></div>
-                    <div id="player1"></div>
-                    <div id="player2"></div>
+                    <div id="viewport">
+                        <div id="stage-ui">
+                            <div id="player1-health"></div>
+                            <div id="time-left"></div>
+                            <div id="player2-health"></div>
+                        </div>
+                        <div id="foreground"></div>
+                        <div id="background"></div>
+                        <div id="player1"></div>
+                        <div id="player2"></div>
+                        <div id="frontground"></div>
+                    </div>
                 </div>
                 <div id="combo-status"></div>
                 <div id="debugger" style="color: #fff"></div>
@@ -172,6 +177,8 @@
                 stage: {
                     main: 'stage',
                     background: 'background',
+                    frontground: 'frontground',
+                    foreground: 'foreground',
                     player: {
                         p1: 'player1',
                         p2: 'player2'
