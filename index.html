@@ -115,6 +115,7 @@
                             <div id="time-left"></div>
                             <div id="player2-health"></div>
                         </div>
+                        <div id="sky"></div>
                         <div id="foreground"></div>
                         <div id="background"></div>
                         <div id="player1"></div>
@@ -129,11 +130,12 @@
         </div>
     </body>
     <script type="text/javascript">
-        var globalCounter = 0;
-        var characterUrl = 'sprites/characters/';
-        var backgroundUrl = 'sprites/background/';
-        var foregroundUrl = 'sprites/foreground/';
-        var frontgroundUrl = 'sprites/frontground/';
+        var globalCounter    = 0;
+        var characterUrl     = 'sprites/characters/';
+        var backgroundUrl    = 'sprites/background/';
+        var foregroundUrl    = 'sprites/foreground/';
+        var frontgroundUrl   = 'sprites/frontground/';
+        var skyUrl           = 'sprites/sky/';
         var myMooStreetFighter = null;
         var CONFIG = {
             SPEED: 1,
@@ -176,6 +178,8 @@
                 },
                 stage: {
                     main: 'stage',
+                    sky: 'sky',
+                    viewport: 'viewport',
                     background: 'background',
                     frontground: 'frontground',
                     foreground: 'foreground',

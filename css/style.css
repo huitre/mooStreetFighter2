@@ -2,12 +2,20 @@ body {
     background: #000;
 }
 
-#background, #frontground, #foreground {
+#sky, #background, #frontground, #foreground {
     background : url('../sprites/background/level1.gif') no-repeat bottom center;
     width : 768px;
     height: 224px;
     margin: auto;
     position: absolute;;
+}
+
+#frontground {
+    opacity: 0.5;
+}
+
+#sky {
+    background-size: 100% 100%;
 }
 
 #stage {
@@ -24,6 +32,9 @@ body {
     width: 500px;
     height: 224px;
     overflow: hidden;
+    position: absolute;
+    z-index: 15;
+    left: 280px;
 }
 
 #game {

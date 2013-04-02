@@ -94,7 +94,7 @@ var Character = new Class({
     moveLeft: function () {
         if (this.canMove()) {
             this.changeAnimationTo('walkright');
-            this.addForce(-5, 0);
+            this.addForce(-1.5, 0);
             this.isMoving = true;
         }
     },
@@ -103,7 +103,7 @@ var Character = new Class({
         if (this.canMove()) {
             this.isMoving = true;
             this.changeAnimationTo('walkright');
-            this.addForce(5, 0);
+            this.addForce(1.5, 0);
         }
     },
 
