@@ -45,7 +45,9 @@ var Sprite = new Class({
             x: this.x,
             y: this.y,
             w: currentContext.w,
-            h: currentContext.h
+            h: currentContext.h,
+            deltaY: currentContext.deltaX,
+            deltaX: currentContext.deltaX
         }
         return bounds;
     },
@@ -283,16 +285,18 @@ var Stage = new Class({
     // verifie si les joueurs sont dans le niveau
     checkPlayerBounds: function (collider) {
         var b = collider.getBounds(), padding = 5;
-        console.log(this.bounds.height);
+        
         if (b.h + b.y > this.bounds.height - padding && collider.vy != 0) {
             collider.setPosition(b.x, b.y - (b.h + b.y - (this.bounds.height - padding)));
-            collider.setForce(0, 0);
+            collider.setForce(null, 0);
             collider.isOnFloor();
         } else if (b.x < padding) {
             collider.setPosition(padding, b.y);
+            collider.setForce(0, null);
         }
         else if (b.x + b.w > this.bounds.width - padding) {
-            collider.setPosition(this.bounds.width - padding, b.y);
+            collider.setPosition(this.bounds.width - padding - b.w, b.y);
+            collider.setForce(0, null);
         } else {
             collider.setPosition(b.x, b.y);
         }

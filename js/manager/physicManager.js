@@ -77,7 +77,6 @@ var IPhysic = new Class({
         pos.y += this.vy;
         this.vy += this.gravity;
         this.setPosition(pos.x, pos.y);
-        //debugger
     },
 
     apply: function (pos) {
@@ -85,8 +84,10 @@ var IPhysic = new Class({
     },
 
     setForce: function (vx, vy) {
-        this.vx = vx;
-        this.vy = vy;
+        if (vx != null)
+            this.vx = vx;
+        if (vy != null)
+            this.vy = vy;
     },
 
     addForce: function (fx, fy) {
