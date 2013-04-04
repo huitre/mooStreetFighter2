@@ -288,7 +288,6 @@ var Stage = new Class({
         
         if (b.h + b.y > this.bounds.height - padding && collider.vy != 0) {
             collider.setPosition(b.x, b.y - (b.h + b.y - (this.bounds.height - padding)));
-            collider.setForce(null, 0);
             collider.isOnFloor();
         } else if (b.x < padding) {
             collider.setPosition(padding, b.y);
