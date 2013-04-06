@@ -66,10 +66,10 @@ var Character = new Class({
             this.isMoving = true;
             this.isHitable = true;
             if (dir == 'left') {
-                this.addForce(-15, -12);
+                this.addForce(-1, -5);
                 this.changeAnimationTo('jumpforwardleft');
             } else {
-                this.addForce(15, -12);
+                this.addForce(1, -5);
                 this.changeAnimationTo('jumpforwardright');
             }
         }
@@ -81,7 +81,7 @@ var Character = new Class({
             this.isMoving = true;
             this.isHitable = true;
             this.changeAnimationTo('jump');
-            this.addForce(0, -12);
+            this.addForce(0, -5);
         }
     },
 
@@ -94,7 +94,7 @@ var Character = new Class({
     moveLeft: function () {
         if (this.canMove()) {
             this.changeAnimationTo('walkright');
-            this.addForce(-1.5, 0);
+            this.moveBy(-1.5, 0);
             this.isMoving = true;
         }
     },
@@ -103,7 +103,7 @@ var Character = new Class({
         if (this.canMove()) {
             this.isMoving = true;
             this.changeAnimationTo('walkright');
-            this.addForce(1.5, 0);
+            this.moveBy(1.5, 0);
         }
     },
 

@@ -102,9 +102,9 @@ var IPhysic = new Class({
     },
 
     setForce: function (vx, vy) {
-        if (vx != null)
+        //if (vx != null)
             this.velocity.x = vx;
-        if (vy != null)
+        //if (vy != null)
             this.velocity.y = vy;
     },
 

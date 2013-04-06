@@ -97,6 +97,12 @@ var Sprite = new Class({
             this.to.stepY = speed / y;
     },
 
+    moveBy: function (x, y) {
+        this.x += x;
+        this.y += y;
+        this.setPosition(this.x, this.y);
+    },
+
     updatePosition: function () {
         if (this.x <= this.to.x)
             this.x += this.to.stepX;
@@ -289,6 +295,7 @@ var Stage = new Class({
         if (b.h + b.y > this.bounds.height - padding && collider.vy != 0) {
             collider.setPosition(b.x, b.y - (b.h + b.y - (this.bounds.height - padding)));
             collider.isOnFloor();
+            collider.setForce(0, 0);
         } else if (b.x < padding) {
             collider.setPosition(padding, b.y);
             collider.setForce(0, null);
