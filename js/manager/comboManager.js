@@ -119,6 +119,9 @@ var ComboManager = new Class({
                 }
             }
         }
+        if (comboList.length > 0) {
+            this.actionList = [];
+        }
         return comboList;
     },
 

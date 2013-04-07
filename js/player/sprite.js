@@ -75,6 +75,20 @@ var Sprite = new Class({
         this.updatePosition();
     },
 
+    setPositionX: function (x) {
+        this.el.setStyles({
+            'left': x + 'px'
+        });
+        this.x = x;
+    },
+
+    setPositionY: function (y) {
+        this.el.setStyles({
+            'top': y + 'px'
+        });
+        this.y = y;
+    },
+
     setPosition: function (x, y) {
         this.el.setStyles({
             'top': y + 'px',
@@ -290,21 +304,18 @@ var Stage = new Class({
 
     // verifie si les joueurs sont dans le niveau
     checkPlayerBounds: function (collider) {
-        var b = collider.getBounds(), padding = 5;
+        var b = collider.getBounds(), padding = 5, paddingX = 15;
         
         if (b.h + b.y > this.bounds.height - padding && collider.vy != 0) {
-            collider.setPosition(b.x, b.y - (b.h + b.y - (this.bounds.height - padding)));
+            collider.setPositionY(b.y - (b.h + b.y - (this.bounds.height - padding)));
             collider.isOnFloor();
             collider.setForce(0, 0);
-        } else if (b.x < padding) {
-            collider.setPosition(padding, b.y);
-            collider.setForce(0, null);
         }
-        else if (b.x + b.w > this.bounds.width - padding) {
-            collider.setPosition(this.bounds.width - padding - b.w, b.y);
-            collider.setForce(0, null);
-        } else {
-            collider.setPosition(b.x, b.y);
+        if (b.x < paddingX  + b.deltaX) {
+            collider.setPositionX(paddingX + b.deltaX);
+        }
+        if (b.x + b.w > this.bounds.width - padding) {
+            collider.setPositionX(this.bounds.width - padding - b.w);
         }
     }
 });

@@ -149,7 +149,7 @@ var Character = new Class({
         this.attack('mpunch');
     },
 
-    lkick: function () {
+    lowkick: function () {
         this.attack('lkick');
     },
 

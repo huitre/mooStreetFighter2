@@ -124,15 +124,14 @@ var Animation = {
     ],
     /* SPECIAL ATTACK */
     tatsumakisenpyaku: [
-      {x: -1097, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1163, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1229, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1295, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1361, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1427, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1493, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1559, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1625, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40}
+      {x:-1299, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1365, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1431, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1497, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1563, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1629, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1695, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1761, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40}
     ]
   },
   hadouken: {
