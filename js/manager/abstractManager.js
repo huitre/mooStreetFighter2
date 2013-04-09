@@ -1,3 +1,6 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
 var Tickable = new Class({
     nextTicks: 1,
     lastTicks: 0,

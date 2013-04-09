@@ -1,3 +1,10 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
+
+/**
+ * Permet la communication interclasse via un systeme d'events
+ */
 var EventDispatcher = new Class({
     listeners: {},
     events: {},
