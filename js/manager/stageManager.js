@@ -1,6 +1,7 @@
 var StageManager = new Class({
     Implements: Manager,
 
+    ui: null,
     stage: null,
     stageName: null,
     stageType : 'versus', // versus, car, barrel...
@@ -13,6 +14,10 @@ var StageManager = new Class({
         return this.stageName.trim();
     },
 
+    getUi: function () {
+        return this.ui;
+    },
+
     prepare: function () {
         this.players = pm = this.game.getPlayerManager().getPlayers();
         if (this.stageType == 'versus') {
@@ -20,12 +25,13 @@ var StageManager = new Class({
         }
     },
 
-    prepareVersusStage: function () {s
+    prepareVersusStage: function () {
         var pm = this.game.getPlayerManager(),
             p1 = pm.getPlayer1(),
             p2 = pm.getPlayer2(),
             floor = 13;
-
+        this.ui = new VersusUi(this.options.ui);
+        this.ui.prepare(p1, p2);
         this.options.stage = this.getStage();
         this.stage = new Stage(this.options);
         this.stage.setPosition(-140,0);

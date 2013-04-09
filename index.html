@@ -19,6 +19,7 @@
         <script src="js/player/characters.js"></script>
         <script src="js/mooStreetFighter.js"></script>
         <script src="js/ui/menu.js"></script>
+        <script src="js/ui/ui.js"></script>
         <script src="js/ui/comboDisplayer.js"></script>
         <style type="text/css">
             @import "css/style.css";
@@ -140,11 +141,6 @@
                 menu: {
                     element: 'menu'
                 },
-                ui: {
-                    time: 'time-left',
-                    p1h: 'player1-health',
-                    p2h: 'player2-health'
-                },
                 stage: {
                     main: 'stage',
                     sky: 'sky',
@@ -155,14 +151,20 @@
                     player: {
                         p1: 'player1',
                         p2: 'player2'
-                    }
+                    },
+                    ui: {
+                        time: 'time-left',
+                        p1h: 'player1-health',
+                        p2h: 'player2-health',
+                        score: 'score'
+                    },
                 }
             });
 
             // auto start game
             myMooStreetFighter.startGame();
             myMooStreetFighter.getPlayerManager().setPlayer1('ken');
-            //myMooStreetFighter.getPlayerManager().setPlayer2('ken');
+            myMooStreetFighter.getPlayerManager().setPlayer2('ken');
             myMooStreetFighter.getStageManager().setStage('japan');
             myMooStreetFighter.launch();
         });
