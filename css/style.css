@@ -199,3 +199,22 @@ body {
 #player1 {
     border: none;
 }
+
+#stage-ui {
+    position: absolute;
+    width: 600px;
+    height: 50px;
+    z-index: 15;
+}
+
+#player1-health, #player2-health {
+    position: absolute;
+    width: 300px;
+    border: 2px grey;
+    height: 30px;
+    z-index: 15;
+}
+
+#player1-health p, #player2-health p {
+
+}

@@ -33,6 +33,7 @@ var Character = new Class({
     isHitable: false,
     comboDisplayer: null,
     comboManager: null,
+    health: 100,
 
     initialize : function ( options ) {
         this.parent(options);
@@ -163,6 +164,10 @@ var Character = new Class({
 
     getHit: function () {
 
+    },
+
+    getHealth: function () {
+        return this.health;
     },
 
     isInactive: function () {

@@ -30,7 +30,8 @@ var StageManager = new Class({
             p1 = pm.getPlayer1(),
             p2 = pm.getPlayer2(),
             floor = 13;
-        this.ui = new VersusUi(this.options.ui);
+        this.ui = new VersusUi(this.game);
+        this.ui.init(this.options.ui);
         this.ui.prepare(p1, p2);
         this.options.stage = this.getStage();
         this.stage = new Stage(this.options);
@@ -52,6 +53,7 @@ var StageManager = new Class({
             this.stage.checkPlayerBounds(player);
         }.bind(this));
         this.updateStagePosition(this.players);
+        this.ui.update();
     },
 
 });
