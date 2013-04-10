@@ -72,8 +72,12 @@ var PlayerManager = new Class({
     },
 
     update : function (dt) {
-        this.getPlayers().each(function(player) {
+        var players = this.getPlayers(), lastPlayer = null;
+        players.each(function(player) {
             player.render(dt);
+            lastPlayer = player;
+            if (lastPlayer > player)
+                lastPlayer.switchSide();
         });
     }
 })

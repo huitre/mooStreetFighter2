@@ -24,7 +24,7 @@ var VersusUi = new Class({
     },
 
     updateTime: function (dt) {
-        if (!isNaN(dt) && this.timeLeft)
+        if (!isNaN(dt) && this.timeLeft > 0)
             this.timeLeft = this.timeLeft - dt;
         this.options.time.set('html', Math.round(this.timeLeft/1000, 0));
         if (this.options.timeLeft == 0)

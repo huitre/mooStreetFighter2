@@ -4,7 +4,7 @@ body {
 
 #sky, #background, #frontground, #foreground {
     background : url('../sprites/background/level1.gif') no-repeat bottom center;
-    width : 768px;
+    width : 640px;
     height: 224px;
     margin: auto;
     position: absolute;;
@@ -22,19 +22,19 @@ body {
     margin: auto;
     text-align: center;
     height: 224px;
-    width: 800px;
+    width: 640px;
     display: none;
     position: relative;
 }
 
-#viewport {
+#viewport, #players {
     margin: auto;
     width: 500px;
     height: 224px;
     overflow: hidden;
     position: absolute;
     z-index: 15;
-    left: 280px;
+    left: 70px;
 }
 
 #game {

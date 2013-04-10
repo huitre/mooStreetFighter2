@@ -6,8 +6,8 @@ var Sprite = new Class({
 
     el: null,
     isVisible: true,
-    x : 0,
-    y : 0,
+    x: 0,
+    y: 0,
     to : {
         x: 0,
         y: 0,

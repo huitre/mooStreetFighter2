@@ -171,7 +171,7 @@ var Character = new Class({
     },
 
     isInactive: function () {
-        return !this.comboManager.hasTouchPressed();
+        return !this.comboManager.hasTouchPressed() && !this.isJumping;
     },
 
     resetState: function () {
@@ -218,6 +218,10 @@ var Character = new Class({
     },
 
     onInputReady: function () {
+    },
+
+    switchSide: function () {
+        this.el.setStyle('transform', 'scaleX(-1)');
     }
 })
 
