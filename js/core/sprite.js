@@ -45,7 +45,9 @@ var Sprite = new Class({
             x: this.x,
             y: this.y,
             w: currentContext.w,
-            h: currentContext.h
+            h: currentContext.h,
+            deltaY: currentContext.deltaX,
+            deltaX: currentContext.deltaX
         }
         return bounds;
     },
@@ -73,6 +75,20 @@ var Sprite = new Class({
         this.updatePosition();
     },
 
+    setPositionX: function (x) {
+        this.el.setStyles({
+            'left': x + 'px'
+        });
+        this.x = x;
+    },
+
+    setPositionY: function (y) {
+        this.el.setStyles({
+            'top': y + 'px'
+        });
+        this.y = y;
+    },
+
     setPosition: function (x, y) {
         this.el.setStyles({
             'top': y + 'px',
@@ -93,6 +109,12 @@ var Sprite = new Class({
             this.to.stepX = speed / x;
         if (y)
             this.to.stepY = speed / y;
+    },
+
+    moveBy: function (x, y) {
+        this.x += x;
+        this.y += y;
+        this.setPosition(this.x, this.y);
     },
 
     updatePosition: function () {
@@ -129,8 +151,6 @@ var AnimatedSprite = new Class({
         this.ticks = new Date();
         this.setNextTicks();
         this.lastPosition = this.getPosition();
-        this.name = 'toto' + Math.random();
-        //GlobalDispatcher.addListener(sfEvent.ANIMATION_END, function (e) { this.onAnimationEnd(e) }.bind(this));
     },
 
     render: function () {
@@ -177,7 +197,6 @@ var AnimatedSprite = new Class({
                 this.x + (context.deltaX - lastContext.deltaX),
                 this.y + (context.deltaY - lastContext.deltaY)
             );
-            console.log(this.y + context.h - 211, animation);
         } catch (e) {
             debugger;
         }

@@ -33,6 +33,7 @@ var Character = new Class({
     isHitable: false,
     comboDisplayer: null,
     comboManager: null,
+    health: 100,
 
     initialize : function ( options ) {
         this.parent(options);
@@ -66,10 +67,10 @@ var Character = new Class({
             this.isMoving = true;
             this.isHitable = true;
             if (dir == 'left') {
-                this.addForce(-15, -12);
+                this.addForce(-1, -5);
                 this.changeAnimationTo('jumpforwardleft');
             } else {
-                this.addForce(15, -12);
+                this.addForce(1, -5);
                 this.changeAnimationTo('jumpforwardright');
             }
         }
@@ -81,7 +82,7 @@ var Character = new Class({
             this.isMoving = true;
             this.isHitable = true;
             this.changeAnimationTo('jump');
-            this.addForce(0, -12);
+            this.addForce(0, -5);
         }
     },
 
@@ -94,7 +95,7 @@ var Character = new Class({
     moveLeft: function () {
         if (this.canMove()) {
             this.changeAnimationTo('walkright');
-            this.addForce(-5, 0);
+            this.moveBy(-1.5, 0);
             this.isMoving = true;
         }
     },
@@ -103,7 +104,7 @@ var Character = new Class({
         if (this.canMove()) {
             this.isMoving = true;
             this.changeAnimationTo('walkright');
-            this.addForce(5, 0);
+            this.moveBy(1.5, 0);
         }
     },
 
@@ -122,7 +123,7 @@ var Character = new Class({
     crouch: function () {
         this.isMoving = true;
         this.isCrouching = true;
-        if (!this.isAttacking)
+        if (!this.isAttacking && !this.isJumping)
             this.changeAnimationTo('crouch');
     },
 
@@ -149,7 +150,7 @@ var Character = new Class({
         this.attack('mpunch');
     },
 
-    lkick: function () {
+    lowkick: function () {
         this.attack('lkick');
     },
 
@@ -163,6 +164,10 @@ var Character = new Class({
 
     getHit: function () {
 
+    },
+
+    getHealth: function () {
+        return this.health;
     },
 
     isInactive: function () {

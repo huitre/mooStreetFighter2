@@ -1,9 +1,8 @@
 var StageManager = new Class({
     Implements: Manager,
 
-    background: null,
-    frontground: null,
-    foreground: null,
+    ui: null,
+    stage: null,
     stageName: null,
     stageType : 'versus', // versus, car, barrel...
 
@@ -15,16 +14,12 @@ var StageManager = new Class({
         return this.stageName.trim();
     },
 
+    getUi: function () {
+        return this.ui;
+    },
+
     prepare: function () {
-        this.stage.setStyle('display', 'block');
-        this.background.setStyle(
-            'background-image', "url('" + backgroundUrl + this.getStage() + ".gif')");
-        /*
-        this.frontground.setStyle(
-            'background-image', "url('" + frontgroundUrl + this.getStage() + ".gif')");
-        this.foreground.setStyle(
-            'background-image', "url('" + foregroundUrl + this.getStage() + ".gif')");
-        */
+        this.players = pm = this.game.getPlayerManager().getPlayers();
         if (this.stageType == 'versus') {
             this.prepareVersusStage();
         }
@@ -34,25 +29,31 @@ var StageManager = new Class({
         var pm = this.game.getPlayerManager(),
             p1 = pm.getPlayer1(),
             p2 = pm.getPlayer2(),
-            stagePos = this.stage.getCoordinates(),
             floor = 13;
-
-        // centrage du background
-        this.background.setStyle('background-position', '-140px 0px');
+        this.ui = new VersusUi(this.game);
+        this.ui.init(this.options.ui);
+        this.ui.prepare(p1, p2);
+        this.options.stage = this.getStage();
+        this.stage = new Stage(this.options);
+        this.stage.setPosition(-140,0);
+        this.stage.show();
+        var stagePos = this.stage.el.getComputedSize();
 
         // positionnement des joueurs
-        p1.setPosition(stagePos.width/2  - 100, stagePos.height - floor - p1.getCurrentPlayedContext().h);
-        //p2.setPosition(stagePos.width/2 + 100, stagePos.height - floor - p2.getCurrentPlayedContext().h);
+        p1.setPosition(stagePos.width/2 - p1.getCurrentPlayedContext().w, stagePos.height - floor - p1.getCurrentPlayedContext().h);
+        p2.setPosition(stagePos.width/2 - p2.getCurrentPlayedContext().w, stagePos.height - floor - p2.getCurrentPlayedContext().h);
     },
 
-    render: function () {
-
+    updateStagePosition: function (player) {
+        this.stage.update(player);
     },
 
-    init: function (options) {
-        this.stage = $(options.main);
-        this.background = $(options.background);
-        this.frontground = $(options.frontground);
-        this.foreground = $(options.foreground);
-    }
+    update: function (dt) {
+        this.players.each(function (player) {
+            this.stage.checkPlayerBounds(player);
+        }.bind(this));
+        this.updateStagePosition(this.players);
+        this.ui.update(dt);
+    },
+
 });

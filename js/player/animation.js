@@ -66,23 +66,23 @@ var Animation = {
       {x: -541, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: -12},
       {x: -584, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: -12},
       {x: -627, y: -6, w: 43, h: 93, rate: 50, deltaX: 0, deltaY: -12},
-      {x: -498, y: -6, w: 43, h: 93, rate: 60, deltaX: 0, deltaY: -12},
+      {x: -498, y: -6, w: 43, h: 93, rate: 680, deltaX: 0, deltaY: -12},
     ],
     jumpforwardright: [
-      {x:-754, y: -7, w:74, h: 93, rate: 50, deltaX: 0, deltaY: 0},
-      {x:-828, y: -7, w:74, h: 93, rate: 90, deltaX: 0, deltaY: 0},
-      {x:-902, y: -7, w:74, h: 93, rate: 60, deltaX: 0, deltaY: 0},
-      {x:-976, y: -7, w:74, h: 93, rate: 60, deltaX: 0, deltaY: 0},
-      {x:-1050, y: -7, w:74, h: 93, rate: 90, deltaX: 0, deltaY: 0},
-      {x:-1124, y: -7, w:74, h: 93, rate: 120, deltaX: 0, deltaY: 0}
+      {x: -754,  y: -7, w: 74, h: 93, rate: 60,  deltaX: -30, deltaY: -12},
+      {x: -828,  y: -7, w: 74, h: 93, rate: 100, deltaX: -30, deltaY: -12},
+      {x: -902,  y: -7, w: 74, h: 93, rate: 60,  deltaX: -30, deltaY: -12},
+      {x: -976,  y: -7, w: 74, h: 93, rate: 60,  deltaX: -30, deltaY: -12},
+      {x: -1050, y: -7, w: 74, h: 93, rate: 90,  deltaX: -30, deltaY: -12},
+      {x: -1124, y: -7, w: 74, h: 93, rate: 650, deltaX: -30, deltaY: -12}
     ],
     jumpforwardleft: [
-      {x:-1124, y: -7, w:74, h: 93, rate: 50, deltaX: 0, deltaY: 0},
-      {x:-1050, y: -7, w:74, h: 93, rate: 90, deltaX: 0, deltaY: 0},
-      {x:-976, y: -7, w:74, h: 93, rate: 60, deltaX: 0, deltaY: 0},
-      {x:-902, y: -7, w:74, h: 93, rate: 60, deltaX: 0, deltaY: 0},
-      {x:-828, y: -7, w:74, h: 93, rate: 90, deltaX: 0, deltaY: 0},
-      {x:-754, y: -7, w:74, h: 93, rate: 120, deltaX: 0, deltaY: 0}
+      {x: -1124, y: -7, w: 74, h: 93, rate: 60,  deltaX: -30, deltaY: -12},
+      {x: -1050, y: -7, w: 74, h: 93, rate: 100, deltaX: -30, deltaY: -12},
+      {x: -976,  y: -7, w: 74, h: 93, rate: 60,  deltaX: -30, deltaY: -12},
+      {x: -902,  y: -7, w: 74, h: 93, rate: 60,  deltaX: -30, deltaY: -12},
+      {x: -828,  y: -7, w: 74, h: 93, rate: 90,  deltaX: -30, deltaY: -12},
+      {x: -754,  y: -7, w: 74, h: 93, rate: 650, deltaX: -30, deltaY: -12}
     ],
     jumplpunch: [
       {x: -1393, y: -16, w: 43, h: 83, deltaX: 0, deltaY: 0}
@@ -124,15 +124,14 @@ var Animation = {
     ],
     /* SPECIAL ATTACK */
     tatsumakisenpyaku: [
-      {x: -1097, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1163, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1229, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1295, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1361, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1427, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1493, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1559, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40},
-      {x: -1625, y: -493, w: 66, h: 121, deltaX: -23, deltaY: -40}
+      {x:-1299, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1365, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1431, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1497, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1563, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1629, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1695, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40},
+      {x:-1761, y: -492, w:66, h: 122, deltaX: -32, deltaY: -40}
     ]
   },
   hadouken: {

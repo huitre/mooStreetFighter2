@@ -1,3 +1,10 @@
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
+
+/**
+ * Permet la communication interclasse via un systeme d'events
+ */
 var EventDispatcher = new Class({
     listeners: {},
     events: {},
@@ -50,5 +57,6 @@ var sfEvent = {
     ON_INPUT_READY: 'sf2.input.ready',
     ON_INPUT_PUSHED: 'sf2.input.keypushed',
     ON_INPUT_PRESSED: 'sf2.input.keypressed',
-    ON_INPUT_RELEASED: 'sf2.input.keyreleased'
+    ON_INPUT_RELEASED: 'sf2.input.keyreleased',
+    GAME_TIMEOVER: 'sfr.timeleft.over'
 }

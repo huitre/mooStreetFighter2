@@ -1,4 +1,6 @@
-var DIR = {'up': true, 'left': true, 'down': true, 'right': true};
+/**
+ * @author Huitre<gohin.j@gmail.com>
+ */
 
 var ComboManager = new Class({
     Extends: Manager,
@@ -118,6 +120,9 @@ var ComboManager = new Class({
                     comboList.push(attackName);
                 }
             }
+        }
+        if (comboList.length > 0) {
+            this.actionList = [];
         }
         return comboList;
     },

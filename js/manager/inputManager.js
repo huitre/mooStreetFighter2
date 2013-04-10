@@ -1,17 +1,6 @@
 /**
  * @author Huitre<gohin.j@gmail.com>
  */
-var KeyConfiguration = {
-    'a': 'lp',
-    's': 'hp',
-    'z': 'lk',
-    'x': 'hk',
-    // cardinalite pour les directions
-    'up': 'n',
-    'down': 's',
-    'left': 'o',
-    'right': 'e'
-}
 
 var GAMEPAD = {};
 

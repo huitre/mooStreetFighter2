@@ -3,7 +3,8 @@
  */
 
 var mooStreetFighter = new Class({
-    framerate: 1000,
+    Extends: Tickable,
+    framerate: 1000 / 60,
     options: null,
     playerManager: null,
     stageManager: null,
@@ -47,21 +48,20 @@ var mooStreetFighter = new Class({
     /**
      * Gameloop principal de rendu
      */
-    render: function () {
-        this.inputManager.update();
-        this.collisionManager.update();
-        this.stageManager.render();
-        this.physicManager.update();
-        this.playerManager.render();
+    update: function (dt) {
+        dt *= this.framerate;
+        this.inputManager.update(dt);
+        this.collisionManager.update(dt);
+        this.physicManager.update(dt);
+        this.playerManager.update(dt);
+        this.stageManager.update(dt);
     },
 
-    play: function () {
-        var that = this;
-        requestAnimationFrame(function () { that.play() });
-        that.render();
-        /*var gameLoop = function () {
-            that.render();
-        }.periodical(this.framerate);*/
+    play: function (dt) {
+        var that = this, start = this.getTicks();
+        that.update(dt);
+        end = this.getTicks() - start;
+        requestAnimationFrame(function () { that.play(end) });
     },
 
     pause: function () {
@@ -107,7 +107,7 @@ var mooStreetFighter = new Class({
         var t = function () {
             this.stageManager.prepare();
             this.playerManager.prepare();
-            this.inputManager.prepare(players);
+            this.inputManager.prepare();
             this.collisionManager.addCollider(players);
             this.physicManager.addCollider(this.playerManager.getPlayers());
             this.play();
@@ -115,13 +115,3 @@ var mooStreetFighter = new Class({
         t.bind(this).delay(1000);
     }
 });
-
-var Utils = {
-    calcSprite : function (x, y, w, h, nbFrames, rateList) {
-        var str = '{x:-' + (x) +', y: -' + (y) + ', w:' + w + ', h: ' + h + ', deltaX: 0, deltaY: 0},\n';
-        for (i = 1; i <= nbFrames; i++) {
-            str += '{x:-' + (i*w + x) +', y: -' + y + ', w:' + w + ', h: ' + h +', deltaX: 0, deltaY: 0},\n';
-        }
-        console.log(str);
-    }
-}
