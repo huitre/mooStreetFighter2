@@ -201,20 +201,43 @@ body {
 }
 
 #stage-ui {
-    position: absolute;
-    width: 600px;
     height: 50px;
+    position: absolute;
+    width: 500px;
     z-index: 15;
 }
 
 #player1-health, #player2-health {
+    border: 2px none grey;
+    height: 12px;
     position: absolute;
-    width: 300px;
-    border: 2px grey;
-    height: 30px;
+    width: 220px;
     z-index: 15;
+    background-color: yellow;
+    top: 3px;
 }
 
 #player1-health p, #player2-health p {
+    background-color: red;
+    position: absolute;
+    height:10px;
+    margin: 1px;
+    max-width: 218px;
+    -webkit-transition-duration: 1s;
+    -moz-transition-duration: 1s;
+    -o-transition-duration: 1s;
+    transition-duration: 1s;
+}
 
+#player1-health {
+    left: 10px;
+}
+
+#player2-health {
+    right: 10px;
+}
+
+#time-left {
+    color: white;
+    font-weight: bold;
 }

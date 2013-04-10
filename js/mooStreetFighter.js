@@ -53,8 +53,8 @@ var mooStreetFighter = new Class({
         this.inputManager.update(dt);
         this.collisionManager.update(dt);
         this.physicManager.update(dt);
-        this.playerManager.render();
-        this.stageManager.render();
+        this.playerManager.update(dt);
+        this.stageManager.update(dt);
     },
 
     play: function (dt) {

@@ -6,11 +6,15 @@ var VersusUi = new Class({
     Extends: Manager,
     player1: {},
     player2: {},
-    timeLeft: 99,
+    timeLeft: 99999, //ms
+    rate: 1000,
 
     update: function (dt) {
         this.updateHealth();
-        this.updateTime(dt);
+        if (this.getTicks() > this.nextTicks) {
+            this.updateTime(1000);
+            this.getNextTick();
+        }
     },
 
     prepare: function (player1, player2) {
@@ -20,7 +24,9 @@ var VersusUi = new Class({
     },
 
     updateTime: function (dt) {
-        this.options.time.set('html', Math.round(this.timeLeft - dt / 100, 0));
+        if (!isNaN(dt) && this.timeLeft)
+            this.timeLeft = this.timeLeft - dt;
+        this.options.time.set('html', Math.round(this.timeLeft/1000, 0));
         if (this.options.timeLeft == 0)
             GlobalDispatcher.fireEvent(GAME_TIMEOVER);
     },
@@ -34,7 +40,7 @@ var VersusUi = new Class({
     },
 
     updateHealth: function (player) {
-        this.options.p1h.set('width', this.player1.getHealth() + '%');
-        this.options.p2h.set('width', this.player2.getHealth() + '%');
+        this.options.p1h.getElement('p').setStyle('width', this.player1.getHealth() + '%');
+        this.options.p2h.getElement('p').setStyle('width', this.player2.getHealth() + '%');
     }
 });

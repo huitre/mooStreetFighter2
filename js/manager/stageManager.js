@@ -40,20 +40,20 @@ var StageManager = new Class({
         var stagePos = this.stage.el.getComputedSize();
 
         // positionnement des joueurs
-        p1.setPosition(stagePos.width/2  - 100, stagePos.height - floor - p1.getCurrentPlayedContext().h);
-        p2.setPosition(stagePos.width/2 + 100, stagePos.height - floor - p2.getCurrentPlayedContext().h);
+        p1.setPosition(stagePos.width/2 - p1.getCurrentPlayedContext().w, stagePos.height - floor - p1.getCurrentPlayedContext().h);
+        p2.setPosition(stagePos.width/2 - p2.getCurrentPlayedContext().w, stagePos.height - floor - p2.getCurrentPlayedContext().h);
     },
 
     updateStagePosition: function (player) {
         this.stage.update(player);
     },
 
-    render: function () {
+    update: function (dt) {
         this.players.each(function (player) {
             this.stage.checkPlayerBounds(player);
         }.bind(this));
         this.updateStagePosition(this.players);
-        this.ui.update();
+        this.ui.update(dt);
     },
 
 });
