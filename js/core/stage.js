@@ -24,6 +24,7 @@ var Stage = new Class({
         this.background = $(options.background);
         this.frontground = $(options.frontground);
         this.foreground = $(options.foreground);
+        this.playersground = $('players');
         this.background.setStyle(
             'background-image', "url('" + backgroundUrl + this.stageName + ".png')");
         this.frontground.setStyle(
@@ -37,7 +38,7 @@ var Stage = new Class({
     scroll: function (offset) {
         var viewportW = this.bounds.stage.width - this.bounds.viewport.width;
         this.foreground.setStyle('left', offset * 0.1 + 10 - viewportW);
-        $('players').setStyle('left', offset * 0.3 - viewportW);
+        this.playersground.setStyle('left', offset * 0.3 - viewportW);
         this.background.setStyle('left', offset * 0.3 - viewportW);
         this.frontground.setStyle('left', offset * 0.5 - 50 - viewportW);
     },
