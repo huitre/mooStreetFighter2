@@ -15,20 +15,31 @@ var Sprite = new Class({
         stepY: 0
     },
 
+    // variables d'etat pour gerer la direction du sprite
+    direction: LEFT,
+
     initialize: function (options) {
         if (options) {
             this.setOptions(options);
-            this.el = $(options.el);
+            this.sprite = $(options.el);
+            this.el = new Element('p', {
+                styles: {
+                    position: 'absolute',
+                    padding: 0,
+                    margin: 0
+                }
+            });
             this.el.setStyle('background-image', 'url("' + options.image + '")');
+            this.sprite.adopt(this.el);
         }
     },
 
     show: function () {
-        this.el.show();
+        this.sprite.show();
     },
 
     hide: function () {
-        this.el.hide();
+        this.sprite.hide();
     },
 
     play: function () {
@@ -42,7 +53,7 @@ var Sprite = new Class({
     getCurrentBounds: function () {
         var currentContext = this.getCurrentPlayedContext();
         var bounds = {
-            x: this.x,
+            x: this.getX(),
             y: this.y,
             w: currentContext.w,
             h: currentContext.h,
@@ -71,26 +82,30 @@ var Sprite = new Class({
                 'width': currentContext.w,
                 'height': currentContext.h
             });
+            /*this.sprite.setStyles({
+                'width': currentContext.w,
+                'height': currentContext.h
+            })*/
         }
         this.updatePosition();
     },
 
     setPositionX: function (x) {
-        this.el.setStyles({
+        this.sprite.setStyles({
             'left': x + 'px'
         });
         this.x = x;
     },
 
     setPositionY: function (y) {
-        this.el.setStyles({
+        this.sprite.setStyles({
             'top': y + 'px'
         });
         this.y = y;
     },
 
     setPosition: function (x, y) {
-        this.el.setStyles({
+        this.sprite.setStyles({
             'top': y + 'px',
             'left': x + 'px'
         });
@@ -99,7 +114,11 @@ var Sprite = new Class({
     },
 
     getPosition: function () {
-        return {x: this.x, y: this.y}
+        return {x: this.getX(), y: this.y}
+    },
+
+    getX: function () {
+        return this.x;
     },
 
     moveTo: function (x, y, speed) {
@@ -123,6 +142,16 @@ var Sprite = new Class({
         if (this.y <= this.to.y)
             this.y += this.to.stepY;
         this.setPosition(this.x, this.y);
+    },
+
+    switchSide: function (dir) {
+        if (!this.isJumping) {
+            this.direction = dir;
+            this.el.setStyles( {
+                'transform': 'scaleX(' + this.direction + ')',
+                'transform-origin': '-50% 0 0'
+            });
+        }
     }
 });
 
@@ -163,7 +192,7 @@ var AnimatedSprite = new Class({
     },
 
     setNextTicks: function () {
-        this.nextTicks = this.getTicks() + this.getCurrentFrameTimer() * CONFIG.SPEED;
+        this.nextTicks = this.getTicks() + this.getCurrentFrameTimer();
     },
 
     updateAnimation: function () {
@@ -193,10 +222,17 @@ var AnimatedSprite = new Class({
         var lastContext = this.getLastContext(),
             context = this.getCurrentPlayedContext();
         try {
-            this.setPosition(
-                this.x + (context.deltaX - lastContext.deltaX),
-                this.y + (context.deltaY - lastContext.deltaY)
-            );
+            if (this.direction == RIGHT) {
+                this.setPosition(
+                    this.x + (context.deltaX - lastContext.deltaX),
+                    this.y + (context.deltaY - lastContext.deltaY)
+                );
+            } else {
+                this.setPosition(
+                    this.x + (context.deltaX - lastContext.deltaX),
+                    this.y + (context.deltaY - lastContext.deltaY)
+                );
+            }
         } catch (e) {
             debugger;
         }

@@ -46,6 +46,7 @@ var StageManager = new Class({
         // positionnement des joueurs
         p1.setPosition(stagePos.width/2 - p1.getCurrentPlayedContext().w, stagePos.height - floor - p1.getCurrentPlayedContext().h);
         p2.setPosition(stagePos.width/2 - p2.getCurrentPlayedContext().w, stagePos.height - floor - p2.getCurrentPlayedContext().h);
+        p2.switchSide(LEFT);
     },
 
     updateStagePosition: function (player) {
@@ -54,10 +55,36 @@ var StageManager = new Class({
 
     update: function (dt) {
         this.players.each(function (player) {
+            player.render();
             this.stage.checkPlayerBounds(player);
         }.bind(this));
         this.updateStagePosition(this.players);
         this.ui.update(dt);
+        this.checkPlayerDirection();
     },
+
+    /*
+     * Permet de definir le cote vers lequel le character est tourne (LEFT ou RIGHT)
+     */
+    checkPlayerDirection: function () {
+        var p1 = this.players[0],
+            p2 = this.players[1];
+
+        if (p1.x < p2.x + p2.getCurrentPlayedContext().w / 2) {
+            if (p1.direction != LEFT)
+                p1.switchSide(LEFT);
+        } else {
+            if (p1.direction != RIGHT)
+                p1.switchSide(RIGHT);
+        }
+
+        if (p2.x < p1.x + p1.getCurrentPlayedContext().w / 2) {
+            if (p1.direction != LEFT)
+                p1.switchSide(LEFT);
+        } else {
+            if (p1.direction != RIGHT)
+                p1.switchSide(RIGHT);
+        }
+    }
 
 });

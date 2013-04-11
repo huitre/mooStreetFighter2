@@ -7,8 +7,8 @@ var IActionable = new Class({
     o: function () { this.moveLeft() },
     e: function () { this.moveRight() },
     n: function () { this.jump() },
-    no: function () { this.forwardJump('left') },
-    ne: function () { this.forwardJump('right') },
+    no: function () { this.forwardJump(LEFT) },
+    ne: function () { this.forwardJump(RIGHT) },
     s: function () { this.crouch() },
     se: function () { this.crouch() },
     so: function () { this.crouch() },
@@ -24,15 +24,20 @@ var Character = new Class({
     Extends: AnimatedSprite,
     Implements: [ICollider, IPhysic, IActionable],
 
+    // gestion des actions/deplacements
     attackList : {},
+    comboDisplayer: null,
+    comboManager: null,
+
+    // variables d'etat
     isJumping: true,
     isMoving: false,
     isCrouching: false,
     isBlocking: false,
     isAttacking: false,
     isHitable: false,
-    comboDisplayer: null,
-    comboManager: null,
+
+    // sa vie
     health: 100,
 
     initialize : function ( options ) {
@@ -53,25 +58,22 @@ var Character = new Class({
 
     getCollidingPoint: function () {},
 
-    getBounds: function () {
-       return this.getCurrentBounds();
-    },
-
-    isOnFloor : function () {
-        this.isJumping = false;
-    },
-
     forwardJump: function (dir) {
         if (!this.isJumping) {
             this.isJumping = true;
             this.isMoving = true;
             this.isHitable = true;
-            if (dir == 'left') {
-                this.addForce(-1, -5);
-                this.changeAnimationTo('jumpforwardleft');
+            this.addForce(dir, -5);
+            if (this.direction == RIGHT) {
+                if (dir == LEFT)
+                    this.changeAnimationTo('jumpforwardleft');
+                else
+                    this.changeAnimationTo('jumpforwardright');
             } else {
-                this.addForce(1, -5);
-                this.changeAnimationTo('jumpforwardright');
+                if (dir == LEFT)
+                    this.changeAnimationTo('jumpforwardright');
+                else
+                    this.changeAnimationTo('jumpforwardright');
             }
         }
     },
@@ -139,7 +141,7 @@ var Character = new Class({
     },
 
     lowpunch: function () {
-        this. attack('lpunch');
+        this.attack('lpunch');
     },
 
     mediumPunch: function () {
@@ -166,8 +168,8 @@ var Character = new Class({
 
     },
 
-    getHealth: function () {
-        return this.health;
+    isOnFloor : function () {
+        this.isJumping = false;
     },
 
     isInactive: function () {
@@ -217,12 +219,14 @@ var Character = new Class({
         this.executeActionList(this.comboManager.translate(keyList));
     },
 
-    onInputReady: function () {
+    getBounds: function () {
+       return this.getCurrentBounds();
     },
 
-    switchSide: function () {
-        this.el.setStyle('transform', 'scaleX(-1)');
+    getHealth: function () {
+        return this.health;
     }
+
 })
 
 

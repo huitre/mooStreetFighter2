@@ -40,7 +40,7 @@ var PlayerManager = new Class({
         // set defaults to Ken for the moment
         options.animation = Animation.ken;
         options.attackList = SpecialAttack.ken;
-        options.image = characterUrl + characterName + '.gif';
+        options.image = CHARACTERURL + characterName + '.gif';
         options.currentAnimation = 'idle';
         player = new Ken(options);
 
@@ -72,13 +72,6 @@ var PlayerManager = new Class({
     },
 
     update : function (dt) {
-        var players = this.getPlayers(), lastPlayer = null;
-        players.each(function(player) {
-            player.render(dt);
-            lastPlayer = player;
-            if (lastPlayer > player)
-                lastPlayer.switchSide();
-        });
     }
 })
 

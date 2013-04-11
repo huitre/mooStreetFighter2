@@ -64,7 +64,7 @@ var ComboManager = new Class({
     },
 
     translatePushedKeysToAction: function (keyList) {
-        var str = '', k = KeyConfiguration, tmp = [];
+        var str = '', k = KEYCONFIGURATION, tmp = [];
 
         if (keyList.up) {
             str = k['up'];

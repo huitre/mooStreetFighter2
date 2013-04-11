@@ -26,13 +26,13 @@ var Stage = new Class({
         this.foreground = $(options.foreground);
         this.playersground = $('players');
         this.background.setStyle(
-            'background-image', "url('" + backgroundUrl + this.stageName + ".png')");
+            'background-image', "url('" + BACKGROUNDURL + this.stageName + ".png')");
         this.frontground.setStyle(
-            'background-image', "url('" + frontgroundUrl + this.stageName + ".png')");
+            'background-image', "url('" + FRONTGROUNDURL + this.stageName + ".png')");
         this.foreground.setStyle(
-            'background-image', "url('" + foregroundUrl + this.stageName + ".png')");
+            'background-image', "url('" + FOREGROUNDURL + this.stageName + ".png')");
         this.sky.setStyle(
-            'background-image', "url('" + skyUrl + this.stageName + ".png')");
+            'background-image', "url('" + SKYURL + this.stageName + ".png')");
     },
 
     scroll: function (offset) {

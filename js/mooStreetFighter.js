@@ -15,6 +15,7 @@ var mooStreetFighter = new Class({
 
     initialize: function (options) {
         this.options = options;
+        this.rate = 1;
     },
 
     getPlayerManager: function () {
@@ -59,7 +60,10 @@ var mooStreetFighter = new Class({
 
     play: function (dt) {
         var that = this, start = this.getTicks();
-        that.update(dt);
+        if (start > this.nextTicks) {
+            that.update(dt);
+            this.getNextTick();
+        }
         end = this.getTicks() - start;
         requestAnimationFrame(function () { that.play(end) });
     },

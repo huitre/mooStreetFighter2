@@ -2,13 +2,13 @@
  * @author Huitre<gohin.j@gmail.com>
  */
  /*
-  * Fichier de description des actions a effectuer pour 
+  * Fichier de description des actions a effectuer pour
   * les attaques speciales des personnages.
   *
-  * Structure : 
+  * Structure :
         characterName :
-            attackName : [ 
-                    [leftsided list of actions], 
+            attackName : [
+                    [leftsided list of actions],
                     [rightsided list of actions]
                 ]
   */
@@ -16,24 +16,22 @@
     ken: {
         'forwardpunch': [
           'ehp',
-          'hpe',
           'ohp',
-          'hpo'
         ],
         'hadoken': [
-            'sseelp', 
+            'sseelp',
             'ssoolp',
-            'lpssee', 
+            'lpssee',
             'lpssoo'
         ],
         'shoryuken': [
-            'sseehp', 
+            'sseehp',
             'ssoohp'
         ],
         'tatsumakisenpyaku': [
-            'sseelk', 
+            'sseelk',
             'ssoolk',
-            'sseehk', 
+            'sseehk',
             'ssoohk'
         ],
         'shoryuken': [
