@@ -145,11 +145,16 @@ var Sprite = new Class({
     },
 
     switchSide: function (dir) {
+        var origin = 0;
         if (!this.isJumping) {
             this.direction = dir;
-            this.el.setStyles( {
+            if (dir == LEFT)
+                origin = '-50%';
+            this.sprite.setStyles( {
                 'transform': 'scaleX(' + this.direction + ')',
-                'transform-origin': '-50% 0 0'
+                'transform-origin': '-50% 0',
+                '-webkit-transform': 'scaleX(' + this.direction + ')',
+                '-webkit-transform-origin': '-50% 0'
             });
         }
     }
