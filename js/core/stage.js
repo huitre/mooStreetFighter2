@@ -47,7 +47,7 @@ var Stage = new Class({
        var pos = [],
             centerPos = 0;
         players.each(function (player) {
-            pos.push(player.getPosition().x - player.getCurrentPlayedContext().deltaX);
+            pos.push(player.getPosition().x - player.getIdleContext().deltaX);
             centerPos -= pos[pos.length - 1];
         }.bind(this));
         centerPos = centerPos/2 + pos[pos.length - 1];

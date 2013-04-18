@@ -4,7 +4,8 @@
 var Sprite = new Class({
     Implements: [Options],
 
-    el: null,
+    child: null,
+    root: null,
     isVisible: true,
     x: 0,
     y: 0,
@@ -21,25 +22,27 @@ var Sprite = new Class({
     initialize: function (options) {
         if (options) {
             this.setOptions(options);
-            this.sprite = $(options.el);
-            this.el = new Element('p', {
+            this.root = $(options.el);
+            this.child = new Element('p', {
                 styles: {
                     position: 'absolute',
+                    width: '100%',
+                    height: '100%',
                     padding: 0,
                     margin: 0
                 }
             });
-            this.el.setStyle('background-image', 'url("' + options.image + '")');
-            this.sprite.adopt(this.el);
+            this.child.setStyle('background-image', 'url("' + options.image + '")');
+            this.root.adopt(this.child);
         }
     },
 
     show: function () {
-        this.sprite.show();
+        this.root.show();
     },
 
     hide: function () {
-        this.sprite.hide();
+        this.root.hide();
     },
 
     play: function () {
@@ -64,7 +67,7 @@ var Sprite = new Class({
     },
 
     setCurrentBounds: function (w, h) {
-        this.el.setStyles({
+        this.child.setStyles({
             'width': w,
             'height': h
         });
@@ -77,35 +80,33 @@ var Sprite = new Class({
     render: function () {
         var currentContext = this.getCurrentPlayedContext();
         if (this.isVisible && !this.isPaused) {
-            this.el.setStyles({
-                'background-position': currentContext.x + 'px ' + currentContext.y + 'px',
-                'width': currentContext.w,
-                'height': currentContext.h
+            this.child.setStyles({
+                'background-position': currentContext.x + 'px ' + currentContext.y + 'px'
             });
-            /*this.sprite.setStyles({
+            this.root.setStyles({
                 'width': currentContext.w,
                 'height': currentContext.h
-            })*/
+            })
         }
         this.updatePosition();
     },
 
     setPositionX: function (x) {
-        this.sprite.setStyles({
+        this.root.setStyles({
             'left': x + 'px'
         });
         this.x = x;
     },
 
     setPositionY: function (y) {
-        this.sprite.setStyles({
+        this.root.setStyles({
             'top': y + 'px'
         });
         this.y = y;
     },
 
     setPosition: function (x, y) {
-        this.sprite.setStyles({
+        this.root.setStyles({
             'top': y + 'px',
             'left': x + 'px'
         });
@@ -145,17 +146,18 @@ var Sprite = new Class({
     },
 
     switchSide: function (dir) {
-        var origin = 0;
-        if (!this.isJumping) {
+        var origin = 0, context;
+        if (!this.isJumping && dir != this.direction) {
             this.direction = dir;
-            if (dir == LEFT)
-                origin = '-50%';
-            this.sprite.setStyles( {
-                'transform': 'scaleX(' + this.direction + ')',
-                'transform-origin': '-50% 0',
-                '-webkit-transform': 'scaleX(' + this.direction + ')',
-                '-webkit-transform-origin': '-50% 0'
+            context = this.getCurrentPlayedContext();
+            this.root.setStyles({
+                'width': context.w,
+                'height': context.h
             });
+            this.child.setStyles({
+                'transform': 'scaleX(' + this.direction + ')',
+                '-webkit-transform': 'scaleX(' + this.direction + ')'
+            })
         }
     }
 });
@@ -227,17 +229,12 @@ var AnimatedSprite = new Class({
         var lastContext = this.getLastContext(),
             context = this.getCurrentPlayedContext();
         try {
-            if (this.direction == RIGHT) {
-                this.setPosition(
-                    this.x + (context.deltaX - lastContext.deltaX),
-                    this.y + (context.deltaY - lastContext.deltaY)
-                );
-            } else {
-                this.setPosition(
-                    this.x + (context.deltaX - lastContext.deltaX),
-                    this.y + (context.deltaY - lastContext.deltaY)
-                );
+            if (this.direction == LEFT) {
+                this.child.setStyles({
+                    'margin-left': context.deltaX
+                })
             }
+            this.setPositionY(this.y + (context.deltaY - lastContext.deltaY));
         } catch (e) {
             debugger;
         }
@@ -278,6 +275,10 @@ var AnimatedSprite = new Class({
         if (this.getCurrentFrame() >= currentAnimation.length)
             return currentAnimation[0];
         return currentAnimation[this.getCurrentFrame()];
+    },
+
+    getIdleContext: function () {
+        return this.animation['idle'][0];
     },
 
     getCurrentFrameTimer: function () {

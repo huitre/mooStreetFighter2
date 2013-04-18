@@ -70,7 +70,7 @@ var StageManager = new Class({
         var p1 = this.players[0],
             p2 = this.players[1];
 
-        if (p1.x < p2.x + p2.getCurrentPlayedContext().w / 2) {
+        if (p1.x > p2.x + p2.getCurrentPlayedContext().w / 2) {
             if (p1.direction != LEFT)
                 p1.switchSide(LEFT);
         } else {
@@ -78,12 +78,12 @@ var StageManager = new Class({
                 p1.switchSide(RIGHT);
         }
 
-        if (p2.x < p1.x + p1.getCurrentPlayedContext().w / 2) {
-            if (p1.direction != LEFT)
-                p1.switchSide(LEFT);
+        if (p2.x > p1.x + p1.getCurrentPlayedContext().w / 2) {
+            if (p2.direction != LEFT)
+                p2.switchSide(LEFT);
         } else {
-            if (p1.direction != RIGHT)
-                p1.switchSide(RIGHT);
+            if (p2.direction != RIGHT)
+                p2.switchSide(RIGHT);
         }
     }
 

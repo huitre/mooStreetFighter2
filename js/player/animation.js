@@ -31,16 +31,16 @@ var Animation = {
       {x: -401, y: -17, w: 43, h: 82, rate: 50, deltaX: 0, deltaY: -1}
     ],
     lpunch: [
-      {x: -7,   y: -134, w: 57, h: 81, rate: 90, deltaX: 0, deltaY: 0},
-      {x: -64,  y: -134, w: 57, h: 81, rate: 120, deltaX: 0, deltaY: 0},
-      {x: -121, y: -134, w: 57, h: 81, rate: 50, deltaX: 0, deltaY: 0}
+      {x: -7,   y: -134, w: 57, h: 81, rate: 90, deltaX: -14, deltaY: 0},
+      {x: -64,  y: -134, w: 57, h: 81, rate: 120, deltaX: -14, deltaY: 0},
+      {x: -121, y: -134, w: 57, h: 81, rate: 50, deltaX: -14, deltaY: 0}
     ],
     mpunch: [
-      {x: -178, y: -129, w: 72, h: 86, rate: 30, deltaX: 0, deltaY: -5},
-      {x: -250, y: -129, w: 72, h: 86, rate: 60, deltaX: 0, deltaY: -5},
-      {x: -322, y: -129, w: 72, h: 86, rate: 60, deltaX: 0, deltaY: -5},
-      {x: -394, y: -129, w: 72, h: 86, rate: 50, deltaX: 0, deltaY: -5},
-      {x: -466, y: -129, w: 72, h: 86, rate: 40, deltaX: 0, deltaY: -5}
+      {x: -178, y: -129, w: 72, h: 86, rate: 30, deltaX: -29, deltaY: -5},
+      {x: -250, y: -129, w: 72, h: 86, rate: 60, deltaX: -29, deltaY: -5},
+      {x: -322, y: -129, w: 72, h: 86, rate: 60, deltaX: -29, deltaY: -5},
+      {x: -394, y: -129, w: 72, h: 86, rate: 50, deltaX: -29, deltaY: -5},
+      {x: -466, y: -129, w: 72, h: 86, rate: 40, deltaX: -29, deltaY: -5}
     ],
     lkick: [
       {x: -7,   y: -261, w: 67, h: 85, rate: 50, deltaX: -17, deltaY: -4},
