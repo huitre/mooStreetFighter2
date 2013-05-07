@@ -13,7 +13,7 @@ var EventDispatcher = new Class({
         if (!callback)
             return removeAllListener(eventName);
         var i = -1;
-        this.listeners[event].each(function (listener, index) {
+        this.listeners[eventName].each(function (listener, index) {
             if (listener.callback == callback && listener.target == target) {
                 i = index;
             }
@@ -37,11 +37,18 @@ var EventDispatcher = new Class({
         this.listeners[eventName].push(dispatchEvent);
     },
 
-    fireEvent: function (event, data) {
+    fireEvent: function (event, data, scope) {
         if (this.listeners[event]) {
-            this.listeners[event].each(function (listener, index) {
-                listener.callback.apply(listener.scope, data);
-            })
+            if (scope) {
+                this.listeners[event].each(function (listener, index) {
+                    if (listener.scope == scope)
+                        listener.callback.apply(listener.scope, data);
+                })
+            } else {
+                this.listeners[event].each(function (listener, index) {
+                    listener.callback.apply(listener.scope, data);
+                })
+            }
         }
     }
 })

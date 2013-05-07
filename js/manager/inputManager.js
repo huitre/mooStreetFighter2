@@ -56,7 +56,7 @@ var GamePadManager = new Class({
     dispatchPushedButton: function (pushedKeys) {
         for (var key in pushedKeys) {
             if (pushedKeys[key] !== this.pushedKeys[key])
-                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [pushedKeys], this);
+                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [pushedKeys]);
         }
         this.pushedKeys = pushedKeys;
     },
@@ -88,7 +88,7 @@ var GamePadManager = new Class({
             this.pollGamePad();
             this.getPushedKeys();
             if (this.hasTouchPressed()) {
-                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys], this);
+                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys]);
             }
             this.getNextTick();
         }
@@ -152,12 +152,12 @@ var InputManager = new Class({
         if (KEYCONFIGURATION[key]) {
             this.pushedKeys[key] = true;
         }
-        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [this.pushedKeys], this);
+        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PUSHED, [this.pushedKeys]);
     },
 
     pop: function (key) {
         this.pushedKeys[key] = false;
-        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_RELEASED, [this.pushedKeys], this);
+        GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_RELEASED, [this.pushedKeys]);
     },
 
     getPushedKeys: function () {
@@ -171,7 +171,7 @@ var InputManager = new Class({
             this.gamepadManager.poll();
         if (this.nextTicks >= this.lastTicks) {
             if (this.hasTouchPressed())
-                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys], this);
+                GlobalDispatcher.fireEvent(sfEvent.ON_INPUT_PRESSED, [this.pushedKeys]);
             this.getNextTick();
         }
     },

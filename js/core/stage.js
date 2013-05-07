@@ -63,11 +63,21 @@ var Stage = new Class({
             collider.isOnFloor();
             collider.setForce(0, 0);
         }
+        /*if (bounds.x < paddingX  + bounds.deltaX + this.bounds.viewport.x) {
+            collider.setPositionX(paddingX + bounds.deltaX + this.bounds.viewport.x);
+        }*/
         if (bounds.x < paddingX  + bounds.deltaX) {
             collider.setPositionX(paddingX + bounds.deltaX);
         }
         if (bounds.x + bounds.w / 2 > this.bounds.viewport.width - paddingX ) {
             collider.setPositionX(this.bounds.viewport.width - paddingX - bounds.w / 2);
         }
+        //debugger;
+    },
+
+    show: function () {
+        this.parent();
+        this.bounds.viewport = Object.merge(this.bounds.viewport, this.viewport.getPosition());
+        this.bounds.stage = Object.merge(this.bounds.stage, this.stageContainer.getPosition());
     }
 });

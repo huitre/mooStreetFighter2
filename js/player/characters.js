@@ -45,7 +45,7 @@ var Character = new Class({
         this.attackList = options.attackList;
         this.comboDisplayer = new ComboDisplayer();
         this.comboManager = new ComboManager();
-        GlobalDispatcher.addListener(sfEvent.ANIMATION_END, this.updateState, this);
+        //GlobalDispatcher.addListener(sfEvent.ANIMATION_END, this.updateState, this);
     },
 
     collideWith: function (objectCollider) {
@@ -56,7 +56,18 @@ var Character = new Class({
         }
     },
 
+    remove: function () {
+        this.paused = true;
+        this.visible = false;
+        //GlobalDispatcher.removeListener(sfEvent.ANIMATION_END, this.updateState, this);
+    },
+
     getCollidingPoint: function () {},
+
+    onAnimationEnd: function () {
+        this.parent();
+        this.updateState();
+    },
 
     forwardJump: function (dir) {
         if (!this.isJumping) {
@@ -187,12 +198,12 @@ var Character = new Class({
     },
 
     updateState: function (e, force) {
-        this.isAttacking = false;
         if (this.isInactive()) {
             this.changeAnimationTo('idle');
             this.isHitable = false;
             this.isCrouching = false;
         }
+        this.isAttacking = false;
     },
 
     executeActionList: function (actionList) {

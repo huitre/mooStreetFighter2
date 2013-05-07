@@ -122,6 +122,11 @@ var Sprite = new Class({
         return this.x;
     },
 
+    // return position based on stage element
+    toStage: function () {
+
+    },
+
     moveTo: function (x, y, speed) {
         if (!speed)
             speed = 1000;
@@ -190,8 +195,10 @@ var AnimatedSprite = new Class({
     },
 
     render: function () {
-        this.updateAnimation();
-        this.parent();
+        if (!this.paused) { 
+            this.updateAnimation();
+            this.parent();
+        }
     },
 
     getTicks: function () {
@@ -212,7 +219,7 @@ var AnimatedSprite = new Class({
     playNextFrame: function () {
         this.currentFrame = this.currentFrame + 1;
         if (this.currentFrame > this.getCurrentAnimation().length - 1) {
-            GlobalDispatcher.fireEvent(sfEvent.ANIMATION_END);
+            //GlobalDispatcher.fireEvent(sfEvent.ANIMATION_END, this);
             this.onAnimationEnd();
         }
     },
@@ -232,6 +239,10 @@ var AnimatedSprite = new Class({
             if (this.direction == LEFT) {
                 this.child.setStyles({
                     'margin-left': context.deltaX
+                })
+            } else {
+                this.child.setStyles({
+                    'margin-left': 0
                 })
             }
             this.setPositionY(this.y + (context.deltaY - lastContext.deltaY));
