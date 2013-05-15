@@ -35,7 +35,15 @@ var Character = new Class({
     isCrouching: false,
     isBlocking: false,
     isAttacking: false,
-    isHitable: false,
+    isHitable: true,
+
+    // variables pour gerer les status d'attaques
+    attackName: null,
+    collider: null,
+
+    // type d'instance
+    type: 'character',
+
 
     // sa vie
     health: 100,
@@ -52,6 +60,16 @@ var Character = new Class({
         switch (objectCollider.type) {
             case 'Floor':
                 this.isOnFloor();
+            break;
+            case 'character':
+                if (this.isAttacking) {
+                    objectCollider.getHit();
+                    this.collider = objectCollider;
+                }
+                if (objectCollider.isAttacking) {
+                    this.getHit(objectCollider.getAttackDamage());
+                }
+                //this.setOutsideBounds();
             break;
         }
     },
@@ -127,12 +145,6 @@ var Character = new Class({
         this.isMoving = true;
     },
 
-    onAttackEnd: function () {
-        this.isAttacking = false;
-        this.isHitable = false;
-        this.isMoving = false;
-    },
-
     crouch: function () {
         if (!this.isAttacking && !this.isJumping) {
             this.isMoving = true;
@@ -148,6 +160,7 @@ var Character = new Class({
             if (this.isJumping && !this.isCrouching)
                 attackName = 'jump' + attackName;
             this.changeAnimationTo(attackName);
+            this.attackName = attackName;
         }
         this.setAttackState();
     },
@@ -177,7 +190,11 @@ var Character = new Class({
     },
 
     getHit: function () {
-
+        if (this.isHitable && !this.isBlocking)
+            this.health -= 5;
+        this.isHitable = false;
+        if (CONFIG.DEBUG)
+            this.root.setStyle('background', '#ff0000');
     },
 
     isOnFloor : function () {
@@ -204,6 +221,13 @@ var Character = new Class({
             this.isCrouching = false;
         }
         this.isAttacking = false;
+        this.attackName = null;
+
+         // si l'on a touche quelqu'un
+        if (this.collider) {
+            this.collider.isHitable = true;
+            this.collider = null;
+        }
     },
 
     executeActionList: function (actionList) {
@@ -217,7 +241,7 @@ var Character = new Class({
         this.comboManager.onKeyDown(keyList);
         this.comboDisplayer.setContent(this.comboManager.getActionList());
         this.comboDisplayer.display();
-        var comboList = this.comboManager.checkForSpecialAttack(this.attackList);
+        var comboList = this.comboManager.checkForSpecialAttack(this.attackList, this.direction);
         for (var i = 0, max = comboList.length; i < max; i++)
             if (this[comboList[i]])
                 this[comboList[i]]();
@@ -228,7 +252,7 @@ var Character = new Class({
     },
 
     onInputPressed: function (keyList) {
-        this.executeActionList(this.comboManager.translate(keyList));
+        this.executeActionList(this.comboManager.translate(keyList, this.direction));
     },
 
     getBounds: function () {
@@ -237,8 +261,11 @@ var Character = new Class({
 
     getHealth: function () {
         return this.health;
-    }
+    },
 
+    getAttackDamage: function () {
+        return this.attackList[this.attackName].damage;
+    }
 })
 
 

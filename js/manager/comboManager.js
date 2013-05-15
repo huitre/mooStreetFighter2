@@ -98,7 +98,7 @@ var ComboManager = new Class({
         return tmp;
     },
 
-    actionListToStr: function (actionList) {
+    actionListToStr: function (actionList, direction) {
         var actionStr = '';
         for (var i = 0, max = actionList.length; i < max; i++) {
             for (var j = 0, maxj = actionList[i].length; j < maxj; j++) {
@@ -110,13 +110,13 @@ var ComboManager = new Class({
         return actionStr;
     },
 
-    checkForSpecialAttack: function (attackList) {
-        var actionStr = this.actionListToStr(this.actionList),
+    checkForSpecialAttack: function (attackList, direction) {
+        var actionStr = this.actionListToStr(this.actionList, direction),
             comboList = [];
 
         for (var attackName in attackList) {
-            for (var i = attackList[attackName].length -1; i > -1; i--) {
-                if (actionStr.indexOf(attackList[attackName][i]) > 0 ) {
+            for (var i = attackList[attackName].actionList[direction].length -1; i > -1; i--) {
+                if (actionStr.indexOf(attackList[attackName].actionList[direction][i]) > 0 ) {
                     comboList.push(attackName);
                 }
             }

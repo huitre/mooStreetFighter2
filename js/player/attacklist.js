@@ -14,29 +14,51 @@
   */
  var SpecialAttack = {
     ken: {
-        'forwardpunch': [
-          'ehp',
-          'ohp',
-        ],
-        'hadoken': [
-            'sseelp',
-            'ssoolp',
-            'lpssee',
-            'lpssoo'
-        ],
-        'shoryuken': [
-            'sseehp',
-            'ssoohp'
-        ],
-        'tatsumakisenpyaku': [
-            'sseelk',
-            'ssoolk',
-            'sseehk',
-            'ssoohk'
-        ],
-        'shoryuken': [
-          'ososlp',
-          'eseslp'
-        ]
+        'forwardpunch': {
+          'actionList': [['ehp'],['ohp']],
+          'damage': 15
+        },
+        'hadoken': {
+          'actionList': [
+            ['sseelp', 'lpssee'],
+            ['ssoolp', 'lpssoo']
+          ],
+          'damage': 10
+        },
+        'shoryuken':  {
+          'actionList': [['sseehp'],['ssoohp']],
+          'damage': 20
+        },
+        'tatsumakisenpyaku': {
+          'actionList': [
+            ['sseelk', 'sseehk'],
+            ['ssoolk', 'ssoohk']
+          ],
+          'damage': 20
+        },
+        'lkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 3
+        },
+        'mkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 5
+        },
+        'hkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 7
+        },
+        'lpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 3
+        },
+        'mpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 5
+        },
+        'hpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 7
+        },
     }
  }

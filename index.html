@@ -171,6 +171,10 @@
             //myMooStreetFighter.getPlayerManager().getPlayer2().remove();
             myMooStreetFighter.getStageManager().setStage('japan');
             myMooStreetFighter.launch();
+
+            if (CONFIG.DEBUG) {
+                $('stage').addClass('debug')
+            }
         });
     </script>
 </html>

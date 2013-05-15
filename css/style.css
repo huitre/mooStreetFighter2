@@ -36,6 +36,8 @@ body {
     left: 70px;
 }
 
+#players { overflow: visible }
+
 #game {
     margin : auto;
     width: 800px;
@@ -205,12 +207,12 @@ body {
     */
 }
 
-#player1 p, #player2 p {
-    /*
+.debug #player1 p, .debug #player2 p {
+    
     border: 1px solid red;
     border-left: 1px solid yellow;
     border-right: 1px solid green;
-    */
+    
 }
 
 #stage-ui {

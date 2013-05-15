@@ -56,18 +56,16 @@ var Stage = new Class({
 
     // verifie si les joueurs sont dans le niveau
     checkPlayerBounds: function (collider) {
-        var bounds = collider.getBounds(), paddingY = 5, paddingX = 15;
+        var bounds = collider.getBounds(), paddingY = 5, paddingX = 0, pOffset = parseInt(collider.root.parentElement.getStyle('left'));
 
         if (bounds.h + bounds.y > this.bounds.stage.height - paddingY && collider.vy != 0) {
             collider.setPositionY(bounds.y - (bounds.h + bounds.y - (this.bounds.stage.height - paddingY)));
             collider.isOnFloor();
             collider.setForce(0, 0);
         }
-        /*if (bounds.x < paddingX  + bounds.deltaX + this.bounds.viewport.x) {
-            collider.setPositionX(paddingX + bounds.deltaX + this.bounds.viewport.x);
-        }*/
-        if (bounds.x < paddingX  + bounds.deltaX) {
-            collider.setPositionX(paddingX + bounds.deltaX);
+        
+        if (bounds.x < paddingX + bounds.deltaX - pOffset) {
+            collider.setPositionX(paddingX + bounds.deltaX - pOffset);
         }
         if (bounds.x + bounds.w / 2 > this.bounds.viewport.width - paddingX ) {
             collider.setPositionX(this.bounds.viewport.width - paddingX - bounds.w / 2);
