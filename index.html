@@ -21,6 +21,7 @@
         <script src="js/ui/menu.js"></script>
         <script src="js/ui/ui.js"></script>
         <script src="js/ui/comboDisplayer.js"></script>
+        <script src="js/utils/utils.js"></script>
         <style type="text/css">
             @import "css/style.css";
             #combo-status {
@@ -171,9 +172,9 @@
             //myMooStreetFighter.getPlayerManager().getPlayer2().remove();
             myMooStreetFighter.getStageManager().setStage('japan');
             myMooStreetFighter.launch();
-
-            if (CONFIG.DEBUG) {
-                $('stage').addClass('debug')
+            
+            if (CONFIG.DEBUG.HITBOX) {
+                $('stage').addClass('debug hitbox')
             }
         });
     </script>

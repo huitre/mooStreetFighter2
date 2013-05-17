@@ -37,24 +37,54 @@ GAMEPAD.AXES = {
   RIGHT_ANALOGUE_VERT: 3
 };
 var DIR = {'up': true, 'left': true, 'down': true, 'right': true};
-var KEYCONFIGURATION = {
-    'a': 'lp',
-    's': 'hp',
-    'z': 'lk',
-    'x': 'hk',
+// TOUCHES POUR PLAYER 1
+var PLAYER1_LP = 'a',
+    PLAYER1_MP = 's',
+    PLAYER1_HP = 'd',
+    PLAYER1_LK = 'z',
+    PLAYER1_MK = 'x',
+    PLAYER1_HK = 'c',
+    PLAYER1_UP = 'up',
+    PLAYER1_DWN = 'down',
+    PLAYER1_LEFT = 'left',
+    PLAYER1_RIGHT = 'right';
+
+// TOUCHES POUR PLAYER 1
+var PLAYER2_LP = 'a',
+    PLAYER2_MP = 's',
+    PLAYER2_HP = 'd',
+    PLAYER2_LK = 'z',
+    PLAYER2_MK = 'x',
+    PLAYER2_HK = 'c',
+    PLAYER2_UP = 'up',
+    PLAYER2_DWN = 'down',
+    PLAYER2_LEFT = 'left',
+    PLAYER2_RIGHT = 'right';
+
+
+var KEYCONFIGURATION = {};
+    KEYCONFIGURATION[PLAYER1_LP] = 'lp',
+    KEYCONFIGURATION[PLAYER1_MP] = 'mp',
+    KEYCONFIGURATION[PLAYER1_HP] = 'hp',
+    KEYCONFIGURATION[PLAYER1_LK] = 'lk',
+    KEYCONFIGURATION[PLAYER1_MK] = 'mk',
+    KEYCONFIGURATION[PLAYER1_HK] = 'hk',
     // cardinalite pour les directions
-    'up': 'n',
-    'down': 's',
-    'left': 'o',
-    'right': 'e'
-}
+    KEYCONFIGURATION[PLAYER1_UP] = 'n',
+    KEYCONFIGURATION[PLAYER1_DWN] = 's',
+    KEYCONFIGURATION[PLAYER1_LEFT] = 'o',
+    KEYCONFIGURATION[PLAYER1_RIGHT] = 'e';
 
 /**
  * Variable pour le debug
  */
 var CONFIG = {
     SPEED: 1,
-    SCALE: 2
+    SCALE: 2,
+    DEBUG: {
+      HITINFO: true,
+      HITBOX: true
+    }
 }
 
 

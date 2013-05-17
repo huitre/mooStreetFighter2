@@ -65,5 +65,7 @@ var sfEvent = {
     ON_INPUT_PUSHED: 'sf2.input.keypushed',
     ON_INPUT_PRESSED: 'sf2.input.keypressed',
     ON_INPUT_RELEASED: 'sf2.input.keyreleased',
-    GAME_TIMEOVER: 'sfr.timeleft.over'
+    GAME_TIMEOVER: 'sf2.timeleft.over',
+    TOGGLE_FULLSCREEN: 'sf2.toggle.fullscreen',
+    TOGGLE_DEBUG: 'sf2.toggle.debug'
 }

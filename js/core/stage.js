@@ -37,10 +37,10 @@ var Stage = new Class({
 
     scroll: function (offset) {
         var viewportW = this.bounds.stage.width - this.bounds.viewport.width;
-        this.foreground.setStyle('left', offset * 0.1 + 10 - viewportW);
-        this.playersground.setStyle('left', offset * 0.3 - viewportW);
-        this.background.setStyle('left', offset * 0.3 - viewportW);
-        this.frontground.setStyle('left', offset * 0.5 - 50 - viewportW);
+        this.foreground.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.1 + 10 - viewportW) + 'px, 0, 0)');
+        this.playersground.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.3 - viewportW) + 'px, 0, 0)');
+        this.background.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.3 - viewportW) + 'px, 0, 0)');
+        this.frontground.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.5 - 50 - viewportW) + 'px, 0, 0)');
     },
 
     update: function (players) {

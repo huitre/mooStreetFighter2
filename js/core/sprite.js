@@ -80,13 +80,13 @@ var Sprite = new Class({
     render: function () {
         var currentContext = this.getCurrentPlayedContext();
         if (this.isVisible && !this.isPaused) {
-            this.child.setStyles({
+            /*this.child.setStyles({
                 'background-position': currentContext.x + 'px ' + currentContext.y + 'px'
             });
             this.root.setStyles({
                 'width': currentContext.w,
                 'height': currentContext.h
-            })
+            })*/
         }
         this.updatePosition();
     },
@@ -198,7 +198,20 @@ var AnimatedSprite = new Class({
         if (!this.paused) { 
             this.updateAnimation();
             this.parent();
+            var currentContext = this.getCurrentPlayedContext();
+            if (currentContext != this.lastContext)
+                this.draw(currentContext);
         }
+    },
+
+    draw: function (currentContext) {
+        this.child.setStyles({
+            'background-position': currentContext.x + 'px ' + currentContext.y + 'px'
+        });
+        this.root.setStyles({
+            'width': currentContext.w,
+            'height': currentContext.h
+        })
     },
 
     getTicks: function () {

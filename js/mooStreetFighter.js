@@ -12,10 +12,13 @@ var mooStreetFighter = new Class({
     inputManager: null,
     collisionManager: null,
     gameLoop: null,
+    fullscreen: false,
 
     initialize: function (options) {
         this.options = options;
         this.rate = 1;
+        GlobalDispatcher.addListener(sfEvent.TOGGLE_FULLSCREEN, this.toggleFullScreen, this);
+        GlobalDispatcher.addListener(sfEvent.TOGGLE_DEBUG, this.toggleDebugMode, this);
     },
 
     getPlayerManager: function () {
@@ -117,5 +120,34 @@ var mooStreetFighter = new Class({
             this.play();
         }
         t.bind(this).delay(1000);
+    },
+
+    toggleFullScreen: function () {
+        if (!this.fullscreen) {
+            var s = $('stage').getSize();
+
+            scale = window.innerWidth / s.x;
+            $(this.options.stage.main).setStyles({
+                'transform': 'scale(' + scale + ', ' + scale + ')',
+                'transform': 'scale3d(' + scale + ', ' + scale + ', 1)',
+                '-webkit-transform': 'scale3d(' + scale + ', ' + scale + ', 1)',
+                '-moz-transform': 'scale3d(' + scale + ', ' + scale + ', 1)',
+            })
+            this.fullscreen = true;
+        } else {
+            $('stage').setStyles({
+                'transform': 'scale(1, 1)',
+                'transform': 'scale3d(1, 1, 1)',
+                '-webkit-transform': 'scale3d(1, 1, 1)',
+                '-moz-transform': 'scale3d(1, 1, 1)',
+            })
+            this.fullscreen = false;
+        }
+    },
+
+    toggleDebugMode: function () {
+        $(this.options.stage.main).toggleClass('debug');
+        CONFIG.DEBUG.HITINFO &= false;
+        CONFIG.DEBUG.HITBOX &= false;
     }
 });

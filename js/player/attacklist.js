@@ -60,5 +60,61 @@
           'actionList': [['x'], ['x']],
           'damage': 7
         },
+        'crouchlkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 3
+        },
+        'crouchlkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 5
+        },
+        'crouchmkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 5
+        },
+        'crouchhkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 10
+        },
+        'crouchlpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 3
+        },
+        'crouchmpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 5
+        },
+        'crouchhpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 7
+        },
+        'jumplkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 3
+        },
+        'jumplkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 5
+        },
+        'jumpmkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 10
+        },
+        'jumphkick': {
+          'actionList': [['x'], ['x']],
+          'damage': 10
+        },
+        'jumplpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 3
+        },
+        'jumpmpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 5
+        },
+        'jumphpunch': {
+          'actionList': [['x'], ['x']],
+          'damage': 7
+        }
     }
  }

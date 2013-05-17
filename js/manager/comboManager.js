@@ -5,7 +5,7 @@
 var ComboManager = new Class({
     Extends: Manager,
     Implements: [Events],
-    keyPressed: null,
+    keyPressed: {},
     actionList: [],
     max: 20,
 
@@ -113,7 +113,7 @@ var ComboManager = new Class({
     checkForSpecialAttack: function (attackList, direction) {
         var actionStr = this.actionListToStr(this.actionList, direction),
             comboList = [];
-
+        direction = direction ? 1 : 0;
         for (var attackName in attackList) {
             for (var i = attackList[attackName].actionList[direction].length -1; i > -1; i--) {
                 if (actionStr.indexOf(attackList[attackName].actionList[direction][i]) > 0 ) {

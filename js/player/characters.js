@@ -12,10 +12,10 @@ var IActionable = new Class({
     s: function () { this.crouch() },
     se: function () { this.crouch() },
     so: function () { this.crouch() },
-    lp: function () { this.lowpunch() },
+    lp: function () { this.lowPunch() },
     mp: function () { this.mediumPunch() },
     hp: function () { this.highPunch() },
-    lk: function () { this.lowkick() },
+    lk: function () { this.lowKick() },
     mk: function () { this.mediumKick() },
     hk: function () { this.highKick() },
 });
@@ -63,7 +63,7 @@ var Character = new Class({
             break;
             case 'character':
                 if (this.isAttacking) {
-                    objectCollider.getHit();
+                    objectCollider.getHit(this);
                     this.collider = objectCollider;
                 }
                 if (objectCollider.isAttacking) {
@@ -143,6 +143,8 @@ var Character = new Class({
         this.isAttacking = true;
         this.isHitable = true;
         this.isMoving = true;
+        if (CONFIG.DEBUG.HITINFO)
+            this.root.setStyle('background', '#ffffff');
     },
 
     crouch: function () {
@@ -154,6 +156,7 @@ var Character = new Class({
     },
 
     attack: function (attackName) {
+        try {
         if (!this.isAttacking) {
             if (this.isCrouching && !this.isJumping)
                 attackName = 'crouch' + attackName;
@@ -162,10 +165,14 @@ var Character = new Class({
             this.changeAnimationTo(attackName);
             this.attackName = attackName;
         }
+        } catch (e) {
+            console.log(e.message);
+            console.log(attackName);
+        }
         this.setAttackState();
     },
 
-    lowpunch: function () {
+    lowPunch: function () {
         this.attack('lpunch');
     },
 
@@ -174,27 +181,29 @@ var Character = new Class({
     },
 
     highPunch: function () {
-        this.attack('mpunch');
+        this.attack('hpunch');
     },
 
-    lowkick: function () {
+    lowKick: function () {
         this.attack('lkick');
     },
 
-    mediumkick: function () {
-        this.attack('lkick');
+    mediumKick: function () {
+        this.attack('mkick');
     },
 
     highKick: function () {
-        this.attack('lkick');
+        this.attack('hkick');
     },
 
-    getHit: function () {
+    getHit: function (collider) {
         if (this.isHitable && !this.isBlocking)
-            this.health -= 5;
+            this.health -= collider.getAttackDamage();
         this.isHitable = false;
-        if (CONFIG.DEBUG)
+        if (CONFIG.DEBUG.HITINFO)
             this.root.setStyle('background', '#ff0000');
+        else
+            this.root.setStyle('background', 'transparent');
     },
 
     isOnFloor : function () {
@@ -223,8 +232,17 @@ var Character = new Class({
         this.isAttacking = false;
         this.attackName = null;
 
+        if (CONFIG.DEBUG.HITINFO)
+            this.root.setStyle('background', '#0000ff');
+        else
+            this.root.setStyle('background', 'transparent');
+
          // si l'on a touche quelqu'un
         if (this.collider) {
+            if (CONFIG.DEBUG.HITINFO)
+                this.collider.root.setStyle('background', '#00ff00');
+            else
+                this.collider.root.setStyle('background', 'transparent');
             this.collider.isHitable = true;
             this.collider = null;
         }
@@ -264,7 +282,12 @@ var Character = new Class({
     },
 
     getAttackDamage: function () {
-        return this.attackList[this.attackName].damage;
+        try {
+            return this.attackList[this.attackName].damage;
+        } catch (e) {
+            console.log('no damage value for ' + this.attackName);
+            return 5;
+        }
     }
 })
 

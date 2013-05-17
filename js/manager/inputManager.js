@@ -134,8 +134,13 @@ var InputManager = new Class({
             'keydown': function (e) {
                 if (e.key != 'f12' && e.key != 'f5')
                     e.preventDefault();
+                if (e.key == 'f11')
+                    GlobalDispatcher.fireEvent(sfEvent.TOGGLE_FULLSCREEN, [this.pushedKeys]);
+                else if (e.key == 'f4')
+                    GlobalDispatcher.fireEvent(sfEvent.TOGGLE_DEBUG, [this.pushedKeys]);
+                else
+                    that.push(e.key);
                 e.stopPropagation();
-                that.push(e.key);
             },
             'keyup' : function (e) {
                 that.pop(e.key);
