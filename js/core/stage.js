@@ -37,10 +37,10 @@ var Stage = new Class({
 
     scroll: function (offset) {
         var viewportW = this.bounds.stage.width - this.bounds.viewport.width;
-        this.foreground.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.1 + 10 - viewportW) + 'px, 0, 0)');
+        /*this.foreground.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.1 + 10 - viewportW) + 'px, 0, 0)');
         this.playersground.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.3 - viewportW) + 'px, 0, 0)');
         this.background.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.3 - viewportW) + 'px, 0, 0)');
-        this.frontground.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.5 - 50 - viewportW) + 'px, 0, 0)');
+        this.frontground.setStyle('-webkit-transform', 'translate3d(' + (offset * 0.5 - 50 - viewportW) + 'px, 0, 0)');*/
     },
 
     update: function (players) {
@@ -56,7 +56,7 @@ var Stage = new Class({
 
     // verifie si les joueurs sont dans le niveau
     checkPlayerBounds: function (collider) {
-        var bounds = collider.getBounds(), paddingY = 5, paddingX = 0, pOffset = parseInt(collider.root.parentElement.getStyle('left'));
+        var bounds = collider.getBounds(), paddingY = 5, paddingX = 0, pOffset = bounds.offset;
 
         if (bounds.h + bounds.y > this.bounds.stage.height - paddingY && collider.vy != 0) {
             collider.setPositionY(bounds.y - (bounds.h + bounds.y - (this.bounds.stage.height - paddingY)));

@@ -21,7 +21,7 @@ var IActionable = new Class({
 });
 
 var Character = new Class({
-    Extends: AnimatedSprite,
+    Extends: AnimatedCanvasSprite,
     Implements: [ICollider, IPhysic, IActionable],
 
     // gestion des actions/deplacements
@@ -201,9 +201,9 @@ var Character = new Class({
             this.health -= collider.getAttackDamage();
         this.isHitable = false;
         if (CONFIG.DEBUG.HITINFO)
-            this.root.setStyle('background', '#ff0000');
+            this.setBackground('background', '#ff0000');
         else
-            this.root.setStyle('background', 'transparent');
+            this.setBackground('background', 'transparent');
     },
 
     isOnFloor : function () {
@@ -233,9 +233,9 @@ var Character = new Class({
         this.attackName = null;
 
         if (CONFIG.DEBUG.HITINFO)
-            this.root.setStyle('background', '#0000ff');
+            this.setBackground('background', '#0000ff');
         else
-            this.root.setStyle('background', 'transparent');
+            this.setBackground('background', 'transparent');
 
          // si l'on a touche quelqu'un
         if (this.collider) {

@@ -7,6 +7,7 @@
         <script src="js/core/IPhysic.js"></script>
         <script src="js/core/ICollider.js"></script>
         <script src="js/core/sprite.js"></script>
+        <script src="js/core/canvasSprite.js"></script>
         <script src="js/core/stage.js"></script>
         <script src="js/manager/abstractManager.js"></script>
         <script src="js/manager/inputManager.js"></script>
@@ -126,8 +127,7 @@
                         <div id="foreground"></div>
                         <div id="background"></div>
                         <div id="players">
-                            <div id="player1"></div>
-                            <div id="player2"></div>
+                            <canvas id="canvas-players"></canvas>
                         </div>
                         <div id="frontground"></div>
                     </div>
@@ -152,8 +152,8 @@
                     frontground: 'frontground',
                     foreground: 'foreground',
                     player: {
-                        p1: 'player1',
-                        p2: 'player2'
+                        p1: 'canvas-players',
+                        p2: 'canvas-players'
                     },
                     ui: {
                         main: 'stage-ui',

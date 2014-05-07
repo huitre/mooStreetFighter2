@@ -1,7 +1,8 @@
 /**
  * @author Huitre<gohin.j@gmail.com>
  */
-var Sprite = new Class({
+var CanvasSprite = new Class({
+    Extends: Sprite,
     Implements: [Options],
 
     child: null,
@@ -15,6 +16,9 @@ var Sprite = new Class({
         stepX: 0,
         stepY: 0
     },
+    w: 0,
+    h: 0,
+    image: null,
 
     // variables d'etat pour gerer la direction du sprite
     direction: LEFT,
@@ -22,136 +26,53 @@ var Sprite = new Class({
     initialize: function (options) {
         if (options) {
             this.setOptions(options);
+            this.image = new Image();
+            this.image.src = this.options.image;
             this.root = $(options.el);
-            this.child = new Element('p', {
-                styles: {
-                    position: 'absolute',
-                    width: '100%',
-                    height: '100%',
-                    padding: 0,
-                    margin: 0
-                }
-            });
-            this.child.setStyle('background-image', 'url("' + options.image + '")');
-            this.root.adopt(this.child);
         }
     },
 
     show: function () {
-        this.root.show();
+        this.isVisible = true;
     },
 
     hide: function () {
-        this.root.hide();
-    },
-
-    play: function () {
-        this.isPaused = false;
-    },
-
-    pause: function () {
-        this.paused = true;
-    },
-
-    getCurrentBounds: function () {
-        var currentContext = this.getCurrentPlayedContext();
-        var bounds = {
-            x: this.getX(),
-            y: this.y,
-            w: currentContext.w,
-            h: currentContext.h,
-            deltaY: currentContext.deltaX,
-            deltaX: currentContext.deltaX
-        }
-        return bounds;
+        this.isVisible = false;
     },
 
     setCurrentBounds: function (w, h) {
-        this.child.setStyles({
-            'width': w,
-            'height': h
-        });
+        this.w = w;
+        this.h = h;
     },
 
     getCurrentPlayedContext: function () {
-        return this.el.getSize();
+        return {
+            w: this.w,
+            h: this.h,
+            x: this.x,
+            y: this.y,
+            deltaX: 0,
+            deltaY: 0
+        }
     },
 
     render: function () {
-        var currentContext = this.getCurrentPlayedContext();
-        if (this.isVisible && !this.isPaused) {
-            /*this.child.setStyles({
-                'background-position': currentContext.x + 'px ' + currentContext.y + 'px'
-            });
-            this.root.setStyles({
-                'width': currentContext.w,
-                'height': currentContext.h
-            })*/
-        }
+        var ctx = this.root.getContext('2d');
+        ctx.drawImage(this.image, 0, 0);
         this.updatePosition();
     },
 
     setPositionX: function (x) {
-        this.root.setStyles({
-            'left': x + 'px'
-        });
         this.x = x;
     },
 
     setPositionY: function (y) {
-        this.root.setStyles({
-            'top': y + 'px'
-        });
         this.y = y;
     },
 
     setPosition: function (x, y) {
-        this.root.setStyles({
-            'top': y + 'px',
-            'left': x + 'px'
-        });
         this.x = x;
         this.y = y;
-    },
-
-    getPosition: function () {
-        return {x: this.getX(), y: this.y}
-    },
-
-    getX: function () {
-        return this.x;
-    },
-
-    // return position based on stage element
-    toStage: function () {
-
-    },
-
-    moveTo: function (x, y, speed) {
-        if (!speed)
-            speed = 1000;
-        if (x)
-            this.to.stepX = speed / x;
-        if (y)
-            this.to.stepY = speed / y;
-    },
-
-    moveBy: function (x, y) {
-        this.x += x;
-        this.y += y;
-        this.setPosition(this.x, this.y);
-    },
-
-    updatePosition: function () {
-        if (this.x <= this.to.x)
-            this.x += this.to.stepX;
-        if (this.y <= this.to.y)
-            this.y += this.to.stepY;
-        this.setPosition(this.x, this.y);
-    },
-
-    setBackground: function () {
-
     },
 
     switchSide: function (dir) {
@@ -159,20 +80,12 @@ var Sprite = new Class({
         if (!this.isJumping && dir != this.direction) {
             this.direction = dir;
             context = this.getCurrentPlayedContext();
-            this.root.setStyles({
-                'width': context.w,
-                'height': context.h
-            });
-            this.child.setStyles({
-                'transform': 'scaleX(' + this.direction + ')',
-                '-webkit-transform': 'scaleX(' + this.direction + ')'
-            })
         }
     }
 });
 
-var AnimatedSprite = new Class({
-    Extends : Sprite,
+var AnimatedCanvasSprite = new Class({
+    Extends : CanvasSprite,
 
     // contenu
     animation: null,
@@ -209,13 +122,6 @@ var AnimatedSprite = new Class({
     },
 
     draw: function (currentContext) {
-        this.child.setStyles({
-            'background-position': currentContext.x + 'px ' + currentContext.y + 'px'
-        });
-        this.root.setStyles({
-            'width': currentContext.w,
-            'height': currentContext.h
-        })
     },
 
     getTicks: function () {
@@ -254,13 +160,9 @@ var AnimatedSprite = new Class({
             context = this.getCurrentPlayedContext();
         try {
             if (this.direction == LEFT) {
-                this.child.setStyles({
-                    'margin-left': context.deltaX
-                })
+                
             } else {
-                this.child.setStyles({
-                    'margin-left': 0
-                })
+               
             }
             this.setPositionY(this.y + (context.deltaY - lastContext.deltaY));
         } catch (e) {

@@ -27,7 +27,7 @@ body {
     position: relative;
 }
 
-#viewport, #players {
+#viewport {
     margin: auto;
     width: 500px;
     height: 224px;
@@ -36,7 +36,11 @@ body {
     left: 70px;
 }
 
-#players { overflow: visible }
+#players { 
+    position: absolute;  
+    width: 500px;
+    height: 224px;
+}
 
 #game {
     margin : auto;
