@@ -233,16 +233,16 @@ var Character = new Class({
         this.attackName = null;
 
         if (CONFIG.DEBUG.HITINFO)
-            this.setBackground('background', '#0000ff');
+            this.setBackground('#0000ff');
         else
-            this.setBackground('background', 'transparent');
+            this.setBackground('transparent');
 
          // si l'on a touche quelqu'un
         if (this.collider) {
             if (CONFIG.DEBUG.HITINFO)
-                this.collider.root.setStyle('background', '#00ff00');
+                this.collider.setBackground('#00ff00');
             else
-                this.collider.root.setStyle('background', 'transparent');
+                this.collider.setBackground('transparent');
             this.collider.isHitable = true;
             this.collider = null;
         }
