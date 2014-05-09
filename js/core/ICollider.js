@@ -54,7 +54,9 @@ var ICollider = new Class({
      * et la liste des objets ICollider present sur la scene.
      * TODO : detection par shape ou par pixels.
      */
-    getCollidingPoint: function () {},
+    getCollidingPoint: function () {
+        
+    },
 
     /**
      * Retourne les dimensions de l'objet ICollider.

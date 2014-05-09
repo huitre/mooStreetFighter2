@@ -69,7 +69,7 @@ var Character = new Class({
                 if (objectCollider.isAttacking) {
                     this.getHit(objectCollider.getAttackDamage());
                 }
-                //this.setOutsideBounds();
+                
             break;
         }
     },
@@ -110,7 +110,7 @@ var Character = new Class({
     jump: function () {
         if (!this.isJumping) {
             this.isJumping = true;
-            this.isMoving = true;
+            //this.isMoving = true;
             this.isHitable = true;
             this.changeAnimationTo('jump');
             this.addForce(0, -5);
@@ -208,6 +208,8 @@ var Character = new Class({
 
     isOnFloor : function () {
         this.isJumping = false;
+        if (!this.isMoving)
+            this.changeAnimationTo('idle');
     },
 
     isInactive: function () {

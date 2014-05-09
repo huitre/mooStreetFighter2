@@ -84,6 +84,10 @@ var CanvasSprite = new Class({
             this.direction = dir;
             context = this.getCurrentPlayedContext();
         }
+    },
+
+    toByteArray: function () {
+        return this.ctx.getImageData(this.x, this.y, this.w, this.h);
     }
 });
 
@@ -230,5 +234,10 @@ var AnimatedCanvasSprite = new Class({
 
     getRate: function () {
         return this.currentRate;
+    },
+
+    toByteArray: function () {
+        var content = this.getCurrentPlayedContext();
+        return this.ctx.getImageData(this.x, this.y, content.w, content.h);
     }
 });
