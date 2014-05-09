@@ -19,6 +19,7 @@ var CanvasSprite = new Class({
     w: 0,
     h: 0,
     image: null,
+    ctx: null, // canvas context
 
     // variables d'etat pour gerer la direction du sprite
     direction: LEFT,
@@ -29,7 +30,10 @@ var CanvasSprite = new Class({
             this.image = new Image();
             this.image.src = this.options.image;
             this.root = $(options.el);
+            this.root.width = 600;
+            this.root.height = 400;
         }
+        this.ctx = this.root.getContext('2d');
     },
 
     show: function () {
@@ -57,8 +61,7 @@ var CanvasSprite = new Class({
     },
 
     render: function () {
-        var ctx = this.root.getContext('2d');
-        ctx.drawImage(this.image, 0, 0);
+        this.ctx.drawImage(this.image, this.w, this.h, this.x, this.y);
         this.updatePosition();
     },
 
@@ -114,7 +117,7 @@ var AnimatedCanvasSprite = new Class({
     render: function () {
         if (!this.paused) { 
             this.updateAnimation();
-            this.parent();
+            // recuperation des infos de l'animation courante a dessiner
             var currentContext = this.getCurrentPlayedContext();
             if (currentContext != this.lastContext)
                 this.draw(currentContext);
@@ -122,6 +125,10 @@ var AnimatedCanvasSprite = new Class({
     },
 
     draw: function (currentContext) {
+        //console.log(currentContext);
+        // on efface tout
+        //this.ctx.clearRect(this.x, this.y, currentContext.w, currentContext.h);
+        this.ctx.drawImage(this.image, currentContext.x * -1, currentContext.y * -1, currentContext.w, currentContext.h, this.x, this.y, currentContext.w, currentContext.h);
     },
 
     getTicks: function () {

@@ -138,6 +138,8 @@ var InputManager = new Class({
                     GlobalDispatcher.fireEvent(sfEvent.TOGGLE_FULLSCREEN, [this.pushedKeys]);
                 else if (e.key == 'f4')
                     GlobalDispatcher.fireEvent(sfEvent.TOGGLE_DEBUG, [this.pushedKeys]);
+                if (e.key == 'f2')
+                    GlobalDispatcher.fireEvent(sfEvent.GAME_PAUSE, [this.pushedKeys]);
                 else
                     that.push(e.key);
                 e.stopPropagation();

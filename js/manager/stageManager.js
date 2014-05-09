@@ -54,6 +54,8 @@ var StageManager = new Class({
     },
 
     update: function (dt) {
+        // truc moche a remplacer
+        $('canvas-players').getContext('2d').clearRect(0, 0, 500, 500);
         this.players.each(function (player) {
             player.render();
             this.stage.checkPlayerBounds(player);

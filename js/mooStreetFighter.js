@@ -13,12 +13,14 @@ var mooStreetFighter = new Class({
     collisionManager: null,
     gameLoop: null,
     fullscreen: false,
+    isRunning: true,
 
     initialize: function (options) {
         this.options = options;
         this.rate = 1;
         GlobalDispatcher.addListener(sfEvent.TOGGLE_FULLSCREEN, this.toggleFullScreen, this);
         GlobalDispatcher.addListener(sfEvent.TOGGLE_DEBUG, this.toggleDebugMode, this);
+        GlobalDispatcher.addListener(sfEvent.GAME_PAUSE, this.togglePause, this);
     },
 
     getPlayerManager: function () {
@@ -68,11 +70,12 @@ var mooStreetFighter = new Class({
             this.getNextTick();
         }
         end = this.getTicks() - start;
-        requestAnimationFrame(function () { that.play(end) });
+        this.gameLoop = requestAnimationFrame(function () { that.play(end) });
     },
 
     pause: function () {
         clearInterval(this.gameLoop);
+        window.cancelAnimationFrame(this.gameLoop);
     },
 
     quit: function () {
@@ -149,5 +152,13 @@ var mooStreetFighter = new Class({
         $(this.options.stage.main).toggleClass('debug');
         CONFIG.DEBUG.HITINFO &= false;
         CONFIG.DEBUG.HITBOX &= false;
+    },
+
+    togglePause: function () {
+        if (this.isRunning)
+            this.pause();
+        else
+            this.play();
+        this.isRunning = !this.isRunning;
     }
 });
