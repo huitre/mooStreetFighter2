@@ -33,5 +33,24 @@ This project is powered by [http://www.mootools.net] MooTools
 * Sounds
 * ...
 
+# How to play ?
+- git clone
+- launch index.html in a recent browser
+
+        // change keys in config/config.js:41
+        // TOUCHES POUR PLAYER 1
+        var PLAYER1_LP = 'a',
+            PLAYER1_MP = 's',
+            PLAYER1_HP = 'd',
+            PLAYER1_LK = 'z',
+            PLAYER1_MK = 'x',
+            PLAYER1_HK = 'c',
+            PLAYER1_UP = 'up',
+            PLAYER1_DWN = 'down',
+            PLAYER1_LEFT = 'left',
+            PLAYER1_RIGHT = 'right';
+	    
+Or just use a gamepad
+    
 
 
