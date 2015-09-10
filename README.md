@@ -5,8 +5,8 @@ This project is an humble attempt at creating an HTML 5 fighting game, like the 
 This project is powered by [http://www.mootools.net] MooTools
 
 # What's working so far ?
- - Sprite animation using div or canvas (on branch feat-canvas-sprite)
- - Input detection
+  - Sprite animation using div or canvas (on branch feat-canvas-sprite)
+  - Input detection
  		- complex direction
  		- keys holding
  		- gamepad detection and handling
